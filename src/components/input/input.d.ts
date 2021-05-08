@@ -18,4 +18,7 @@ interface IInput {
   withError?: boolean;
   icon?: any;
   interactive?: boolean;
+  open?: boolean;
+  toggle?: any;
+  validate?:any
 }
