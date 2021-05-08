@@ -48,9 +48,9 @@ export const TextArea: FC<ITextArea> = memo(
         {interactive && placeholder && (
           <span
             className={classNames(
-              "absolute top-0 left-0 ml-4  z-50 px-1 rounded trans font-semibold text-indigo-700 bg-white ",
+              "absolute top-0 left-0 ml-2  z-50 px-1 rounded trans font-semibold text-indigo-800 bg-white ",
               open ? "transform -translate-y-6 scale-105" : "hidden",
-              label ? "mt-[40px]" : "mt-[10px]"
+              label ? "mt-[37px]" : "mt-[7px]"
             )}
           >
             {placeholder}
