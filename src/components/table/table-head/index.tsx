@@ -2,7 +2,7 @@ import { FC, memo } from "react";
 import { classNames } from "utils";
 
 export const TableHead: FC<ITableHead> = memo(({ columns }) => (
-  <div className="w-full row-start border-b border-gray-400  py-4 px-6  rounded-t bg-cyan-600 ">
+  <div className="w-full row-start border-b border-gray-400  py-4 px-6  rounded-t bg-secondary ">
     {(columns || []).map((column, index) => (
       <div
         className={classNames(

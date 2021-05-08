@@ -11,15 +11,21 @@ export const Tab: FC<ITab> = ({
   className,
   expandable = false,
   initialIsOpen = false,
+  justify = "start",
 }) => {
   const { open, onExpand } = useTab({ initialIsOpen, expandable });
   return (
     <div className={classNames("w-full col-center", className)}>
       <div
         className={classNames(
-          "w-full flex items-center justify-between  py-4 px-4 bg-cyan-600 ",
+          "w-full flex items-center py-4 px-4 bg-secondary ",
           expandable && "cursor-pointer",
-          expandable ? (open ? "rounded-t" : "rounded") : "rounded-t"
+          expandable ? (open ? "rounded-t" : "rounded") : "rounded-t",
+          justify === "center"
+            ? "justify-center"
+            : justify === "start"
+            ? "justify-between"
+            : "justify-end"
         )}
         onClick={onExpand}
       >

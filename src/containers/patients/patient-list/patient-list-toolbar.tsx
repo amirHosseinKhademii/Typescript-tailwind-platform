@@ -21,7 +21,7 @@ export const PatientListToolbar = memo(() => {
           icon={() => <ICSearch className="w-5 h-5 text-gray-600 " />}
         />
         <Button icon onClick={() => push("/admin/patients/add")}>
-          <ICPlus className="w-8 h-8 text-cyan-600" />
+          <ICPlus className="w-8 h-8 text-secondary" />
         </Button>
       </div>
     </Toolbar>

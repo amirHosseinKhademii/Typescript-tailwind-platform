@@ -14,7 +14,7 @@ export const AdminDashboardClose = memo(() => {
           className={classNames(
             "w-6 h-6",
             pathname.includes("authentication")
-              ? "text-cyan-700"
+              ? "text-primary"
               : "text-gray-400"
           )}
         />
@@ -23,7 +23,7 @@ export const AdminDashboardClose = memo(() => {
         <ICPeoples
           className={classNames(
             "w-6 h-6 ",
-            pathname.includes("patients") ? "text-cyan-700" : "text-gray-400"
+            pathname.includes("patients") ? "text-primary" : "text-gray-400"
           )}
         />
       </Button>

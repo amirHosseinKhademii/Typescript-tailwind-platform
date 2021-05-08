@@ -28,7 +28,7 @@ export const ModalDom: FC<IModal> = memo(
         <div
           slot="modal"
           className={classNames(
-            "col-center z-50 rounded overflow-hidden max-h-[85%] ",
+            "col-center z-50 rounded overflow-hidden max-h-[85%] bg-fade ",
             size === "xl"
               ? "w-10/12"
               : size === "lg"
@@ -37,8 +37,7 @@ export const ModalDom: FC<IModal> = memo(
               ? "w-10/12 lg:w-1/2"
               : size === "sm"
               ? "w-10/12 lg:w-4/12"
-              : "w-10/12 lg:w-1/2",
-            bg ? bg : "bg-gray-500"
+              : "w-10/12 lg:w-1/2"
           )}
         >
           <ModalHeader

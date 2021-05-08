@@ -19,7 +19,7 @@ export const SwitchBox: FC<ISwitch> = memo(({ onChange, toggle, open }) => (
         className={classNames(
           "w-6 h-6 rounded-full border  ",
           open
-            ? "bg-indigo-600 border-indigo-700"
+            ? "bg-secondary border-indigo-700"
             : "bg-gray-600 border-gray-700"
         )}
       />

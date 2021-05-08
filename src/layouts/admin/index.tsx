@@ -7,7 +7,7 @@ export const AdminLayout = ({ children }) => {
   const { open } = uiState.drawer;
 
   return (
-    <div className="  fixed inset-0 overflow-y-auto overflow-x-hidden bg-gray-400 ">
+    <div className="  fixed inset-0 overflow-y-auto overflow-x-hidden bg-fade ">
       <AdminDashboard />
       <AdminHeader />
       <div

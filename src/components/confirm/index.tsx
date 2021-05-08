@@ -15,7 +15,7 @@ export const Confirm: FC<IConfirm> = memo(
         size="sm"
         className={classNames(
           "col-center px-4 md:px-10 xl:px-26 py-10",
-          type === "delete" ? "bg-red-500" : "bg-amber-500"
+          type === "delete" ? "bg-danger" : "bg-amber-500"
         )}
         slot="dialog"
       >
@@ -29,14 +29,14 @@ export const Confirm: FC<IConfirm> = memo(
           <Button
             icon
             role="cancel"
-            className="h-10  w-20 xl:w-40 bg-gray-400 "
+            className="h-10  w-20 xl:w-40 bg-gray-100 "
             onClick={onCancel}
           >
             Cancel
           </Button>
           <Button
             icon
-            className="h-10 w-20 xl:w-40 mb-6 bg-red-600 text-white"
+            className="h-10 w-20 xl:w-40 mb-6 bg-warning "
             role="confirm"
             onClick={onConfirm}
           >

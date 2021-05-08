@@ -13,7 +13,7 @@ export const TableRow: FC<ITableRow> = memo(({ item, columns, expand }) => {
         onClick={() => (expand ? toggle() : {})}
         className={classNames(
           "w-full row-start py-4 px-6 ",
-          open ? "bg-cyan-100" : "hover:bg-cyan-100",
+          open ? "bg-primary" : "hover:bg-cyan-100",
           expand && "cursor-pointer"
         )}
       >
@@ -28,7 +28,7 @@ export const TableRow: FC<ITableRow> = memo(({ item, columns, expand }) => {
         ))}
       </div>
       {open && expand ? (
-        <div className="w-full row-start p-4 bg-cyan-100">{expand(item)}</div>
+        <div className="w-full row-start p-4 bg-primary">{expand(item)}</div>
       ) : null}
     </div>
   );

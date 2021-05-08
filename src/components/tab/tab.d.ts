@@ -4,5 +4,6 @@ interface ITab {
   className?: string;
   expandable?: boolean;
   initialIsOpen?: boolean;
-  open?:boolean
+  open?: boolean;
+  justify?: "center" | "end" | "start";
 }
