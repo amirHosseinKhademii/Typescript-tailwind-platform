@@ -6,6 +6,7 @@ export const PhoneNumber: FC<IPatientField> = memo(
     return (
       <Input
         label="Phone Number (Mobile)"
+        placeholder="Enter Phone Number"
         name="phone_number"
         type="number"
         register={register}
@@ -13,6 +14,7 @@ export const PhoneNumber: FC<IPatientField> = memo(
         value={state}
         max={20}
         required
+        interactive
       />
     );
   }

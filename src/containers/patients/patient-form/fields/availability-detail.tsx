@@ -6,10 +6,12 @@ export const AvailabilityDetail: FC<IPatientField> = memo(
     return (
       <TextArea
         label="Availability Detail"
+        placeholder="Enter Availability Detail"
         name="AvailabilityDetail"
         register={register}
         error={error}
         max={2000}
+        interactive
       />
     );
   }

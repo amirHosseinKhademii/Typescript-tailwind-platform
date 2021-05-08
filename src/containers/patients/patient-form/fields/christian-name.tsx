@@ -6,12 +6,14 @@ export const ChristianName: FC<IPatientField> = memo(
     return (
       <Input
         label="Christian Name"
+        placeholder="Enter Christian Name"
         name="christian_name"
         register={register}
         error={error}
         value={state}
         required
         max={64}
+        interactive
       />
     );
   }

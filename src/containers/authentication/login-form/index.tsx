@@ -26,6 +26,7 @@ export const LoginForm = memo(() => {
             placeholder="Enter your email"
             error={errors["email"]?.message}
             className="mt-10"
+            interactive
           />
           <Input
             register={register}
@@ -34,6 +35,7 @@ export const LoginForm = memo(() => {
             required
             placeholder="Enter your Password"
             error={errors["password"]?.message}
+            interactive
           />
           <div className="col-center space-y-4 w-full mb-6" slot="actions">
             <Button

@@ -10,4 +10,5 @@ interface ITextArea {
   required?: boolean | undefined;
   max?: string | number | undefined;
   min?: string | number | undefined;
+  interactive?: boolean;
 }

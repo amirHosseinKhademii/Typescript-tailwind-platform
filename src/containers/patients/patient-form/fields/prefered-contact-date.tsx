@@ -6,6 +6,7 @@ export const PreferedContactDate: FC<IPatientField> = memo(
     return (
       <Input
         label="Prefered Contact Date"
+        placeholder="Enter Prefered Contact Date"
         name="preferred_contact_time"
         type="text"
         register={register}
@@ -13,6 +14,7 @@ export const PreferedContactDate: FC<IPatientField> = memo(
         value={state}
         max={20}
         required
+        interactive
       />
     );
   }

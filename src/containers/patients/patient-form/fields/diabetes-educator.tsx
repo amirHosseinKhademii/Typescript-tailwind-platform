@@ -6,11 +6,12 @@ export const DiabetesEducator: FC<IPatientField> = memo(
     return (
       <Input
         label="Diabetes Educator"
+        placeholder="Enter Diabetes Educator"
         name="DiabetesEducator"
         register={register}
         error={error}
         max={50}
-       
+        interactive
       />
     );
   }

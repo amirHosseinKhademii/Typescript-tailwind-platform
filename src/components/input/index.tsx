@@ -1,5 +1,5 @@
 import { FC, memo } from "react";
-import { useValidation } from "hooks";
+import { useToggle, useValidation } from "hooks";
 import { Error } from "components";
 import { classNames } from "utils";
 
@@ -19,12 +19,13 @@ export const Input: FC<IInput> = memo(
     size,
     disabled,
     value,
-    onClick,
+    interactive,
     withError,
     icon,
+    onClick,
   }) => {
     const { validate } = useValidation({ required, max, min, later });
-
+    const { open, toggle } = useToggle();
     return (
       <div className={`w-full col-start relative ${className}`} slot="wrapper">
         {label && (
@@ -33,7 +34,8 @@ export const Input: FC<IInput> = memo(
             className={classNames(
               size === "small"
                 ? "text-[10px] mb-1 text-gray-700"
-                : "mb-2 text-gray-700"
+                : "mb-2 text-gray-700",
+              interactive && open && placeholder && "opacity-0 "
             )}
           >
             {label}
@@ -43,11 +45,13 @@ export const Input: FC<IInput> = memo(
           {...(register && { ...register(name, { validate }) })}
           slot="input"
           type={type}
-          placeholder={placeholder}
+          placeholder={interactive ? (open ? null : placeholder) : placeholder}
           name={name}
           disabled={disabled}
           value={value}
           onClick={onClick}
+          onFocus={() => toggle(true)}
+          onBlur={() => toggle(false)}
           className={classNames(
             " w-full border rounded  focus:outline-none focus:shadow  text-gray-700 placeholder-gray-500 ",
             error || withError
@@ -63,6 +67,17 @@ export const Input: FC<IInput> = memo(
             icon ? "px-10" : "px-4"
           )}
         />
+        {interactive && placeholder && (
+          <span
+            className={classNames(
+              "absolute top-0 left-0 ml-4  z-50 px-1 rounded trans font-semibold text-indigo-700 bg-white ",
+              open ? "transform -translate-y-6 scale-105" : "hidden",
+              label ? "mt-[40px]" : "mt-[10px]"
+            )}
+          >
+            {placeholder}
+          </span>
+        )}
         {icon && (
           <div
             className={classNames(

@@ -6,6 +6,7 @@ export const EmailAddress: FC<IPatientField> = memo(
     return (
       <Input
         label="Email Address"
+        placeholder="Enter Email Address"
         name="email"
         type="email"
         register={register}
@@ -13,6 +14,7 @@ export const EmailAddress: FC<IPatientField> = memo(
         value={state}
         max={64}
         required
+        interactive
       />
     );
   }

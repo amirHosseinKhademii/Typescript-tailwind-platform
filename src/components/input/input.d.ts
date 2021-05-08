@@ -17,4 +17,5 @@ interface IInput {
   onClick?: any;
   withError?: boolean;
   icon?: any;
+  interactive?: boolean;
 }

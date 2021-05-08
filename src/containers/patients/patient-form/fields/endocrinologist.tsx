@@ -6,10 +6,12 @@ export const Endocrinologist: FC<IPatientField> = memo(
     return (
       <Input
         label="Endocrinologist"
+        placeholder="Enter Endocrinologist"
         name="Endocrinologist"
         register={register}
         error={error}
         max={50}
+        interactive
       />
     );
   }

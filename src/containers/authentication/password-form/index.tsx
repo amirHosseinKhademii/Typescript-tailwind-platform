@@ -26,6 +26,7 @@ export const PasswordForm = memo(() => {
             placeholder="Enter your email"
             error={errors["email"]?.message}
             className="mt-10"
+            interactive
           />
           <div className="col-center space-y-4 w-full mb-6" slot="actions">
             <Button
