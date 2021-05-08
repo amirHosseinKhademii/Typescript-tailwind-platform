@@ -5,5 +5,6 @@ export const route = {
   name: "ROUTE:HOME",
   exact: true,
   layout: "admin",
+  authorize: true,
   component: lazy(() => import(".")),
 };
