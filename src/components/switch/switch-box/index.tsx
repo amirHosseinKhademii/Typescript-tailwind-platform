@@ -7,9 +7,7 @@ export const SwitchBox: FC<ISwitch> = memo(({ onChange, toggle, open }) => (
       slot="toggle-wrapper"
       className={classNames(
         "flex items-center w-14 h-8 px-1 rounded-full cursor-pointer drop-shadow-lg",
-        open
-          ? "bg-gradient-to-l from-indigo-500 justify-end"
-          : "bg-gradient-to-r from-gray-500 justify-start"
+        open ? "bg-indigo-400 justify-end" : "bg-gray-400 justify-start"
       )}
       onClick={() => {
         onChange(!open);

@@ -22,11 +22,11 @@ export const AdminHeader = memo(() => {
       <div className="flex items-center">
         {open ? (
           <Button icon onClick={() => toggleDrawer()}>
-            <ICClose id="close" className="w-12 h-12  text-gray-400" />
+            <ICClose id="close" className="w-12 h-12  text-gray-200" />
           </Button>
         ) : (
           <Button icon onClick={() => toggleDrawer()}>
-            <ICMenu id="menu" className="w-10 h-10 ml-4 text-gray-400 " />
+            <ICMenu id="menu" className="w-10 h-10 ml-4 text-gray-200 " />
           </Button>
         )}
       </div>

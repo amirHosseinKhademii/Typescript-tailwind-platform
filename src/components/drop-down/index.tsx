@@ -8,15 +8,12 @@ export const DropDown: FC<IDropdown> = memo(
     const { open, toggle } = useToggle(active);
 
     return (
-      <div
-        className={classNames("col-full px-4 ", open ? "" : "py-3")}
-        id="drop-down"
-      >
+      <div className={classNames("col-full")} id="drop-down">
         <button
           className={classNames(
             "w-full row-between focus:outline-none text-white  ",
             className,
-            !open && "transform hover:-translate-y-1 hover:scale-105"
+            !open && "transform hover:opacity-80"
           )}
           onClick={() => toggle()}
           role="button"
@@ -39,7 +36,7 @@ export const DropDown: FC<IDropdown> = memo(
           )}
         >
           {open && (
-            <div className="flex flex-col pl-8 pt-2" slot="children">
+            <div className="flex flex-col pl-8 pt-1" slot="children">
               {children}
             </div>
           )}

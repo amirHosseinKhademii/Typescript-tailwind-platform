@@ -28,7 +28,7 @@ export const AuthDropDown: FC<{ pathname?: string; push?: any }> = memo(
           onClick={() => push("/authentication/password")}
           active={pathname === "/authentication/password"}
         >
-          Password
+          Password Recovery
         </DropDownOption>
       </DropDown>
     );

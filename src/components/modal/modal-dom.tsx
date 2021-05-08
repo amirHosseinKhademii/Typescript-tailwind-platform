@@ -16,6 +16,7 @@ export const ModalDom: FC<IModal> = memo(
     id,
     header,
     withHeader,
+    bg,
   }) => {
     return (
       <div
@@ -36,7 +37,8 @@ export const ModalDom: FC<IModal> = memo(
               ? "w-10/12 lg:w-1/2"
               : size === "sm"
               ? "w-10/12 lg:w-4/12"
-              : "w-10/12 lg:w-1/2"
+              : "w-10/12 lg:w-1/2",
+            bg ? bg : "bg-gray-500"
           )}
         >
           <ModalHeader

@@ -1,21 +1,18 @@
-import { useHistory, useLocation } from "react-router-dom";
-import { Button, Drawer } from "components";
-import { ICPeoples, ICPerson } from "icons";
+import { useHistory } from "react-router-dom";
+import { Drawer } from "components";
 import { useUi } from "hooks";
-import { classNames } from "utils";
 
-import { PatientDropDown } from "./patient-drop-down";
+import { AdminDashboardOpen } from "./admin-dashboard-open";
+import { AdminDashboardClose } from "./admin-dashboard-close";
 import Logo from "assets/images/logo.jpg";
-import { AuthDropDown } from "./auth-drop-down";
+import { memo } from "react";
 
-export const AdminDashboard = () => {
+export const AdminDashboard = memo(() => {
   const { push } = useHistory();
-  const { pathname } = useLocation();
   const { uiState } = useUi();
-  const { open } = uiState.drawer;
 
   return (
-    <Drawer open={open}>
+    <Drawer open={uiState.drawer.open}>
       <div className="w-full row-center mt-2 mb-6 ">
         <img
           className="w-14 h-14 cursor-pointer"
@@ -24,36 +21,7 @@ export const AdminDashboard = () => {
           onClick={() => push("/")}
         />
       </div>
-
-      {open ? (
-        <div className="">
-          <AuthDropDown pathname={pathname} push={push} />
-          <PatientDropDown pathname={pathname} push={push} />
-        </div>
-      ) : (
-        <div className="col-center mt-10">
-          <Button icon onClick={() => push("/authentication/login")}>
-            <ICPerson
-              className={classNames(
-                "w-6 h-6  mb-4",
-                pathname.includes("authentication")
-                  ? "text-cyan-700"
-                  : "text-gray-400"
-              )}
-            />
-          </Button>
-          <Button icon onClick={() => push("/admin/patients")}>
-            <ICPeoples
-              className={classNames(
-                "w-6 h-6 ",
-                pathname.includes("patients")
-                  ? "text-cyan-700"
-                  : "text-gray-400"
-              )}
-            />
-          </Button>
-        </div>
-      )}
+      {uiState.drawer.open ? <AdminDashboardOpen /> : <AdminDashboardClose />}
     </Drawer>
   );
-};
+});

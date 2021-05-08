@@ -17,9 +17,7 @@ export const SelectBox: FC<ISelect> = memo(
           className={classNames(
             " w-full row-between focus:outline-none overflow-hidden cursor-pointer px-4  rounded border text-gray-300",
             multiple ? "min-h-[3rem]" : "h-12",
-            error
-              ? "border-red-400 shadow bg-gradient-to-r from-red-300"
-              : "border-gray-300 bg-gradient-to-r from-indigo-300"
+            error ? "border-red-400 shadow" : "border-gray-300"
           )}
         >
           <SelectBoxValue multiple={multiple} value={value} />

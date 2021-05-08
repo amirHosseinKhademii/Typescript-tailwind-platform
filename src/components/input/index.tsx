@@ -51,10 +51,10 @@ export const Input: FC<IInput> = memo(
           className={classNames(
             " w-full border rounded  focus:outline-none focus:shadow  text-gray-700 placeholder-gray-500 ",
             error || withError
-              ? "border-red-400 shadow bg-gradient-to-r from-red-300 "
+              ? "border-red-400 shadow"
               : disabled
               ? "bg-gray-300"
-              : "border-gray-300 focus:ring-2 focus:ring-indigo-400 bg-gradient-to-r from-indigo-300",
+              : "border-gray-300 focus:ring-2 focus:ring-indigo-400",
             size === "large"
               ? "h-14 "
               : size === "small"
