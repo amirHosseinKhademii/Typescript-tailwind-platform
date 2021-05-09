@@ -38,9 +38,9 @@ export const usePatientForm = (props: IPatientForm) => {
     isDirty: formState.isDirty,
     errors: useMemo(() => formState.errors, [formState.errors]),
     state: useWatch({ control, defaultValue: defaultValues }),
-    onSubmit: handleSubmit((state) => {
-      console.log(state);
-      // isEditing ? edit(state) : save(state);
+    onSubmit: handleSubmit((payload) => {
+      console.log(payload);
+      // isEditing ? edit({payload}) : save({payload});
     }),
   };
 };

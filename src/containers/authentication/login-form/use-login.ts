@@ -16,6 +16,6 @@ export const useLogin = () => {
     handleSubmit,
     isLoading,
     errors: useMemo(() => formState.errors, [formState.errors]),
-    onSubmit: useCallback((state) => mutate(state), []),
+    onSubmit: useCallback((payload) => mutate({ payload }), []),
   };
 };

@@ -4,4 +4,7 @@ interface IUseService {
   onError?: any;
   key?: string;
   params?: any;
+  onFocus?: boolean;
+  onMount?: boolean;
+  enabled?: boolean;
 }

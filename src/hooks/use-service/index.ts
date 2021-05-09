@@ -5,16 +5,28 @@ export const useService = () => {
   const { invalidateQueries } = useQueryClient();
   return {
     useGet: (props: IUseService) => {
-      const { url, key, params, onError, onSuccess } = props;
+      const {
+        url,
+        key,
+        params,
+        onError,
+        onSuccess,
+        onFocus,
+        onMount,
+        enabled,
+      } = props;
       const asyncGet = async () => await axios.get(url, { params });
       return useQuery(key, asyncGet, {
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),
+        ...(enabled && { enabled }),
+        ...(onFocus && { refetchOnWindowFocus: onFocus }),
+        ...(onMount && { refetchOnMount: onMount }),
       });
     },
     usePost: (props: IUseService) => {
       const { url, onError, onSuccess } = props;
-      const asyncPost = async (model) => await axios.post(url, model);
+      const asyncPost = async ({ payload }) => await axios.post(url, payload);
       return useMutation(asyncPost, {
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),
@@ -22,7 +34,7 @@ export const useService = () => {
     },
     usePut: (props: IUseService) => {
       const { url, onError, onSuccess } = props;
-      const asyncPut = async (model) => await axios.put(url, model);
+      const asyncPut = async ({ payload }) => await axios.put(url, { payload });
       return useMutation(asyncPut, {
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),
