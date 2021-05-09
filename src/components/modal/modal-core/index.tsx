@@ -1,11 +1,11 @@
 import { FC, memo } from "react";
 import { classNames } from "utils";
 
-import { ModalBackDrop } from "./modal-back-drop";
-import { ModalBody } from "./modal-body";
-import { ModalHeader } from "./modal-header";
+import { ModalBackDrop } from "../modal-back-drop";
+import { ModalBody } from "../modal-body";
+import { ModalHeader } from "../modal-header";
 
-export const ModalDom: FC<IModal> = memo(
+export const ModalCore: FC<IModal> = memo(
   ({
     children,
     onClose,
@@ -16,7 +16,6 @@ export const ModalDom: FC<IModal> = memo(
     id,
     header,
     withHeader,
-    bg,
   }) => {
     return (
       <div

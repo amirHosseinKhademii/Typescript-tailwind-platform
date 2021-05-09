@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
 import { Check } from "components";
 import { classNames } from "utils";
-import { useSelectOption } from "./use-select-option";
+import { useSelectOption } from "../use-select-option";
 
 export const SelectOptionMultiple: FC<ISelectOption> = memo(
   ({

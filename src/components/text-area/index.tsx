@@ -2,8 +2,9 @@ import { FC, memo } from "react";
 import { useToggle, useValidation } from "hooks";
 import { Error } from "components";
 import { classNames } from "utils";
+
 import { TextAreaLabel } from "./text-area-label";
-import { TextAreatBox } from "./text-area-box";
+import { TextAreatCore } from "./text-area-core";
 import { TextAreaInteractive } from "./text-area-interactive";
 
 export const TextArea: FC<ITextArea> = memo((props) => {
@@ -16,7 +17,7 @@ export const TextArea: FC<ITextArea> = memo((props) => {
       className={classNames("w-full col-start resize-y relative", className)}
     >
       <TextAreaLabel open={open} {...props} />
-      <TextAreatBox
+      <TextAreatCore
         open={open}
         toggle={toggle}
         validate={validate}

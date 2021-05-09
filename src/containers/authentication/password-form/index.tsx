@@ -1,20 +1,17 @@
 import { memo } from "react";
-import { useForm } from "react-hook-form";
+
 import { Button, Form, Input, Tab } from "components";
 import { useHistory } from "react-router";
+import { usePassword } from "./use-password";
 
 export const PasswordForm = memo(() => {
   const { push } = useHistory();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, errors, isLoading, onSubmit } = usePassword();
 
   return (
     <Form
       className="w-11/12 md:w-2/3 lg:w-1/3 mx-auto mt-20 shadow-xl  "
-      onSubmit={handleSubmit((state) => console.log(state))}
+      onSubmit={handleSubmit(onSubmit)}
     >
       <Tab text="Password Recovery" justify="center">
         <div className="col-center space-y-8 ">
@@ -33,6 +30,7 @@ export const PasswordForm = memo(() => {
               className="w-full h-10  bg-pink-700 text-white"
               role="confirm"
               type="submit"
+              loading={isLoading}
             >
               Submit
             </Button>

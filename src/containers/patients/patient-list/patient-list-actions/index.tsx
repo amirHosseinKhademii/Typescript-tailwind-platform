@@ -1,9 +1,9 @@
-import { Button } from "components/button";
+import { Fragment } from "react";
+import { Button } from "components";
 import { useUi } from "hooks";
 import { ICDelete, ICEdit } from "icons";
-import { Fragment } from "react";
 
-export const PatientActions = () => {
+export const PatientListActions = () => {
   const { toggleDialog } = useUi();
   return (
     <Fragment>

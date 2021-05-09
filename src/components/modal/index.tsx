@@ -1,10 +1,10 @@
 import { createPortal } from "react-dom";
 import { FC, memo } from "react";
-import { ModalDom } from "./modal-dom";
+import { ModalCore } from "./modal-core";
 
 export const Modal: FC<IModal> = memo((props) => {
   return createPortal(
-    <ModalDom {...props} />,
+    <ModalCore {...props} />,
     document.getElementById("modal-root")
   );
 });

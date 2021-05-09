@@ -4,4 +4,6 @@ interface IDropdown {
   label?: string;
   active?: boolean;
   icon?: any;
+  toggle?:any;
+  open?:boolean
 }

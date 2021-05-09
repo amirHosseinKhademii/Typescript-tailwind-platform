@@ -1,7 +1,7 @@
 import { FC, memo } from "react";
 import { classNames } from "utils";
 
-export const TextAreatBox: FC<IInput> = memo(
+export const TextAreatCore: FC<IInput> = memo(
   ({
     interactive,
     placeholder,

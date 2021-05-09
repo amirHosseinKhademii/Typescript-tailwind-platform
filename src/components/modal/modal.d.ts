@@ -8,5 +8,4 @@ interface IModal {
   slot?: string;
   header?: string;
   withHeader?: boolean;
-  bg?:string
 }

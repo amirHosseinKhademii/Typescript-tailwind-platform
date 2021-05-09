@@ -3,7 +3,7 @@ import { Table } from "components";
 
 import { usePatientList } from "./use-patient-list";
 import { PatientListToolbar } from "./patient-list-toolbar";
-import { PatientDetails } from "./patient-details";
+import { PatientListDetails } from "./patient-list-details";
 
 export const PatientList = memo(() => {
   const { data, columns } = usePatientList();
@@ -14,7 +14,7 @@ export const PatientList = memo(() => {
       <Table
         data={data}
         columns={columns}
-        expand={(item) => <PatientDetails item={item} />}
+        expand={(item) => <PatientListDetails item={item} />}
         className="w-full my-10"
       />
     </div>

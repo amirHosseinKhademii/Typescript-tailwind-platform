@@ -1,5 +1,6 @@
 import { useForm, useWatch } from "react-hook-form";
 import { useService } from "hooks";
+import { useMemo } from "react";
 
 const defaultValues = {
   surname: "",
@@ -17,20 +18,14 @@ const defaultValues = {
   state: "",
 };
 
-export const useAddPatient = (props: IPatientForm) => {
-  const { isEditing, editInitials } = props;
+export const usePatientForm = (props: IPatientForm) => {
+  const { handleSubmit, register, control, formState, setValue } = useForm({
+    defaultValues,
+  });
 
   const { usePost, usePut } = useService();
 
-  const {
-    handleSubmit,
-    register,
-    control,
-    formState: { isDirty, errors },
-    setValue,
-  } = useForm({
-    defaultValues,
-  });
+  const { isEditing, editInitials } = props;
 
   const { mutate: save } = usePost({ url: "" });
 
@@ -40,8 +35,8 @@ export const useAddPatient = (props: IPatientForm) => {
     register,
     control,
     setValue,
-    errors,
-    isDirty,
+    isDirty: formState.isDirty,
+    errors: useMemo(() => formState.errors, [formState.errors]),
     state: useWatch({ control, defaultValue: defaultValues }),
     onSubmit: handleSubmit((state) => {
       console.log(state);

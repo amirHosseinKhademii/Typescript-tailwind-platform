@@ -1,5 +1,5 @@
 import { Form, Grid, Text, Tab } from "components";
-import { useAddPatient } from "./use-add-patient";
+import { usePatientForm } from "./use-patient-form";
 import { PatientFormToolbar } from "./patient-form-toolbar";
 import { PatientFormSubmit } from "./patient-form-submit";
 import {
@@ -52,7 +52,7 @@ import {
   DiabetesType,
   PhoneType,
   InfusionLineType,
-} from "./fields";
+} from "./patient-form-fields";
 
 export const PatientForm = (props?: IPatientForm) => {
   const { isEditing } = props;
@@ -61,10 +61,9 @@ export const PatientForm = (props?: IPatientForm) => {
     state,
     register,
     control,
-
     errors,
     setValue,
-  } = useAddPatient({ isEditing });
+  } = usePatientForm({ isEditing });
 
   return (
     <div className="w-full">

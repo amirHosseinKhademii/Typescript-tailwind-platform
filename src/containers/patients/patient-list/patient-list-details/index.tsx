@@ -1,7 +1,7 @@
 import { Input } from "components";
 import { FC, memo } from "react";
 
-export const PatientDetails: FC<{ item?: any }> = memo(({ item }) => {
+export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
   return (
     <div className="grid gird-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3 w-full">
       <Input size="small" disabled label="Current Study" value="Amir" />

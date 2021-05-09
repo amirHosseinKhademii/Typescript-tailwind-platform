@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { useToggle } from "hooks";
 import { classNames } from "utils";
+
 import { TabExpand } from "./tab-expand";
 import { TabActions } from "./tab-actions";
 import { useTab } from "./use-tab";

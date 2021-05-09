@@ -13,7 +13,7 @@ export const InputInteractive: FC<IInput> = memo(
             error || withError ? "text-red-600" : "text-indigo-800"
           )}
         >
-          {placeholder}
+          {placeholder.substring(0, 40)}
         </span>
       );
     else return null;
