@@ -7,7 +7,7 @@ import {
 } from "./utils";
 
 export const useValidation = (props: IUseValidation) => {
-  const { required, min, max, later } = props;
+  const { required, min, max, later, validation } = props;
 
   return {
     validate: useCallback(
@@ -16,6 +16,7 @@ export const useValidation = (props: IUseValidation) => {
         if (max) return maxValidation(value, max);
         if (min) return minValidation(value, min);
         if (later) return laterValidation(value, later);
+        if (validation) return validation(value);
       },
       [required, min, max, later]
     ) as any,

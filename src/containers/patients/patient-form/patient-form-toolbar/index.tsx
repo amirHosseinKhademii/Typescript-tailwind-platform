@@ -1,7 +1,9 @@
 import { memo } from "react";
-import { Text, Toolbar } from "components";
+import { Button, Text, Toolbar } from "components";
+import { useHistory } from "react-router";
 
 export const PatientFormToolbar = memo(() => {
+  const { push } = useHistory();
   return (
     <Toolbar>
       <Text
@@ -11,7 +13,14 @@ export const PatientFormToolbar = memo(() => {
       >
         Add new patient
       </Text>
-      <div slot="end" />
+      <div className="flex items-center" slot="end">
+        <Button
+          className="bg-primary h-12 text-white w-24"
+          onClick={() => push("/admin/patients")}
+        >
+          Cancel
+        </Button>
+      </div>
     </Toolbar>
   );
 });

@@ -18,7 +18,7 @@ export const Tab: FC<ITab> = ({
     <div className={classNames("w-full col-center ", className)}>
       <div
         className={classNames(
-          "w-full flex items-center py-4 px-4 bg-secondary shadow",
+          "w-full flex items-center py-4 px-4 bg-secondary",
           expandable && "cursor-pointer",
           expandable ? (open ? "rounded-t" : "rounded") : "rounded-t",
           justify === "center"

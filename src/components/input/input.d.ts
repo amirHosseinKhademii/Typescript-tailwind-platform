@@ -20,5 +20,6 @@ interface IInput {
   interactive?: boolean;
   open?: boolean;
   toggle?: any;
-  validate?:any
+  validate?: any;
+  validation?:any
 }

@@ -1,5 +1,5 @@
 import { FC, memo } from "react";
-import { Button } from "components";
+import { Button, Text } from "components";
 import { ICClose } from "icons";
 
 export const ModalHeader: FC<IModal> = memo(
@@ -8,7 +8,9 @@ export const ModalHeader: FC<IModal> = memo(
       return (
         <div className=" w-full row-between" slot="header">
           {header ? (
-            <span className="pl-8 text-2xl text-gray-600">{header}</span>
+            <Text className="pl-8 " size="header">
+              Edit patient informations
+            </Text>
           ) : (
             <div />
           )}
@@ -20,7 +22,7 @@ export const ModalHeader: FC<IModal> = memo(
             >
               <ICClose
                 role="close"
-                className=" w-6 h-6 md:w-8 md:h-8 text-gray-600"
+                className=" w-6 h-6 md:w-10 md:h-10 text-gray-600"
               />
             </Button>
           )}

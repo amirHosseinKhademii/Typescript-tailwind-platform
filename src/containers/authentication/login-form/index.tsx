@@ -10,7 +10,7 @@ export const LoginForm = memo(() => {
 
   return (
     <Form
-      className="w-11/12 md:w-2/3 lg:w-1/3 mx-auto mt-20 shadow-xl "
+      className="w-11/12 md:w-2/3 lg:w-1/3 mx-auto mt-20 "
       onSubmit={handleSubmit(onSubmit)}
     >
       <Tab text="Login" justify="center">
@@ -30,13 +30,13 @@ export const LoginForm = memo(() => {
             name="password"
             type="password"
             required
-            placeholder="Enter your Password"
+            placeholder="Enter your password"
             error={errors["password"]?.message}
             interactive
           />
           <div className="col-center space-y-4 w-full mb-6" slot="actions">
             <Button
-              className="w-full h-10  bg-pink-700 text-white"
+              className="w-full h-12  bg-pink-700 text-white"
               role="confirm"
               type="submit"
               loading={isLoading}
@@ -46,7 +46,7 @@ export const LoginForm = memo(() => {
             <Button
               icon
               role="cancel"
-              className="w-full h-10 text-secondary"
+              className="w-full h-12 text-secondary"
               type="button"
               onClick={() => push("/authentication/password")}
             >

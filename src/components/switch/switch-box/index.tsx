@@ -27,9 +27,9 @@ export const SwitchBox: FC<ISwitch> = memo(
           className={classNames(
             " rounded-full border  ",
             open
-              ? withError
-                ? "bg-red-500 border-red-700"
-                : "bg-secondary border-indigo-700"
+              ? "bg-secondary border-indigo-700"
+              : withError
+              ? "bg-red-600 border-red-700"
               : "bg-gray-600 border-gray-700",
             size === "small" ? "w-5 h-5 " : "w-6 h-6 "
           )}

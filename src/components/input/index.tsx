@@ -8,8 +8,8 @@ import { InputInteractive } from "./input-interactive";
 import { InputIcon } from "./input-icon";
 
 export const Input: FC<IInput> = memo((props) => {
-  const { required, max, min, later, error, className } = props;
-  const { validate } = useValidation({ required, max, min, later });
+  const { required, max, min, later, error, className, validation } = props;
+  const { validate } = useValidation({ required, max, min, later, validation });
   const { open, toggle } = useToggle();
 
   return (

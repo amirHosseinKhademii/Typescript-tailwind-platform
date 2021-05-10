@@ -8,7 +8,6 @@ export const PhoneNumber: FC<IPatientField> = memo(
         label="Phone Number (Mobile)"
         placeholder="Enter Phone Number"
         name="phone_number"
-        type="number"
         register={register}
         error={error}
         value={state}
