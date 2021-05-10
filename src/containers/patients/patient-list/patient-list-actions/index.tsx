@@ -5,6 +5,7 @@ import { ICDelete, ICEdit } from "icons";
 
 export const PatientListActions = () => {
   const { toggleDialog } = useUi();
+
   return (
     <Fragment>
       <Button

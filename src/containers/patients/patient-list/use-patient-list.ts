@@ -15,9 +15,13 @@ const columns = [
 ];
 
 export const usePatientList = () => {
-  // const { useGet } = useService();
+  // const { useGet,  } = useService();
 
-  //const { data: list, isLoading } = useGet({ url: "", enabled: false });
+  // const { data: list, isLoading } = useGet({
+  //   key: "PATIENTS_LIST",
+  //   url: "",
+  //   enabled: false,
+  // });
 
   const data = useMemo(
     () => [

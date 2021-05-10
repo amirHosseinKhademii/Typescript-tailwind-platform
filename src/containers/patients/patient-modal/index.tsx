@@ -1,6 +1,7 @@
 import { Confirm, Modal } from "components";
 import { useUi } from "hooks";
 import { lazy, memo } from "react";
+import { usePatientModal } from "./use-patient-modal";
 
 const PatientForm = lazy(() =>
   import("containers").then((module) => ({
@@ -10,6 +11,7 @@ const PatientForm = lazy(() =>
 
 export const PatientModal = memo(() => {
   const { uiState, toggleDialog } = useUi();
+  const { mutate, isLoading } = usePatientModal();
 
   if (uiState.dialog.open && uiState.dialog.type === "patient-edit")
     return (
@@ -28,7 +30,8 @@ export const PatientModal = memo(() => {
       <Confirm
         type="delete"
         description="You are deleting this patient."
-        onConfirm={() => toggleDialog({ open: false, type: null })}
+        loading={isLoading}
+        onConfirm={() => mutate()}
         onCancel={() => toggleDialog({ open: false, type: null })}
       />
     );

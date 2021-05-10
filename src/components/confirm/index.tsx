@@ -11,6 +11,7 @@ export const Confirm: FC<IConfirm> = memo(
     description,
     title = "Are You Sure?",
     type = "delete",
+    loading = false,
   }) => {
     return (
       <Modal
@@ -22,7 +23,11 @@ export const Confirm: FC<IConfirm> = memo(
         slot="dialog"
       >
         <ConfirmBody title={title} description={description} />
-        <ConfirmActions onCancel={onCancel} onConfirm={onConfirm} />
+        <ConfirmActions
+          onCancel={onCancel}
+          onConfirm={onConfirm}
+          loading={loading}
+        />
       </Modal>
     );
   }

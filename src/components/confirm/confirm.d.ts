@@ -4,4 +4,5 @@ interface IConfirm {
   description?: string;
   onCancel?: Function;
   type?: "delete" | "warning";
+  loading?: boolean;
 }
