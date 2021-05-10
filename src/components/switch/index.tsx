@@ -6,27 +6,69 @@ import { classNames } from "utils";
 import { SwitchBox } from "./switch-box";
 
 export const Switch: FC<ISwitch> = memo(
-  ({ label, checked, control, name, className }) => {
+  ({ label, checked, control, name, className, size, disabled, withError }) => {
     const { open, toggle } = useToggle(checked);
 
-    return (
-      <Controller
-        name={name}
-        control={control}
-        render={({ field: { onChange } }) => (
-          <div
+    if (control)
+      return (
+        <Controller
+          name={name}
+          control={control}
+          render={({ field: { onChange } }) => (
+            <div
+              className={classNames(
+                "flex items-center h-20 overflow-hidden",
+                className
+              )}
+            >
+              <div className="row-between mr-4">
+                <SwitchBox
+                  onChange={onChange}
+                  open={open}
+                  toggle={toggle}
+                  size={size}
+                  disabled={disabled}
+                  withError={withError}
+                />
+              </div>
+              <span
+                className={classNames(
+                  size === "small" ? "text-xs" : "text-base",
+                  withError ? "text-red-700" : "text-gray-800"
+                )}
+              >
+                {label}
+              </span>
+            </div>
+          )}
+        />
+      );
+    else
+      return (
+        <div
+          className={classNames(
+            "flex items-center h-20 overflow-hidden",
+            className
+          )}
+        >
+          <div className="row-between mr-4">
+            <SwitchBox
+              open={open}
+              toggle={toggle}
+              size={size}
+              disabled={disabled}
+              withError={withError}
+            />
+          </div>
+          <span
             className={classNames(
-              "flex items-center h-20 overflow-hidden",
-              className
+              size === "small" ? "text-xs" : "text-base",
+              withError ? "text-red-700" : "text-gray-800"
             )}
           >
-            <div className="row-between mr-4">
-              <SwitchBox onChange={onChange} open={open} toggle={toggle} />
-            </div>
-            <span className="text-gray-800">{label}</span>
-          </div>
-        )}
-      />
-    );
+            {label}
+          </span>
+        </div>
+      );
   }
 );

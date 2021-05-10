@@ -9,4 +9,7 @@ interface ISwitch {
   onChange?: any;
   toggle?: any;
   open?: boolean;
+  size?: "small" | "large";
+  disabled?: boolean;
+  withError?: boolean;
 }

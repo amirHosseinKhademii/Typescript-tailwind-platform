@@ -1,4 +1,4 @@
-import { Input } from "components";
+import { Input, Switch } from "components";
 import { FC, memo } from "react";
 
 export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
@@ -54,58 +54,56 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
         label="Latest HbA1c Reading Date"
         value="Test"
       />
-      <Input
+      <Switch
         size="small"
         disabled
         label="In the past 12 months, have you had Diabetic Ketoacidosis (DKA) requiring a hospital admission?"
-        value="Yes"
-        className="max-h-12"
+        className="h-12"
       />
-      <Input
+      <Switch
         size="small"
         disabled
         label="In the past 12 months, have you had a severe Hypoglycaemic event requiring 3rd party assistance?"
-        value="Yes"
-        className="max-h-12"
+        className="h-12"
       />
-      <Input
+      <Switch
         size="small"
         disabled
         label="Have you ever been diagnosed with Hypo-unawareness?"
-        value="No"
-        className="max-h-12"
+        className="h-12"
       />
-      <Input
+      <Switch
         size="small"
         disabled
         label="Have you ever been diagnosed with abnormal kidney function?"
-        value="Yes"
-        className="max-h-12"
+        className="h-12"
       />
-      <Input
+      <Switch
         size="small"
         disabled
         label="Have you ever been diagnosed with Retinopathy?"
-        value="No"
-        className="max-h-12"
+        className="h-12"
       />
-      <Input
+      <Switch
         size="small"
         disabled
         label="Have you ever been diagnosed with foot neuropathy?"
-        value="Yes"
-        className="max-h-12"
+        className="h-12"
       />
-      <Input size="small" disabled label="Other Medical Issue" value="Test" />
-
-      <Input
+      <Switch
         size="small"
         disabled
         label="Will Come To St Vincent?"
-        value="No"
+        className="h-12"
         withError
       />
-      <Input size="small" disabled label="Has Internet Access?" value="Yes" />
+      <Switch
+        size="small"
+        disabled
+        label="Has Internet Access?"
+        className="h-12"
+      />
+      <Input size="small" disabled label="Other Medical Issue" value="Test" />
       <Input size="small" disabled label="Computer Type" value="Test" />
       <Input
         size="small"
