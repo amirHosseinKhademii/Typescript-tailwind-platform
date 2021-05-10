@@ -15,8 +15,8 @@ export const SelectBox: FC<ISelect> = memo(
           role="toggler"
           onClick={() => toggle()}
           className={classNames(
-            " w-full row-between focus:outline-none overflow-hidden cursor-pointer px-4  rounded  text-gray-900",
-            multiple ? "min-h-[3rem]" : "h-12",
+            " w-full row-between focus:outline-none overflow-hidden cursor-pointer  rounded  text-gray-900",
+            multiple ? "min-h-[3rem] p-2" : "h-12  px-4",
             error ? "border-2 border-red-400 shadow" : "border border-gray-300"
           )}
         >

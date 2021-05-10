@@ -3,11 +3,10 @@ import { useHistory } from "react-router";
 import { classNames } from "utils";
 import { Button } from "components";
 import { useUi } from "hooks";
-import { ICClose, ICMenu, ICPerson } from "icons";
 
 export const AdminHeader = memo(() => {
   const { push } = useHistory();
-  const { toggleDrawer, uiState } = useUi();
+  const { uiState } = useUi();
   const { open } = uiState.drawer;
 
   return (
