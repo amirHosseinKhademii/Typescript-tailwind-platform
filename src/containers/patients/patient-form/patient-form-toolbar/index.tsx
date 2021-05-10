@@ -15,7 +15,7 @@ export const PatientFormToolbar = memo(() => {
       </Text>
       <div className="flex items-center" slot="end">
         <Button
-          className="bg-primary h-12 text-white w-24"
+          className="bg-white h-12 text-black w-20"
           onClick={() => push("/admin/patients")}
         >
           Cancel

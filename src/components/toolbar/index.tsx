@@ -2,7 +2,7 @@ import { FC, Fragment, memo } from "react";
 
 export const Toolbar: FC<IToolbar> = memo(({ children }) => {
   return (
-    <div className="w-full flex items-baseline justify-between border-b border-gray-300  pb-4">
+    <div className="w-full flex items-center justify-between border-b border-gray-300  pb-4">
       {typeof children !== "object" ? (
         <div slot="children">{children}</div>
       ) : (

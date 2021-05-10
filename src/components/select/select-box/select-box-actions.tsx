@@ -5,7 +5,7 @@ import { FC, memo } from "react";
 export const SelectBoxActions: FC<ISelect> = memo(
   ({ multiple, value, setValue, name }) => {
     return (
-      <div className="flex items-center">
+      <div className=" flex items-center">
         {multiple
           ? value &&
             value.length > 0 && (

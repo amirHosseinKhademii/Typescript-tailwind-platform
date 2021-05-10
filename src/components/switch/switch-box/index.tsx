@@ -10,7 +10,7 @@ export const SwitchBox: FC<ISwitch> = memo(
         <div
           slot="toggle-wrapper"
           className={classNames(
-            "flex items-center   px-1 rounded-full cursor-pointer drop-shadow-lg",
+            "flex items-center  rounded-full cursor-pointer px-1",
             open
               ? "bg-indigo-400 justify-end"
               : withError

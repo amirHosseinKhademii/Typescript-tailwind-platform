@@ -3,7 +3,7 @@ import { FC, memo } from "react";
 
 export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
   return (
-    <div className="grid gird-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3 w-full">
+    <div className="grid gird-cols-2 md:grid-cols-3  lg:grid-cols-4  gap-3 w-full">
       <Input size="small" disabled label="Current Study" value="Amir" />
       <Input size="small" disabled label="Previous Study" value="Amir" />
       <Input size="small" disabled label="Gender" value="Male" />
@@ -58,51 +58,39 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
         size="small"
         disabled
         label="In the past 12 months, have you had Diabetic Ketoacidosis (DKA) requiring a hospital admission?"
-        className="h-12"
       />
       <Switch
         size="small"
         disabled
         label="In the past 12 months, have you had a severe Hypoglycaemic event requiring 3rd party assistance?"
-        className="h-12"
       />
       <Switch
         size="small"
         disabled
         label="Have you ever been diagnosed with Hypo-unawareness?"
-        className="h-12"
       />
       <Switch
         size="small"
         disabled
         label="Have you ever been diagnosed with abnormal kidney function?"
-        className="h-12"
       />
       <Switch
         size="small"
         disabled
         label="Have you ever been diagnosed with Retinopathy?"
-        className="h-12"
       />
       <Switch
         size="small"
         disabled
         label="Have you ever been diagnosed with foot neuropathy?"
-        className="h-12"
       />
       <Switch
         size="small"
         disabled
         label="Will Come To St Vincent?"
-        className="h-12"
         withError
       />
-      <Switch
-        size="small"
-        disabled
-        label="Has Internet Access?"
-        className="h-12"
-      />
+      <Switch size="small" disabled label="Has Internet Access?" />
       <Input size="small" disabled label="Other Medical Issue" value="Test" />
       <Input size="small" disabled label="Computer Type" value="Test" />
       <Input

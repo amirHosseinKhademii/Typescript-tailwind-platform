@@ -7,8 +7,9 @@ export const SwitchCore: FC<ISwitch> = memo(
     return (
       <div
         className={classNames(
-          "flex items-center h-20 overflow-hidden",
-          className
+          "flex items-center overflow-hidden",
+          className,
+          size === "small" ? "h-12" : "h-20"
         )}
       >
         <div className="row-between mr-4">
@@ -22,7 +23,7 @@ export const SwitchCore: FC<ISwitch> = memo(
         </div>
         <span
           className={classNames(
-            size === "small" ? "text-xs" : "text-base",
+            size === "small" ? "text-[11px] md:text-xs" : "text-base",
             withError ? "text-red-700" : "text-gray-800"
           )}
         >
