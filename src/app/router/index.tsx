@@ -1,9 +1,13 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Page } from "components";
+import { Page, Toast } from "components";
+import { useUi } from "hooks";
 import { routes } from "./routes";
 import { Layout } from "./layout";
+import { memo } from "react";
 
-export const Router = () => {
+export const Router = memo(() => {
+  const { uiState } = useUi();
+
   return (
     <BrowserRouter>
       <Layout>
@@ -15,6 +19,7 @@ export const Router = () => {
           ))}
         </Switch>
       </Layout>
+      {uiState.toast.open && <Toast {...uiState.toast} />}
     </BrowserRouter>
   );
-};
+});

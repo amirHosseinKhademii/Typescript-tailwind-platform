@@ -13,6 +13,11 @@ export const reducer = (state = initialState, { type, payload }) => {
         ...state,
         dialog: { ...state.dialog, ...payload },
       };
+    case uiTypes.TOGGLE_TOAST:
+      return {
+        ...state,
+        toast: { ...state.toast, ...payload },
+      };
     default:
       return state;
   }

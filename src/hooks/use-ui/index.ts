@@ -13,9 +13,15 @@ export const useUi = () => {
     [uiState.dialog]
   );
 
+  const toggleToast = useCallback(
+    (payload) => uiDispatch({ type: uiTypes.TOGGLE_TOAST, payload }),
+    [uiState.toast]
+  );
+
   return {
     uiState,
     toggleDrawer,
     toggleDialog,
+    toggleToast,
   };
 };

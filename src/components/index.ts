@@ -24,3 +24,4 @@ export { Skeleton } from "./skeleton";
 export { Toolbar } from "./toolbar";
 export { Tab } from "./tab";
 export { Page } from "./page";
+export { Toast } from "./toast";
