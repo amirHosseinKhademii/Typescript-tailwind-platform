@@ -4,4 +4,5 @@ interface IUseValidation {
   min?: string | number | undefined;
   max?: string | number | undefined;
   validation?: any;
+  precent?: boolean;
 }

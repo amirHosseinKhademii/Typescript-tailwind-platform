@@ -185,7 +185,7 @@ export const PatientForm = (props?: IPatientForm) => {
                 <CHOCountingDetails
                   register={register}
                   state={state["cho_counting_details"]}
-                  error={state["cho_counting_details"]?.message}
+                  error={errors["cho_counting_details"]?.message}
                 />
               )}
           </Grid>

@@ -27,4 +27,15 @@ const laterValidation = (value, later) => {
   }
 };
 
-export { requiredValidation, maxValidation, minValidation, laterValidation };
+const precentValidation = (value) => {
+  if (parseFloat(value) < 0 || parseFloat(value) > 100)
+    return "This field mut be between 0 and 100.";
+};
+
+export {
+  requiredValidation,
+  maxValidation,
+  minValidation,
+  laterValidation,
+  precentValidation,
+};

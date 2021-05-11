@@ -4,21 +4,43 @@ import {
   maxValidation,
   requiredValidation,
   minValidation,
+  precentValidation,
 } from "./utils";
 
 export const useValidation = (props: IUseValidation) => {
-  const { required, min, max, later, validation } = props;
+  const { required, min, max, later, validation, precent } = props;
 
   return {
     validate: useCallback(
       (value) => {
-        if (required) return requiredValidation(value, required);
-        if (max) return maxValidation(value, max);
-        if (min) return minValidation(value, min);
-        if (later) return laterValidation(value, later);
-        if (validation) return validation(value);
+        let error;
+        if (required) {
+          const requiredError = requiredValidation(value, required);
+          error = requiredError ? requiredError : error;
+        }
+        if (max) {
+          const maxError = maxValidation(value, max);
+          error = maxError ? maxError : error;
+        }
+        if (min) {
+          const minError = minValidation(value, min);
+          error = minError ? minError : error;
+        }
+        if (later) {
+          const laterError = laterValidation(value, later);
+          error = laterError ? laterError : error;
+        }
+        if (precent) {
+          const precentError = precentValidation(value);
+          error = precentError ? precentError : error;
+        }
+        if (validation) {
+          const validationError = validation(value);
+          error = validationError ? validationError : error;
+        }
+        return error;
       },
-      [required, min, max, later]
+      [required, min, max, later, validation, precent]
     ) as any,
   };
 };

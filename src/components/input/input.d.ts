@@ -12,6 +12,7 @@ interface IInput {
   required?: boolean | undefined;
   max?: string | number | undefined;
   min?: string | number | undefined;
+  precent?: boolean;
   size?: "small" | "default" | "large";
   disabled?: boolean;
   onClick?: any;
@@ -21,5 +22,5 @@ interface IInput {
   open?: boolean;
   toggle?: any;
   validate?: any;
-  validation?:any
+  validation?: any;
 }

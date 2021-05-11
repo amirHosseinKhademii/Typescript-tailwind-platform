@@ -12,12 +12,9 @@ export const LatestHBA1CReading: FC<IPatientField> = memo(
         register={register}
         value={state}
         error={error}
+        precent
+        required
         interactive
-        validation={(value) => {
-          if (!value) return "This field is required.";
-          else if (parseFloat(value) < 0 || parseFloat(value) > 100)
-            return "This field mut be between 0 and 100.";
-        }}
       />
     );
   }

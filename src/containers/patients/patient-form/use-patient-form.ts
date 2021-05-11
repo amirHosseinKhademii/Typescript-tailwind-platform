@@ -13,9 +13,45 @@ const defaultValues = {
   phone_type: "",
   preferred_contact_time: "",
   preferred_contact_method: "",
+  availability: "",
+  availability_detail: "",
+  cho_counting: "",
+  cho_counting_details: "",
+  computer_type: "",
+  contact_date: "",
+  current_cgm_wear: "",
+  current_diabetes_management: "",
+  current_insulin_use: "",
+  date_of_diagnosis_of_t1d: "",
+  diabetes_educator: "",
+  diabetes_type: "",
+  discussion_held_and_what_discussed: "",
+  dka_detial: "",
+  do_not_call_until: "",
   email: "",
-  suburb: "",
+  endocrinologist: "",
+  exercise_detail: "",
+  exercise_type: "",
+  frequency_of_daily_fingerstick: "",
+  infusion_line_type: "",
+  latest_hba1c_reading: "",
+  latest_hba1c_reading_date: "",
+  next_step: "",
+  other_medical_issue: "",
+  past_cgm_wear: "",
+  pump_detail: "",
+  pwod_referral: "",
   state: "",
+  study_for_consideration: "",
+  suburb: "",
+  abnormal_kidney_function: false,
+  dka_requiring_hospital_admission_past_12_months: false,
+  foot_neuropathy: false,
+  retinopathy: false,
+  has_internet_access: false,
+  hypo_unawareness: false,
+  hypoglycemic_event_past_12_month: false,
+  will_come_to_st_vincent: false,
 };
 
 export const usePatientForm = (props: IPatientForm) => {
@@ -30,7 +66,6 @@ export const usePatientForm = (props: IPatientForm) => {
   const { mutate: save } = usePost({ url: "" });
 
   const { mutate: edit } = usePut({ url: "" });
- 
 
   return {
     register,
