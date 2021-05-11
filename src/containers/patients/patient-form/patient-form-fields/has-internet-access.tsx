@@ -6,7 +6,7 @@ export const HasInternetAccess: FC<IPatientField> = memo(
     return (
       <Switch
         label="Has Internet Access?"
-        name="HasInternetAccess"
+        name="has_internet_access"
         control={control}
         checked={state}
       />

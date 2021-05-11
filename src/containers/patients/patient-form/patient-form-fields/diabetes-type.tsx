@@ -6,11 +6,12 @@ export const DiabetesType: FC<IPatientField> = memo(
     return (
       <Select
         label="Diabetes Type"
-        name="DiabetesType"
+        name="diabetes_type"
         control={control}
         value={state}
         error={error}
         setValue={setValue}
+        required
       >
         <SelectOption value="Type 1" selected={state === "Type 1"}>
           Type 1

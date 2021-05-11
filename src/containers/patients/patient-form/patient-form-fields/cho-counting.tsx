@@ -6,13 +6,14 @@ export const CHOCounting: FC<IPatientField> = memo(
     return (
       <Select
         label="CHO Counting"
-        name="CHOCounting"
+        name="cho_counting"
         control={control}
         register={register}
         value={state}
         error={error}
         setValue={setValue}
         multiple
+        required
       >
         <SelectOption value="DAFNE" selected={state && state.includes("DAFNE")}>
           DAFNE

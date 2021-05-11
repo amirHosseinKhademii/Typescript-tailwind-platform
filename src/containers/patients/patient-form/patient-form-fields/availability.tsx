@@ -6,11 +6,12 @@ export const Availability: FC<IPatientField> = memo(
     return (
       <Select
         label="Availability"
-        name="Availability"
+        name="availability"
         control={control}
         value={state}
         error={error}
         setValue={setValue}
+        required
       >
         <SelectOption value="Daily" selected={state === "Daily"}>
           Daily

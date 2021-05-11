@@ -5,7 +5,7 @@ export const DKAExperience: FC<IPatientField> = memo(({ control, state }) => {
   return (
     <Switch
       label="In the past 12 months, have you had Diabetic Ketoacidosis (DKA) requiring a hospital admission?"
-      name="DKAExpreience"
+      name="dka_requiring_hospital_admission_past_12_months"
       control={control}
       checked={state}
     />

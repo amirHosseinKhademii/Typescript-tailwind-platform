@@ -3,17 +3,16 @@ import { FC, memo } from "react";
 
 export const PumpDetail: FC<IPatientField> = memo(
   ({ state, register, error }) => {
-    if (state === "Looping" || state === "Other")
-      return (
-        <TextArea
-          label="Pump Details"
-          name="PumpDetails"
-          register={register}
-          error={error}
-          max={250}
-          required
-        />
-      );
-    else return null;
+    return (
+      <TextArea
+        label="Pump Details"
+        name="pump_detail"
+        register={register}
+        error={error}
+        value={state}
+        max={250}
+        required
+      />
+    );
   }
 );

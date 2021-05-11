@@ -56,14 +56,8 @@ import {
 
 export const PatientForm = (props?: IPatientForm) => {
   const { isEditing } = props;
-  const {
-    onSubmit,
-    state,
-    register,
-    control,
-    errors,
-    setValue,
-  } = usePatientForm({ isEditing });
+  const { onSubmit, state, register, control, errors, setValue } =
+    usePatientForm({ isEditing });
 
   return (
     <div className="w-full">
@@ -167,122 +161,138 @@ export const PatientForm = (props?: IPatientForm) => {
           <Grid className=" mt-4 ">
             <DiabetesType
               control={control}
-              state={state["DiabetesType"]}
-              error={errors["DiabetesType"]?.message}
+              state={state["diabetes_type"]}
+              error={errors["diabetes_type"]?.message}
               setValue={setValue}
             />
             <DateOfDiagnosisOfT1D
               control={control}
-              error={errors["DateOfDiagnosisOfT1D"]?.message}
-              state={state["DateOfDiagnosisOfT1D"]}
+              error={errors["date_of_diagnosis_of_t1d"]?.message}
+              state={state["date_of_diagnosis_of_t1d"]}
               setValue={setValue}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <CHOCounting
               control={control}
-              state={state["CHOCounting"]}
-              error={errors["CHOCounting"]?.message}
+              state={state["cho_counting"]}
+              error={errors["cho_counting"]?.message}
               register={register}
               setValue={setValue}
             />
-            {state["CHOCounting"] && state["CHOCounting"].includes("Other") && (
-              <CHOCountingDetails
-                register={register}
-                state={state["CHOCountingDetails"]}
-                error={state["CHOCountingDetails"]?.message}
-              />
-            )}
+            {state["cho_counting"] &&
+              state["cho_counting"].includes("Other") && (
+                <CHOCountingDetails
+                  register={register}
+                  state={state["cho_counting_details"]}
+                  error={state["cho_counting_details"]?.message}
+                />
+              )}
           </Grid>
           <Grid className=" pt-6 mt-4">
             <ExerciseType
               control={control}
-              state={state["ExerciseType"]}
-              error={errors["ExerciseType"]?.message}
+              state={state["exercise_type"]}
+              error={errors["exercise_type"]?.message}
               setValue={setValue}
             />
             <ExerciseDetail
               register={register}
-              error={errors["ExerciseDetail"]?.message}
+              state={state["exercise_detail"]}
+              error={errors["exercise_detail"]?.message}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <CurrentDiabetesManagement
               control={control}
-              state={state["CurrentDiabetesManagement"]}
-              error={errors["CurrentDiabetesManagement"]?.message}
+              state={state["current_diabetes_management"]}
+              error={errors["current_diabetes_management"]?.message}
               setValue={setValue}
             />
             <InfusionLineType
               control={control}
-              state={state["InfusionLineType"]}
-              error={errors["InfusionLineType"]?.message}
+              state={state["infusion_line_type"]}
+              error={errors["infusion_line_type"]?.message}
               setValue={setValue}
             />
-            <PumpDetail
-              register={register}
-              state={state["CurrentDiabetesManagement"]}
-              error={errors["PumpDetails"]?.message}
-            />
+            {(state["current_diabetes_management"] === "Looping" ||
+              state["current_diabetes_management"] === "Other") && (
+              <PumpDetail
+                register={register}
+                state={state["pump_detail"]}
+                error={errors["pump_detail"]?.message}
+              />
+            )}
           </Grid>
           <Grid className=" pt-6 mt-4">
             <CurrentInsulinUse
               control={control}
-              state={state["CurrentInsulinUse"]}
+              state={state["current_insulin_use"]}
+              error={errors["current_insulin_use"]?.message}
               setValue={setValue}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <CurrentCGMWear
               control={control}
-              state={state["CurrentCGMWear"]}
-              error={errors["CurrentCGMWear"]?.message}
+              state={state["current_cgm_wear"]}
+              error={errors["current_cgm_wear"]?.message}
               setValue={setValue}
             />
             <PastCGMWear
               control={control}
-              state={state["PastCGMWear"]}
-              error={errors["PastCGMWear"]?.message}
+              state={state["past_cgm_wear"]}
+              error={errors["past_cgm_wear"]?.message}
               setValue={setValue}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <FrequencyOfDailyFingerstick
               control={control}
-              state={state["FrequencyOfDailyFingerstick"]}
+              state={state["frequency_of_daily_fingerstick"]}
+              error={errors["frequency_of_daily_fingerstick"]?.message}
               setValue={setValue}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <Endocrinologist
               register={register}
-              error={errors["Endocrinologist"]?.message}
+              state={state["endocrinologist"]}
+              error={errors["endocrinologist"]?.message}
             />
             <DiabetesEducator
               register={register}
-              error={errors["DiabetesEducator"]?.message}
+              state={state["diabetes_educator"]}
+              error={errors["diabetes_educator"]?.message}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <LatestHBA1CReading
               register={register}
-              error={errors["LatestHbA1cReading"]?.message}
+              state={state["latest_hba1c_reading"]}
+              error={errors["latest_hba1c_reading"]?.message}
             />
             <LatestHBA1CReadingDate
               register={register}
-              error={errors["LatestHbA1cReadingDate"]?.message}
+              state={state["latest_hba1c_reading_date"]}
+              error={errors["latest_hba1c_reading_date"]?.message}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
-            <DKAExperience control={control} state={state["DKAExpreience"]} />
-            <DKADetail
-              register={register}
-              state={state["DKAExpreience"]}
-              error={errors["DKADetail"]?.message}
+            <DKAExperience
+              control={control}
+              state={state["dka_requiring_hospital_admission_past_12_months"]}
             />
+            {state["dka_requiring_hospital_admission_past_12_months"] && (
+              <DKADetail
+                register={register}
+                state={state["dka_detial"]}
+                error={errors["dka_detial"]?.message}
+              />
+            )}
             <HadSevereHypo
               control={control}
-              state={state["HadSevereHypoglycaemiaEvents"]}
+              state={state["hypoglycemic_event_past_12_month"]}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
@@ -292,19 +302,19 @@ export const PatientForm = (props?: IPatientForm) => {
             <div className="col-span-1 grid grid-cols-1 ">
               <HadUnawareHypo
                 control={control}
-                state={state["HadUnawareHypo"]}
+                state={state["hypo_unawareness"]}
               />
               <HadAbnormalKidney
                 control={control}
-                state={state["HadAbnormalkidney"]}
+                state={state["abnormal_kidney_function"]}
               />
               <HadretionopathyDiag
                 control={control}
-                state={state["HadRetionopathyDiagnosis"]}
+                state={state["retinopathy"]}
               />
               <HadFeetNeuropathy
                 control={control}
-                state={state["HadFeetNeuropathy"]}
+                state={state["foot_neuropathy"]}
               />
             </div>
             <div className="col-span-2" />
@@ -312,7 +322,8 @@ export const PatientForm = (props?: IPatientForm) => {
           <Grid className="mt-4">
             <OtherMedicalIssue
               register={register}
-              error={errors["OtherMedicalIssue"]?.message}
+              error={errors["other_medical_issue"]?.message}
+              state={state["other_medical_issue"]}
             />
           </Grid>
         </Tab>
@@ -326,58 +337,68 @@ export const PatientForm = (props?: IPatientForm) => {
           <Grid className="mt-4 ">
             <WillComeToSt
               control={control}
-              state={state["WillComeToStVincent"]}
+              state={state["will_come_to_st_vincent"]}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <HasInternetAccess
               control={control}
-              state={state["HasInternetAccess"]}
+              state={state["has_internet_access"]}
             />
             <ComputerType
               control={control}
-              error={errors["ComputerType"]?.message}
-              state={state["ComputerType"]}
+              error={errors["computer_type"]?.message}
+              state={state["computer_type"]}
               setValue={setValue}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <DiscussionHeld
               register={register}
-              error={errors["Discussionheld"]?.message}
+              error={errors["discussion_held_and_what_discussed"]?.message}
+              state={state["discussion_held_and_what_discussed"]}
             />
             <ContactDate
               register={register}
-              error={errors["ContactDate"]?.message}
+              error={errors["contact_date"]?.message}
+              state={state["contact_date"]}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <PWODReferal
               register={register}
-              error={errors["PWODReferral"]?.message}
+              error={errors["pwod_referral"]?.message}
+              state={state["pwod_referral"]}
             />
             <StudyForConsideration
               register={register}
-              error={errors["StudyForConsideration"]?.message}
+              error={errors["study_for_consideration"]?.message}
+              state={state["study_for_consideration"]}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <Availability
               control={control}
-              state={state["Availability"]}
-              error={errors["Availability"]?.message}
+              state={state["availability"]}
+              error={errors["availability"]?.message}
               setValue={setValue}
             />
             <AvailabilityDetail
               register={register}
-              error={errors["AvailabilityDetail"]?.message}
+              error={errors["availability_detail"]?.message}
+              state={state["availability_detail"]}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
-            <NextStep register={register} error={errors["NextStep"]?.message} />
+            <NextStep
+              register={register}
+              error={errors["next_step"]?.message}
+              state={state["next_step"]}
+            />
             <DoNotCallUntil
               register={register}
-              error={errors["DoNotCallUntil"]?.message}
+              error={errors["do_not_call_until"]?.message}
+              state={state["do_not_call_until"]}
             />
           </Grid>
         </Tab>

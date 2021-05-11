@@ -6,7 +6,7 @@ export const HadAbnormalKidney: FC<IPatientField> = memo(
     return (
       <Switch
         label="Abnormal kidney function?"
-        name="HadAbnormalkidney"
+        name="abnormal_kidney_function"
         control={control}
         checked={state}
       />

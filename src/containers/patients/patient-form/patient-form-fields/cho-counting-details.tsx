@@ -6,7 +6,7 @@ export const CHOCountingDetails: FC<IPatientField> = memo(
     return (
       <Input
         label="CHO Counting Details"
-        name="CHOCountingDetails"
+        name="cho_counting_details"
         register={register}
         error={error}
         value={state}

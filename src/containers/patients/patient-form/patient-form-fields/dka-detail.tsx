@@ -3,16 +3,16 @@ import { FC, memo } from "react";
 
 export const DKADetail: FC<IPatientField> = memo(
   ({ state, register, error }) => {
-    if (state)
-      return (
-        <TextArea
-          label="DKA Detail"
-          name="DKADetail"
-          register={register}
-          error={error}
-          max={200}
-        />
-      );
-    else return null;
+    return (
+      <TextArea
+        label="DKA Detail"
+        name="dka_detial"
+        register={register}
+        error={error}
+        value={state}
+        max={200}
+        required
+      />
+    );
   }
 );

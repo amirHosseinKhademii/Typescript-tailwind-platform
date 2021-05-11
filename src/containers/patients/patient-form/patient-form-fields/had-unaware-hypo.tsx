@@ -5,7 +5,7 @@ export const HadUnawareHypo: FC<IPatientField> = memo(({ state, control }) => {
   return (
     <Switch
       label="Hypo-unawareness?"
-      name="HadUnawareHypo"
+      name="hypo_unawareness"
       control={control}
       checked={state}
     />

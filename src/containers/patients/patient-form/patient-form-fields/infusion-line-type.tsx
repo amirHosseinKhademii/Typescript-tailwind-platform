@@ -6,11 +6,12 @@ export const InfusionLineType: FC<IPatientField> = memo(
     return (
       <Select
         label="Infusion Line Type"
-        name="InfusionLineType"
+        name="infusion_line_type"
         control={control}
         value={state}
         error={error}
         setValue={setValue}
+        required
       >
         <SelectOption value=" 90 Degree" selected={state === " 90 Degree"}>
           90 Degree
