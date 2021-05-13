@@ -14,7 +14,7 @@ export const SelectBoxActions: FC<ISelect> = memo(
                 onClick={(e) => {
                   e.stopPropagation();
                   if (setValue) {
-                    setValue(name, []);
+                    setValue(name, "");
                   }
                 }}
               >
