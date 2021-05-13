@@ -667,11 +667,8 @@ video {
 .col-span-2 {
 	grid-column: span 2 / span 2;
 }
-.col-span-4 {
-	grid-column: span 4 / span 4;
-}
-.col-span-5 {
-	grid-column: span 5 / span 5;
+.col-span-3 {
+	grid-column: span 3 / span 3;
 }
 .my-10 {
 	margin-top: 2.5rem;
@@ -818,6 +815,9 @@ video {
 .w-10\/12 {
 	width: 83.333333%;
 }
+.w-4\/6 {
+	width: 66.666667%;
+}
 .w-12 {
 	width: 3rem;
 }
@@ -833,9 +833,6 @@ video {
 .w-1\/2 {
 	width: 50%;
 }
-.w-24 {
-	width: 6rem;
-}
 .w-3\/4 {
 	width: 75%;
 }
@@ -844,6 +841,12 @@ video {
 }
 .w-8 {
 	width: 2rem;
+}
+.w-5\/6 {
+	width: 83.333333%;
+}
+.w-1\/6 {
+	width: 16.666667%;
 }
 .transform {
 	--tw-translate-x: 0;
@@ -886,11 +889,8 @@ video {
 .grid-cols-1 {
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 }
-.grid-cols-5 {
-	grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-.grid-cols-6 {
-	grid-template-columns: repeat(6, minmax(0, 1fr));
+.grid-cols-4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .flex-col {
 	flex-direction: column;
@@ -903,9 +903,6 @@ video {
 }
 .items-end {
 	align-items: flex-end;
-}
-.items-baseline {
-	align-items: baseline;
 }
 .items-start {
 	align-items: flex-start;
@@ -933,11 +930,6 @@ video {
 	margin-right: calc(0.25rem * var(--tw-space-x-reverse));
 	margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
-.space-y-1 > :not([hidden]) ~ :not([hidden]) {
-	--tw-space-y-reverse: 0;
-	margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
-	margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
-}
 .space-y-8 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
@@ -947,6 +939,11 @@ video {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+}
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-x-reverse: 0;
+	margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+	margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .overflow-y-auto {
 	overflow-y: auto;
@@ -1170,6 +1167,9 @@ video {
 }
 .pt-6 {
 	padding-top: 1.5rem;
+}
+.pl-2 {
+	padding-left: 0.5rem;
 }
 .text-sm {
 	font-size: 0.875rem;

@@ -5,7 +5,7 @@ import { FC, memo } from "react";
 export const SelectBoxActions: FC<ISelect> = memo(
   ({ multiple, value, setValue, name }) => {
     return (
-      <div className=" flex items-center">
+      <div className=" flex items-center space-x-2">
         {multiple
           ? value &&
             value.length > 0 && (
@@ -20,7 +20,7 @@ export const SelectBoxActions: FC<ISelect> = memo(
               >
                 <ICDelete
                   role="delete"
-                  className="w-4 h-4 text-red-500  z-30 mr-2"
+                  className="w-4 h-4 text-red-500  z-30"
                 />
               </Button>
             )
@@ -36,7 +36,7 @@ export const SelectBoxActions: FC<ISelect> = memo(
               >
                 <ICDelete
                   role="delete"
-                  className="w-4 h-4 text-red-500  z-30 mr-2"
+                  className="w-4 h-4 text-red-500  z-30 "
                 />
               </Button>
             )}
