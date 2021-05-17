@@ -7,7 +7,7 @@ export const DoNotCallUntil: FC<IPatientField> = memo(
       <Input
         label="Do Not Call Until"
         name="do_not_call_until"
-        type="date"
+        type="text"
         register={register}
         value={state}
         error={error}

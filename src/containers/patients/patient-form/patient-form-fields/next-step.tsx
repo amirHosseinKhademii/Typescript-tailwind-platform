@@ -5,8 +5,8 @@ export const NextStep: FC<IPatientField> = memo(
   ({ register, error, state }) => {
     return (
       <Input
-        label="Next Step"
-        placeholder="Enter Next Step"
+        label="Next Steps"
+        placeholder="Enter Next Steps"
         name="next_step"
         register={register}
         value={state}

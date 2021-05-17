@@ -3,8 +3,8 @@ import { useService } from "hooks";
 import { useMemo } from "react";
 
 const defaultValues = {
-  surname: "",
-  christian_name: "",
+  surename: "",
+  last_name: "",
   current_study: "",
   previous_study: "",
   date_of_birth: "",
@@ -52,6 +52,7 @@ const defaultValues = {
   hypo_unawareness: false,
   hypoglycemic_event_past_12_month: false,
   will_come_to_st_vincent: false,
+  deceased: "No",
 };
 
 export const usePatientForm = (props: IPatientForm) => {

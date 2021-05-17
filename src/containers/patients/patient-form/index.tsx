@@ -4,7 +4,7 @@ import { PatientFormToolbar } from "./patient-form-toolbar";
 import { PatientFormSubmit } from "./patient-form-submit";
 import {
   CHOCounting,
-  ChristianName,
+  LastName,
   CurrentCGMWear,
   CurrentStudy,
   DateOfBirth,
@@ -34,7 +34,7 @@ import {
   PumpDetail,
   State,
   Suburb,
-  Surname,
+  Surename,
   DateOfDiagnosisOfT1D,
   OtherMedicalIssue,
   WillComeToSt,
@@ -52,6 +52,7 @@ import {
   DiabetesType,
   PhoneType,
   InfusionLineType,
+  Deceased,
 } from "./patient-form-fields";
 
 export const PatientForm = (props?: IPatientForm) => {
@@ -70,15 +71,15 @@ export const PatientForm = (props?: IPatientForm) => {
           className="mt-10"
         >
           <Grid className="mt-4">
-            <Surname
+            <Surename
               register={register}
-              error={errors["surname"]?.message}
-              state={state["surname"]}
+              error={errors["surename"]?.message}
+              state={state["surename"]}
             />
-            <ChristianName
+            <LastName
               register={register}
-              error={errors["christian_name"]?.message}
-              state={state["christian_name"]}
+              error={errors["last_name"]?.message}
+              state={state["last_name"]}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
@@ -166,7 +167,7 @@ export const PatientForm = (props?: IPatientForm) => {
               setValue={setValue}
             />
             <DateOfDiagnosisOfT1D
-              control={control}
+              register={register}
               error={errors["date_of_diagnosis_of_t1d"]?.message}
               state={state["date_of_diagnosis_of_t1d"]}
               setValue={setValue}
@@ -401,6 +402,16 @@ export const PatientForm = (props?: IPatientForm) => {
               state={state["do_not_call_until"]}
             />
           </Grid>
+          {isEditing && (
+            <Grid className=" pt-6 mt-4">
+              <Deceased
+                control={control}
+                setValue={setValue}
+                error={errors["deceased"]?.message}
+                state={state["deceased"]}
+              />
+            </Grid>
+          )}
         </Tab>
 
         <PatientFormSubmit />

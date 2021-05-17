@@ -1,12 +1,12 @@
 import { Input } from "components";
 import { FC, memo } from "react";
 
-export const Surname: FC<IPatientField> = memo(({ register, error, state }) => {
+export const Surename: FC<IPatientField> = memo(({ register, error, state }) => {
   return (
     <Input
-      label="Suname"
-      placeholder="Enter Surname"
-      name="surname"
+      label="Surename "
+      placeholder="Enter Surename"
+      name="surename"
       register={register}
       error={error}
       value={state}

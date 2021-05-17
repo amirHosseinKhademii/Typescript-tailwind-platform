@@ -87,7 +87,7 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
       <Switch
         size="small"
         disabled
-        label="Will Come To St Vincent?"
+        label="Will come to St Vincent's Hospital?"
         withError
       />
       <Switch size="small" disabled label="Has Internet Access?" />
@@ -109,8 +109,9 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
       />
       <Input size="small" disabled label="Availability" value="Test" />
       <Input size="small" disabled label="Availability Detail" value="Test" />
-      <Input size="small" disabled label="Next Step" value="Test" />
+      <Input size="small" disabled label="Next Steps" value="Test" />
       <Input size="small" disabled label="Do Not Call Until" value="Test" />
+      <Input size="small" disabled label="Deceased" value="Yes" withError />
     </div>
   );
 });
