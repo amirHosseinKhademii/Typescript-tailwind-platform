@@ -1,16 +1,21 @@
 import { useService, useToast, useUi } from "hooks";
+import { Api } from "utils";
 
 export const usePatientModal = () => {
-  const { toggleDialog } = useUi();
-  const { success } = useToast();
+  const { uiState, toggleDialog } = useUi();
+  const { success, error } = useToast();
 
   const { useDelete } = useService();
 
   const { mutate, isLoading } = useDelete({
-    url: "",
+    url: `${Api.patients}/${uiState.dialog.data.id}`,
     onSuccess: () => {
-      toggleDialog({ open: false, type: null });
+      toggleDialog({ open: false, type: null, data: {} });
       success("You successfully deleted this patient.");
+    },
+    onError: (er) => {
+      error("Something went wrong.");
+      console.log(er);
     },
   });
 

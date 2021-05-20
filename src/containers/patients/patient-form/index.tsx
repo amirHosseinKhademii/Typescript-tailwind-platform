@@ -57,8 +57,16 @@ import {
 
 export const PatientForm = (props?: IPatientForm) => {
   const { isEditing } = props;
-  const { onSubmit, state, register, control, errors, setValue } =
-    usePatientForm({ isEditing });
+  const {
+    onSubmit,
+    state,
+    register,
+    control,
+    errors,
+    setValue,
+    saveLoading,
+    editLoading,
+  } = usePatientForm({ isEditing });
 
   return (
     <div className="w-full">
@@ -414,7 +422,7 @@ export const PatientForm = (props?: IPatientForm) => {
           </Grid>
         </Tab>
 
-        <PatientFormSubmit />
+        <PatientFormSubmit loading={saveLoading || editLoading} />
       </Form>
     </div>
   );

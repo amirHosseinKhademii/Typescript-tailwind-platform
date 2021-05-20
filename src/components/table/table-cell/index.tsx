@@ -25,7 +25,7 @@ export const TableCell: FC<ITableCell> = memo(
           />
         )}
         {column.render ? (
-          column.render()
+          column.render(item)
         ) : (
           <span className="text-gray-600 text-lg"> {item[column.key]}</span>
         )}

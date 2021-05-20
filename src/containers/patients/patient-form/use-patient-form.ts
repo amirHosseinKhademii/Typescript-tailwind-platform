@@ -1,6 +1,8 @@
 import { useForm, useWatch } from "react-hook-form";
-import { useService } from "hooks";
+import { useService, useToast, useUi } from "hooks";
 import { useMemo } from "react";
+import { Api } from "utils";
+import { useHistory } from "react-router";
 
 const defaultValues = {
   surename: "",
@@ -55,29 +57,55 @@ const defaultValues = {
   deceased: "No",
 };
 
+const url = `${Api.patients}`;
+
 export const usePatientForm = (props: IPatientForm) => {
+  const { uiState, toggleDialog } = useUi();
+  const { push } = useHistory();
+  const { success, error } = useToast();
+  const { usePost, usePut } = useService();
+
   const { handleSubmit, register, control, formState, setValue } = useForm({
     defaultValues,
   });
 
-  const { usePost, usePut } = useService();
-
   const { isEditing, editInitials } = props;
 
-  const { mutate: save } = usePost({ url: "" });
+  const { mutate: save, isLoading: saveLoading } = usePost({
+    url,
+    onSuccess: () => {
+      success("You successfully added a new patient.");
+      push("/admin/patients");
+    },
+    onError: (er) => {
+      error("Something went wrong");
+      console.log(er);
+    },
+  });
 
-  const { mutate: edit } = usePut({ url: "" });
+  const { mutate: edit, isLoading: editLoading } = usePut({
+    url: `${url}/${uiState.dialog.data.id}`,
+    onSuccess: () => {
+      success("You successfully edited this patient.");
+      toggleDialog({ open: false, data: {}, type: null });
+    },
+    onError: (er) => {
+      error("Something went wrong");
+      console.log(er);
+    },
+  });
 
   return {
     register,
     control,
     setValue,
+    saveLoading,
+    editLoading,
     isDirty: formState.isDirty,
     errors: useMemo(() => formState.errors, [formState.errors]),
     state: useWatch({ control, defaultValue: defaultValues }),
     onSubmit: handleSubmit((payload) => {
-      console.log(payload);
-      // isEditing ? edit({payload}) : save({payload});
+      isEditing ? edit({ payload }) : save({ payload });
     }),
   };
 };

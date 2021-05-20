@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useService } from "hooks";
-
+import { Api } from "utils";
 import { PatientListActions } from "./patient-list-actions";
 
 const columns = [
@@ -10,7 +10,7 @@ const columns = [
   {
     head: "Actions",
     width: "w-1/8",
-    render: () => PatientListActions(),
+    render: (item) => PatientListActions({ item }),
   },
 ];
 
@@ -19,7 +19,7 @@ export const usePatientList = () => {
 
   // const { data: list, isLoading } = useGet({
   //   key: "PATIENTS_LIST",
-  //   url: "",
+  //  url: Api.patients,
   //   enabled: false,
   // });
 
