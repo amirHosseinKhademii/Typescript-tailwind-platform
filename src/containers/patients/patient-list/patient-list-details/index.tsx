@@ -19,6 +19,7 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
       <Input size="small" disabled label="Email Address" value="Test" />
       <Input size="small" disabled label="Suburb" value="Test" />
       <Input size="small" disabled label="State" value="Test" />
+      <Input size="small" disabled label="Deceased" value="Yes" withError />
       <Input size="small" disabled label="Diabetes Type" value="Test" />
       <Input
         size="small"
@@ -111,7 +112,6 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
       <Input size="small" disabled label="Availability Detail" value="Test" />
       <Input size="small" disabled label="Next Steps" value="Test" />
       <Input size="small" disabled label="Do Not Call Until" value="Test" />
-      <Input size="small" disabled label="Deceased" value="Yes" withError />
     </div>
   );
 });

@@ -4,7 +4,7 @@ import { PatientFormToolbar } from "./patient-form-toolbar";
 import { PatientFormSubmit } from "./patient-form-submit";
 import {
   CHOCounting,
-  LastName,
+  FirstName,
   CurrentCGMWear,
   CurrentStudy,
   DateOfBirth,
@@ -76,10 +76,10 @@ export const PatientForm = (props?: IPatientForm) => {
               error={errors["surename"]?.message}
               state={state["surename"]}
             />
-            <LastName
+            <FirstName
               register={register}
-              error={errors["last_name"]?.message}
-              state={state["last_name"]}
+              error={errors["first_name"]?.message}
+              state={state["first_name"]}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
@@ -151,6 +151,16 @@ export const PatientForm = (props?: IPatientForm) => {
               state={state["state"]}
             />
           </Grid>
+          {isEditing && (
+            <Grid className=" pt-6 mt-4">
+              <Deceased
+                control={control}
+                setValue={setValue}
+                error={errors["deceased"]?.message}
+                state={state["deceased"]}
+              />
+            </Grid>
+          )}
         </Tab>
 
         <Tab
@@ -402,16 +412,6 @@ export const PatientForm = (props?: IPatientForm) => {
               state={state["do_not_call_until"]}
             />
           </Grid>
-          {isEditing && (
-            <Grid className=" pt-6 mt-4">
-              <Deceased
-                control={control}
-                setValue={setValue}
-                error={errors["deceased"]?.message}
-                state={state["deceased"]}
-              />
-            </Grid>
-          )}
         </Tab>
 
         <PatientFormSubmit />

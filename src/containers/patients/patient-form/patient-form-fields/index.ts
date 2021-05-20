@@ -1,4 +1,4 @@
-export * from "./last-name";
+export * from "./first-name";
 export * from "./surename";
 export * from "./current-study";
 export * from "./previous-study1";
@@ -50,4 +50,4 @@ export * from "./diabetes-type";
 export * from "./phone-type";
 export * from "./infusion-line-type";
 export * from "./suburb";
-export { Deceased } from "./deceased";
+export * from "./deceased";
