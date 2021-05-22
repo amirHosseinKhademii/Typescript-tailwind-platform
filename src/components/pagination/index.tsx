@@ -1,45 +1,61 @@
 import { FC, memo, useMemo } from "react";
 import { Button } from "components";
 import { classNames } from "utils";
-import { ICChevronLeft, ICChevronRight } from "icons";
 
 export const Pagination: FC<IPagination> = memo(
   ({ className, total, page, onPaginate, disabled }) => {
     const pages = useMemo(
-      () => Array.from(new Array(total)).slice(page, page + 5),
+      () =>
+        Array.from(new Array(total))
+          .map((item, index) => index)
+          .slice(page === 1 ? 0 : page - 2, page === 1 ? 5 : page + 3)
+          .filter((item) => item !== total - 1),
       [page, total]
     );
 
     return (
       <div className={`w-full row-between ${className}`} slot="wrapper">
         <div />
-        {total / 10 > 1 && (
+        {total > 1 && (
           <div className="row-items-center">
-            {/* <ICChevronLeft
-            className="w-4 h-4 text-gray-700 mr-3"
-            role="left-arrow"
-          /> */}
+            {page > 2 && (
+              <>
+                <Button
+                  onClick={() => onPaginate(1)}
+                  disabled={disabled}
+                  className={classNames(
+                    "w-8 h-8  disabled:opacity-30",
+                    page === 1 && "bg-secondary text-white"
+                  )}
+                >
+                  1
+                </Button>
+                <span className="mx-4">...</span>
+              </>
+            )}
+
             {pages.map((item, index) => (
               <Button
                 key={index}
-                onClick={() => onPaginate(index + 1)}
+                onClick={() => onPaginate(item + 1)}
                 disabled={disabled}
                 className={classNames(
                   "w-8 h-8  mr-2 disabled:opacity-30",
-                  page === index + 1 && "bg-secondary text-white"
+                  page === item + 1 && "bg-secondary text-white"
                 )}
               >
-                {index + 1}
+                {item + 1}
               </Button>
             ))}
-            {total > 5 && (
+
+            {total > 2 && (
               <>
-                <span className="mx-4">......</span>
+                <span className="mx-4">...</span>
                 <Button
                   onClick={() => onPaginate(total)}
                   disabled={disabled}
                   className={classNames(
-                    "w-8 h-8  ml-2 disabled:opacity-30",
+                    "w-8 h-8  disabled:opacity-30",
                     page === total && "bg-secondary text-white"
                   )}
                 >
@@ -47,10 +63,6 @@ export const Pagination: FC<IPagination> = memo(
                 </Button>
               </>
             )}
-            {/* <ICChevronRight
-            className="w-4 h-4 text-gray-700 ml-2"
-            role="right-arrow"
-          /> */}
           </div>
         )}
       </div>

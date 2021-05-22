@@ -15,7 +15,7 @@ export const PatientList = memo(() => {
       <Table
         className="w-full my-10"
         data={data}
-        total={100}
+        total={4}
         page={page}
         columns={columns}
         onPaginate={onPaginate}
