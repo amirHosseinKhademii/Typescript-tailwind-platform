@@ -4,19 +4,23 @@ import { classNames } from "utils";
 
 export const Pagination: FC<IPagination> = memo(
   ({ className, total, page, onPaginate, disabled }) => {
+    const actualTotal = useMemo(() => Math.floor(total / 10), [total]);
+
     const pages = useMemo(
       () =>
-        Array.from(new Array(total))
+        Array.from(new Array(actualTotal === 1 ? actualTotal + 1 : actualTotal))
           .map((item, index) => index)
           .slice(page === 1 ? 0 : page - 2, page === 1 ? 5 : page + 3)
-          .filter((item) => item !== total - 1),
+          .filter((item) =>
+            actualTotal > 1 ? item !== actualTotal - 1 : true
+          ),
       [page, total]
     );
 
     return (
       <div className={`w-full row-between ${className}`} slot="wrapper">
         <div />
-        {total > 1 && (
+        {Math.floor(total / 10) > 0 && (
           <div className="row-items-center">
             {page > 2 && (
               <>
@@ -48,18 +52,18 @@ export const Pagination: FC<IPagination> = memo(
               </Button>
             ))}
 
-            {total > 2 && (
+            {Math.floor(total / 10) > 2 && (
               <>
                 <span className="mx-4">...</span>
                 <Button
-                  onClick={() => onPaginate(total)}
+                  onClick={() => onPaginate(Math.floor(total / 10))}
                   disabled={disabled}
                   className={classNames(
                     "w-8 h-8  disabled:opacity-30",
-                    page === total && "bg-secondary text-white"
+                    page === Math.floor(total / 10) && "bg-secondary text-white"
                   )}
                 >
-                  {total}
+                  {Math.floor(total / 10)}
                 </Button>
               </>
             )}
