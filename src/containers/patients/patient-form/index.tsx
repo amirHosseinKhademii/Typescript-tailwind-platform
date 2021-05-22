@@ -56,7 +56,7 @@ import {
 } from "./patient-form-fields";
 
 export const PatientForm = (props?: IPatientForm) => {
-  const { isEditing } = props;
+  const { isEditing, editInitials } = props;
   const {
     onSubmit,
     state,
@@ -66,7 +66,7 @@ export const PatientForm = (props?: IPatientForm) => {
     setValue,
     saveLoading,
     editLoading,
-  } = usePatientForm({ isEditing });
+  } = usePatientForm({ isEditing, editInitials });
 
   return (
     <div className="w-full">

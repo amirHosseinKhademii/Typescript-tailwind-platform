@@ -22,7 +22,7 @@ export const PatientModal = memo(() => {
         header="Edit patient information"
         withHeader
       >
-        <PatientForm isEditing />
+        <PatientForm isEditing editInitials={uiState.dialog.data} />
       </Modal>
     );
   else if (uiState.dialog.open && uiState.dialog.type === "patient-delete")
