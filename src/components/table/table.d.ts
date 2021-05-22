@@ -15,6 +15,7 @@ interface ITable {
   loading?: boolean;
   fetching?: boolean;
   page?: number;
+  total?: number;
 }
 
 interface ITableCell {

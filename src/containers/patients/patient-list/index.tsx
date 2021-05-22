@@ -13,13 +13,14 @@ export const PatientList = memo(() => {
     <div className="w-full">
       <PatientListToolbar onSearch={onSearch} />
       <Table
-        data={data}
-        columns={columns}
-        expand={(item) => <PatientListDetails item={item} />}
         className="w-full my-10"
+        data={data}
+        total={100}
         page={page}
+        columns={columns}
         onPaginate={onPaginate}
-        //loading={isLoading}
+        loading={isLoading}
+        expand={(item) => <PatientListDetails item={item} />}
       />
     </div>
   );

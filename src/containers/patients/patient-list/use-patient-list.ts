@@ -14,7 +14,7 @@ const columns = [
   },
 ];
 
-const data = [
+const initialData = [
   {
     name: "Amir hossein",
     lastName: "Khademi",
@@ -30,40 +30,35 @@ const data = [
 ];
 
 export const usePatientList = () => {
+  const [params, setParams] = useState({ page: null, search: null });
   const { useGet } = useService();
 
-  const [params, setParams] = useState({ page: 1, search: null });
-
-  const {
-    data: list,
-    isLoading,
-    refetch,
-  } = useGet({
-    key: "PATIENTS_LIST",
+  const { data, isLoading, isFetching } = useGet({
+    key: ["PATIENTS_LIST", params],
     url: Api.patients,
-    params,
-    enabled: false,
+    initialData,
   });
 
   return {
     columns,
     data,
     setParams,
-    isLoading,
-    refetch,
+    isLoading: useMemo(() => isLoading || isFetching, [isLoading, isFetching]),
     page: useMemo(() => params.page, [params.page]),
     onPaginate: useCallback(
       (index) => {
         setParams((prev) => ({ ...prev, page: index }));
-        refetch();
       },
       [params.page]
     ),
     onSearch: useCallback(
       (event) => {
         setTimeout(() => {
-          setParams((prev) => ({ ...prev, search: event.target.value }));
-          refetch();
+          setParams((prev) => ({
+            ...prev,
+            page: 1,
+            search: event.target.value,
+          }));
         }, 500);
       },
       [params.search]

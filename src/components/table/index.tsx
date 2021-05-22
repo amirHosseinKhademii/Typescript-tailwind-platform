@@ -7,15 +7,7 @@ import { TableRow } from "./table-row";
 import { ICLoading } from "icons/loading";
 
 export const Table: FC<ITable> = memo(
-  ({
-    className,
-    columns,
-    data,
-    expand,
-    onPaginate,
-    loading,
-    page,
-  }) => {
+  ({ className, columns, data, expand, onPaginate, loading, page, total }) => {
     return (
       <div
         className={classNames("w-full flex flex-col items-center", className)}
@@ -39,8 +31,8 @@ export const Table: FC<ITable> = memo(
         {data && (
           <Pagination
             className="mt-10"
-            total={data.length}
-            page={page}
+            total={total}
+            page={page === null ? 1 : page}
             onPaginate={onPaginate}
             disabled={loading}
           />

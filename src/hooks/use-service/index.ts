@@ -1,6 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import axios from "axios";
 
+const headers = {
+  "Access-Control-Allow-Origin": "*",
+};
+
 export const useService = () => {
   const { invalidateQueries } = useQueryClient();
   return {
@@ -14,19 +18,28 @@ export const useService = () => {
         onFocus,
         onMount,
         enabled,
+        initialData,
       } = props;
-      const asyncGet = async () => await axios.get(url, { params });
+      const asyncGet = async () =>
+        await axios.get(url, {
+          headers,
+          params: { ...params, ...(key[1] && { ...key[1] }) },
+        });
+
       return useQuery(key, asyncGet, {
+        enabled: false,
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),
-        ...(enabled && { enabled }),
-        ...(onFocus && { refetchOnWindowFocus: onFocus }),
-        ...(onMount && { refetchOnMount: onMount }),
+        ...(enabled !== undefined && { enabled }),
+        ...(onFocus !== undefined && { refetchOnWindowFocus: onFocus }),
+        ...(onMount !== undefined && { refetchOnMount: onMount }),
+        ...(initialData && { initialData }),
       });
     },
     usePost: (props: IUseService) => {
       const { url, onError, onSuccess } = props;
-      const asyncPost = async ({ payload }) => await axios.post(url, payload);
+      const asyncPost = async ({ payload }) =>
+        await axios.post(url, payload, { headers });
       return useMutation(asyncPost, {
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),
@@ -34,7 +47,8 @@ export const useService = () => {
     },
     usePut: (props: IUseService) => {
       const { url, onError, onSuccess } = props;
-      const asyncPut = async ({ payload }) => await axios.put(url, { payload });
+      const asyncPut = async ({ payload }) =>
+        await axios.put(url, payload, { headers });
       return useMutation(asyncPut, {
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),
@@ -42,7 +56,7 @@ export const useService = () => {
     },
     useDelete: (props: IUseService) => {
       const { url, onError, onSuccess } = props;
-      const asyncDelete = async () => await axios.delete(url);
+      const asyncDelete = async () => await axios.delete(url, { headers });
       return useMutation(asyncDelete, {
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),

@@ -7,4 +7,5 @@ interface IUseService {
   onFocus?: boolean;
   onMount?: boolean;
   enabled?: boolean;
+  initialData?: any;
 }
