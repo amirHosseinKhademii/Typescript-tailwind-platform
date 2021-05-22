@@ -23,4 +23,5 @@ interface IInput {
   toggle?: any;
   validate?: any;
   validation?: any;
+  onChange?: any;
 }

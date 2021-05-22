@@ -32,7 +32,7 @@ const data = [
 export const usePatientList = () => {
   const { useGet } = useService();
 
-  const [params, setParams] = useState({ page: 1, search: "" });
+  const [params, setParams] = useState({ page: 1, search: null });
 
   const {
     data: list,
@@ -55,9 +55,18 @@ export const usePatientList = () => {
     onPaginate: useCallback(
       (index) => {
         setParams((prev) => ({ ...prev, page: index }));
-        //refetch();
+        refetch();
       },
       [params.page]
+    ),
+    onSearch: useCallback(
+      (event) => {
+        setTimeout(() => {
+          setParams((prev) => ({ ...prev, search: event.target.value }));
+          refetch();
+        }, 500);
+      },
+      [params.search]
     ),
   };
 };

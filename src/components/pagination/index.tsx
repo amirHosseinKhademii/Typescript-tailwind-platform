@@ -8,31 +8,31 @@ export const Pagination: FC<IPagination> = memo(
     return (
       <div className={`w-full row-between ${className}`} slot="wrapper">
         <div />
-        {/* {total / 10 > 1 && ( */}
-        <div className="row-items-center">
-          {/* <ICChevronLeft
+        {total / 10 > 1 && (
+          <div className="row-items-center">
+            {/* <ICChevronLeft
             className="w-4 h-4 text-gray-700 mr-3"
             role="left-arrow"
           /> */}
-          {Array.from(new Array(total)).map((item, index) => (
-            <Button
-              key={index}
-              onClick={() => onPaginate(index + 1)}
-              disabled={disabled}
-              className={classNames(
-                "w-8 h-8  mr-2 disabled:opacity-30",
-                page === index + 1 && "bg-secondary text-white"
-              )}
-            >
-              {index + 1}
-            </Button>
-          ))}
-          {/* <ICChevronRight
+            {Array.from(new Array(total)).map((item, index) => (
+              <Button
+                key={index}
+                onClick={() => onPaginate(index + 1)}
+                disabled={disabled}
+                className={classNames(
+                  "w-8 h-8  mr-2 disabled:opacity-30",
+                  page === index + 1 && "bg-secondary text-white"
+                )}
+              >
+                {index + 1}
+              </Button>
+            ))}
+            {/* <ICChevronRight
             className="w-4 h-4 text-gray-700 ml-2"
             role="right-arrow"
           /> */}
-        </div>
-        {/* )} */}
+          </div>
+        )}
       </div>
     );
   }
