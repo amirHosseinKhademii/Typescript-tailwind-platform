@@ -1,6 +1,8 @@
+import { useCallback, useMemo } from "react";
+import { useHistory } from "react-router";
 import { useForm } from "react-hook-form";
 import { useService, useToast } from "hooks";
-import { useCallback, useMemo } from "react";
+import { Api } from "utils";
 
 const defaultValues = { email: "", password: "" };
 
@@ -11,10 +13,15 @@ export const useLogin = () => {
 
   const { usePost } = useService();
 
+  const { push } = useHistory();
+
   const { mutate, isLoading } = usePost({
-    url: "",
-    onError: () => error("Server is down."),
-    onSuccess: () => success("You successfully loged in."),
+    url: `${Api.users}/login`,
+    onError: () => error("Something went wrong."),
+    onSuccess: () => {
+      push("/admin/patients");
+      success("You successfully loged in.");
+    },
   });
 
   return {

@@ -11,6 +11,10 @@ interface ITable {
   className?: string;
   data?: any;
   expand?: any;
+  onPaginate?: any;
+  loading?: boolean;
+  fetching?: boolean;
+  page?: number;
 }
 
 interface ITableCell {
@@ -25,6 +29,7 @@ interface ITableRow {
   columns?: Array<TColumn>;
   index?: any;
   expand?: any;
+  loading?: boolean;
 }
 
 interface ITableHead {

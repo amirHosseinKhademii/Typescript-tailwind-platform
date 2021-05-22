@@ -4,11 +4,16 @@ import { useToggle } from "hooks";
 
 import { TableCell } from "../table-cell";
 
-export const TableRow: FC<ITableRow> = memo(({ item, columns, expand }) => {
+export const TableRow: FC<ITableRow> = memo(({ item, columns, expand, loading }) => {
   const { open, toggle } = useToggle();
 
   return (
-    <div className="w-full flex flex-col border-b border-gray-300 bg-white">
+    <div
+      className={classNames(
+        "w-full flex flex-col border-b border-gray-300 bg-white ",
+        loading && "opacity-30"
+      )}
+    >
       <div
         onClick={() => (expand ? toggle() : {})}
         className={classNames(

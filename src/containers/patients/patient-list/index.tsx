@@ -6,7 +6,7 @@ import { PatientListToolbar } from "./patient-list-toolbar";
 import { PatientListDetails } from "./patient-list-details";
 
 export const PatientList = memo(() => {
-  const { data, columns } = usePatientList();
+  const { data, columns, onPaginate, isLoading, page } = usePatientList();
 
   return (
     <div className="w-full">
@@ -16,6 +16,9 @@ export const PatientList = memo(() => {
         columns={columns}
         expand={(item) => <PatientListDetails item={item} />}
         className="w-full my-10"
+        page={page}
+        onPaginate={onPaginate}
+        //loading={isLoading}
       />
     </div>
   );

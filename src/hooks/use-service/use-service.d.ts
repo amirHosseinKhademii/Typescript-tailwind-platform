@@ -2,7 +2,7 @@ interface IUseService {
   url?: string;
   onSuccess?: any;
   onError?: any;
-  key?: string;
+  key?: any;
   params?: any;
   onFocus?: boolean;
   onMount?: boolean;

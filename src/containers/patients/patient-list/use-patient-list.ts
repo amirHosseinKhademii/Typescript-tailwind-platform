@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useService } from "hooks";
 import { Api } from "utils";
 import { PatientListActions } from "./patient-list-actions";
@@ -14,32 +14,50 @@ const columns = [
   },
 ];
 
+const data = [
+  {
+    name: "Amir hossein",
+    lastName: "Khademi",
+    birthDay: "1990-04-05",
+    id: "1",
+  },
+  {
+    name: "Ali",
+    lastName: "Khademi",
+    birthDay: "1990-04-05",
+    id: "2",
+  },
+];
+
 export const usePatientList = () => {
-  // const { useGet,  } = useService();
+  const { useGet } = useService();
 
-  // const { data: list, isLoading } = useGet({
-  //   key: "PATIENTS_LIST",
-  //  url: Api.patients,
-  //   enabled: false,
-  // });
+  const [params, setParams] = useState({ page: 1, search: "" });
 
-  const data = useMemo(
-    () => [
-      {
-        name: "Amir hossein",
-        lastName: "Khademi",
-        birthDay: "1990-04-05",
-        id: "1",
+  const {
+    data: list,
+    isLoading,
+    refetch,
+  } = useGet({
+    key: "PATIENTS_LIST",
+    url: Api.patients,
+    params,
+    enabled: false,
+  });
+
+  return {
+    columns,
+    data,
+    setParams,
+    isLoading,
+    refetch,
+    page: useMemo(() => params.page, [params.page]),
+    onPaginate: useCallback(
+      (index) => {
+        setParams((prev) => ({ ...prev, page: index }));
+        //refetch();
       },
-      {
-        name: "Ali",
-        lastName: "Khademi",
-        birthDay: "1990-04-05",
-        id: "2",
-      },
-    ],
-    []
-  );
-
-  return { columns, data };
+      [params.page]
+    ),
+  };
 };
