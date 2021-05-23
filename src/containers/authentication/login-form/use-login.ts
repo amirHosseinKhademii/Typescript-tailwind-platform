@@ -20,7 +20,6 @@ export const useLogin = () => {
     onError: () => error("Something went wrong."),
     onSuccess: (res) => {
       localStorage.setItem("token", JSON.stringify(res.data));
-      console.log(res);
       success("You successfully loged in.");
       push("/admin/patients");
     },

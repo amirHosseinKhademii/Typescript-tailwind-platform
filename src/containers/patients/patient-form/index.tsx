@@ -132,8 +132,8 @@ export const PatientForm = (props?: IPatientForm) => {
           <Grid className=" pt-6 mt-4">
             <PreferedContactDate
               register={register}
-              error={errors["preferred_contact_time"]?.message}
-              state={state["preferred_contact_time"]}
+              error={errors["preferred_contact_date"]?.message}
+              state={state["preferred_contact_date"]}
             />
             <PreferedContactMethod
               control={control}
@@ -145,8 +145,8 @@ export const PatientForm = (props?: IPatientForm) => {
           <Grid className=" pt-6 mt-4 ">
             <EmailAddress
               register={register}
-              error={errors["email"]?.message}
-              state={state["email"]}
+              error={errors["email_address"]?.message}
+              state={state["email_address"]}
             />
             <Suburb
               register={register}

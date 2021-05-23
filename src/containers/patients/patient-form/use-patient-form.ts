@@ -90,7 +90,10 @@ export const usePatientForm = (props: IPatientForm) => {
   });
 
   const { mutate: edit, isLoading: editLoading } = usePut({
-    url: editInitials.data ? `${Api.patients}/${editInitials.data.id}` : "",
+    url:
+      editInitials && editInitials.data
+        ? `${Api.patients}/${editInitials.data.id}`
+        : "",
     onSuccess: () => {
       success("You successfully edited this patient.");
       toggleDialog({ open: false, data: {}, type: null });
