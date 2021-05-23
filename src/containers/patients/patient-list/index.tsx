@@ -8,7 +8,7 @@ import { PatientListDetails } from "./patient-list-details";
 export const PatientList = memo(() => {
   const { data, columns, onPaginate, isLoading, page, onSearch } =
     usePatientList();
-
+ 
   return (
     <div className="w-full">
       <PatientListToolbar onSearch={onSearch} />

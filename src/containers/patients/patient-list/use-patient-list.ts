@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from "react";
-import { useService } from "hooks";
+import { useError, useService } from "hooks";
 import { Api } from "utils";
 import { PatientListActions } from "./patient-list-actions";
 
@@ -14,29 +14,16 @@ const columns = [
   },
 ];
 
-const initialData = [
-  {
-    name: "Amir hossein",
-    lastName: "Khademi",
-    birthDay: "1990-04-05",
-    id: "1",
-  },
-  {
-    name: "Ali",
-    lastName: "Khademi",
-    birthDay: "1990-04-05",
-    id: "2",
-  },
-];
-
 export const usePatientList = () => {
   const [params, setParams] = useState({ page: null, search: null });
   const { useGet } = useService();
+  const { onError } = useError();
 
   const { data, isLoading, isFetching } = useGet({
     key: ["PATIENTS_LIST", params],
     url: Api.patients,
     onFocus: false,
+    onError,
   });
 
   return {

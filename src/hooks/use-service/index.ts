@@ -14,6 +14,7 @@ export const useService = () => {
         params,
         onError,
         onSuccess,
+        onSettled,
         onFocus,
         onMount,
         enabled,
@@ -27,6 +28,7 @@ export const useService = () => {
       return useQuery(key, asyncGet, {
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),
+        ...(onSettled && { onSettled }),
         ...(enabled !== undefined && { enabled }),
         ...(onFocus !== undefined && { refetchOnWindowFocus: onFocus }),
         ...(onMount !== undefined && { refetchOnMount: onMount }),

@@ -1,23 +1,22 @@
 import { useCallback, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
-import { useService, useToast } from "hooks";
+import { useError, useService, useToast } from "hooks";
 import { Api } from "utils";
 
 const defaultValues = { email: "" };
 
 export const usePassword = () => {
-  const { register, handleSubmit, formState } = useForm({ defaultValues });
-
-  const { error, success } = useToast();
-
+  const { success } = useToast();
   const { usePost } = useService();
-
   const { push } = useHistory();
+  const { onError } = useError();
+
+  const { register, handleSubmit, formState } = useForm({ defaultValues });
 
   const { mutate, isLoading } = usePost({
     url: `${Api.users}reset/`,
-    onError: () => error("Something went wrong."),
+    onError,
     onSuccess: () => {
       push("/authentication/login");
       success("New password has been sent to your email.");

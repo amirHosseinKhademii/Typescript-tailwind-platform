@@ -14,7 +14,7 @@ export const Table: FC<ITable> = memo(
         slot="wrapper"
       >
         <TableHead columns={columns} />
-        {loading && !data ? (
+        {loading && (!data || data.length === 0) ? (
           <ICLoading className="w-14 h-14 text-gray-400 self-center justify-self-center mt-14" />
         ) : (
           (data || []).map((item, index) => (

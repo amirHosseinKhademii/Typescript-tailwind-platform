@@ -1,5 +1,5 @@
 import { useForm, useWatch } from "react-hook-form";
-import { useService, useToast, useUi } from "hooks";
+import { useError, useService, useToast, useUi } from "hooks";
 import { useMemo } from "react";
 import { Api } from "utils";
 import { useHistory } from "react-router";
@@ -60,16 +60,14 @@ const initialState = {
 export const usePatientForm = (props: IPatientForm) => {
   const { toggleDialog } = useUi();
   const { push } = useHistory();
-  const { success, error } = useToast();
+  const { success } = useToast();
   const { usePost, usePut } = useService();
+  const { onError } = useError();
 
   const { isEditing, editInitials } = props;
 
   const defaultValues = useMemo(
-    () =>
-      isEditing && editInitials
-        ? { surename: editInitials.lastName, first_name: editInitials.name }
-        : initialState,
+    () => (isEditing && editInitials ? editInitials : initialState),
     [isEditing, editInitials]
   );
 
@@ -83,10 +81,7 @@ export const usePatientForm = (props: IPatientForm) => {
       success("You successfully added a new patient.");
       push("/admin/patients");
     },
-    onError: (er) => {
-      error("Something went wrong");
-      console.log(er);
-    },
+    onError,
   });
 
   const { mutate: edit, isLoading: editLoading } = usePut({
@@ -98,10 +93,7 @@ export const usePatientForm = (props: IPatientForm) => {
       success("You successfully edited this patient.");
       toggleDialog({ open: false, data: {}, type: null });
     },
-    onError: (er) => {
-      error("Something went wrong");
-      console.log(er);
-    },
+    onError,
   });
 
   return {
