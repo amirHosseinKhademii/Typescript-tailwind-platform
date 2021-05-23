@@ -5,5 +5,6 @@ export const route = {
   name: "ROUTE:ADMIN:PATIENTS:ADD",
   exact: true,
   layout: "admin",
+  authorize: true,
   component: lazy(() => import(".")),
 };

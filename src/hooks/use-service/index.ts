@@ -1,12 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import axios from "axios";
-
-const headers = {
-  "Access-Control-Allow-Origin": "*",
-};
+import { useAuth } from "hooks";
 
 export const useService = () => {
+  const { headers } = useAuth();
   const { invalidateQueries } = useQueryClient();
+
   return {
     useGet: (props: IUseService) => {
       const {
@@ -25,9 +24,7 @@ export const useService = () => {
           headers,
           params: { ...params, ...(key[1] && { ...key[1] }) },
         });
-
       return useQuery(key, asyncGet, {
-        enabled: false,
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),
         ...(enabled !== undefined && { enabled }),

@@ -8,7 +8,7 @@ export const usePatientModal = () => {
   const { useDelete } = useService();
 
   const { mutate, isLoading } = useDelete({
-    url: `${Api.patients}/${uiState.dialog.data.id}`,
+    url: `${Api.patients}${uiState.dialog.data.id}/`,
     onSuccess: () => {
       toggleDialog({ open: false, type: null, data: {} });
       success("You successfully deleted this patient.");

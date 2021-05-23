@@ -14,8 +14,8 @@ export const PatientList = memo(() => {
       <PatientListToolbar onSearch={onSearch} />
       <Table
         className="w-full my-10"
-        data={data}
-        total={100}
+        data={data.results}
+        total={data.count}
         page={page}
         columns={columns}
         onPaginate={onPaginate}

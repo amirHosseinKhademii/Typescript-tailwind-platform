@@ -16,11 +16,13 @@ export const useLogin = () => {
   const { push } = useHistory();
 
   const { mutate, isLoading } = usePost({
-    url: `${Api.users}/login`,
+    url: `${Api.users}login/`,
     onError: () => error("Something went wrong."),
-    onSuccess: () => {
-      push("/admin/patients");
+    onSuccess: (res) => {
+      localStorage.setItem("token", JSON.stringify(res.data));
+      console.log(res);
       success("You successfully loged in.");
+      push("/admin/patients");
     },
   });
 

@@ -16,7 +16,7 @@ export const usePassword = () => {
   const { push } = useHistory();
 
   const { mutate, isLoading } = usePost({
-    url: `${Api.users}/reset`,
+    url: `${Api.users}reset/`,
     onError: () => error("Something went wrong."),
     onSuccess: () => {
       push("/authentication/login");

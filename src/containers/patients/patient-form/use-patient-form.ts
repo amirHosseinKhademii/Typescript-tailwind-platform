@@ -6,7 +6,7 @@ import { useHistory } from "react-router";
 
 const defaultValues = {
   surename: "",
-  last_name: "",
+  first_name: "",
   current_study: "",
   previous_study: "",
   date_of_birth: "",
