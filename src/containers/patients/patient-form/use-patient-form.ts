@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { Api } from "utils";
 import { useHistory } from "react-router";
 
-const defaultValues = {
+const initialState = {
   surename: "",
   first_name: "",
   current_study: "",
@@ -57,22 +57,28 @@ const defaultValues = {
   deceased: "No",
 };
 
-const url = `${Api.patients}`;
-
 export const usePatientForm = (props: IPatientForm) => {
-  const { uiState, toggleDialog } = useUi();
+  const { toggleDialog } = useUi();
   const { push } = useHistory();
   const { success, error } = useToast();
   const { usePost, usePut } = useService();
+
+  const { isEditing, editInitials } = props;
+
+  const defaultValues = useMemo(
+    () =>
+      isEditing && editInitials
+        ? { surename: editInitials.lastName, first_name: editInitials.name }
+        : initialState,
+    [isEditing, editInitials]
+  );
 
   const { handleSubmit, register, control, formState, setValue } = useForm({
     defaultValues,
   });
 
-  const { isEditing, editInitials } = props;
-
   const { mutate: save, isLoading: saveLoading } = usePost({
-    url,
+    url: `${Api.patients}`,
     onSuccess: () => {
       success("You successfully added a new patient.");
       push("/admin/patients");
@@ -84,7 +90,7 @@ export const usePatientForm = (props: IPatientForm) => {
   });
 
   const { mutate: edit, isLoading: editLoading } = usePut({
-    url: `${url}/${uiState.dialog.data.id}`,
+    url: editInitials.data ? `${Api.patients}/${editInitials.data.id}` : "",
     onSuccess: () => {
       success("You successfully edited this patient.");
       toggleDialog({ open: false, data: {}, type: null });
