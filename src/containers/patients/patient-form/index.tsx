@@ -106,7 +106,7 @@ export const PatientForm = (props?: IPatientForm) => {
           </Grid>
           <Grid className=" pt-6 mt-4">
             <DateOfBirth
-              register={register}
+              control={control}
               error={errors["date_of_birth"]?.message}
               state={state["date_of_birth"]}
               setValue={setValue}
@@ -132,7 +132,7 @@ export const PatientForm = (props?: IPatientForm) => {
           </Grid>
           <Grid className=" pt-6 mt-4">
             <PreferedContactDate
-              register={register}
+              control={control}
               error={errors["preferred_contact_date"]?.message}
               state={state["preferred_contact_date"]}
               setValue={setValue}
@@ -187,7 +187,7 @@ export const PatientForm = (props?: IPatientForm) => {
               setValue={setValue}
             />
             <DateOfDiagnosisOfT1D
-              register={register}
+              control={control}
               error={errors["date_of_diagnosis_of_t1d"]?.message}
               state={state["date_of_diagnosis_of_t1d"]}
               setValue={setValue}
@@ -294,7 +294,7 @@ export const PatientForm = (props?: IPatientForm) => {
               error={errors["latest_hba1c_reading"]?.message}
             />
             <LatestHBA1CReadingDate
-              register={register}
+              control={control}
               state={state["latest_hba1c_reading_date"]}
               error={errors["latest_hba1c_reading_date"]?.message}
               setValue={setValue}
@@ -381,7 +381,7 @@ export const PatientForm = (props?: IPatientForm) => {
               state={state["discussion_held_and_what_discussed"]}
             />
             <ContactDate
-              register={register}
+              control={control}
               error={errors["contact_date"]?.message}
               state={state["contact_date"]}
               setValue={setValue}

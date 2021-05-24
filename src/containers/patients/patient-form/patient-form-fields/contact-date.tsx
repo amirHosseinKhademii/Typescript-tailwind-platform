@@ -2,15 +2,14 @@ import { DatePicker } from "components";
 import { FC, memo } from "react";
 
 export const ContactDate: FC<IPatientField> = memo(
-  ({ register, error, state, setValue }) => {
+  ({ control, error, state }) => {
     return (
       <DatePicker
         label="Contact Date"
         name="contact_date"
-        register={register}
+        control={control}
         value={state}
         error={error}
-        setValue={setValue}
         required
         later
       />
