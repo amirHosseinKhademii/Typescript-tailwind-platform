@@ -1,9 +1,13 @@
 import { FC, memo } from "react";
+import { classNames } from "utils";
 
-export const Error: FC<IError> = memo(({ error }) => {
+export const Error: FC<IError> = memo(({ error, className }) => {
   if (error && typeof error === "string")
     return (
-      <p className=" text-xs mt-2 text-red-700" slot="wrapper">
+      <p
+        className={classNames(" text-xs mt-2 text-red-700", className)}
+        slot="wrapper"
+      >
         {error}
       </p>
     );

@@ -1,7 +1,7 @@
 interface IDatePicker {
   className?: string;
   label?: string;
-  value?: string;
+  value?: any;
   error?: string;
   name?: any;
   later?: boolean | undefined;
