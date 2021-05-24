@@ -109,6 +109,7 @@ export const PatientForm = (props?: IPatientForm) => {
               register={register}
               error={errors["date_of_birth"]?.message}
               state={state["date_of_birth"]}
+              setValue={setValue}
             />
             <Gender
               control={control}
@@ -134,6 +135,7 @@ export const PatientForm = (props?: IPatientForm) => {
               register={register}
               error={errors["preferred_contact_date"]?.message}
               state={state["preferred_contact_date"]}
+              setValue={setValue}
             />
             <PreferedContactMethod
               control={control}
@@ -295,6 +297,7 @@ export const PatientForm = (props?: IPatientForm) => {
               register={register}
               state={state["latest_hba1c_reading_date"]}
               error={errors["latest_hba1c_reading_date"]?.message}
+              setValue={setValue}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">
@@ -381,6 +384,7 @@ export const PatientForm = (props?: IPatientForm) => {
               register={register}
               error={errors["contact_date"]?.message}
               state={state["contact_date"]}
+              setValue={setValue}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">

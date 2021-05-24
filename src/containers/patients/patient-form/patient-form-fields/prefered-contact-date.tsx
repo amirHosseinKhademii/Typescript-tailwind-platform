@@ -1,10 +1,10 @@
-import { Input } from "components";
+import { DatePicker } from "components";
 import { FC, memo } from "react";
 
 export const PreferedContactDate: FC<IPatientField> = memo(
-  ({ register, error, state }) => {
+  ({ register, error, state, setValue }) => {
     return (
-      <Input
+      <DatePicker
         label="Prefered Contact Date"
         placeholder="Enter Prefered Contact Date"
         name="preferred_contact_date"
@@ -12,9 +12,8 @@ export const PreferedContactDate: FC<IPatientField> = memo(
         register={register}
         error={error}
         value={state}
-        max={20}
+        setValue={setValue}
         required
-        interactive
       />
     );
   }

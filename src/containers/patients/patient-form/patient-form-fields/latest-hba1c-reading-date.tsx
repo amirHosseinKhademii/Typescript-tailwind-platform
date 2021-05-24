@@ -1,16 +1,16 @@
-import { Input } from "components";
+import { DatePicker } from "components";
 import { FC, memo } from "react";
 
 export const LatestHBA1CReadingDate: FC<IPatientField> = memo(
-  ({ register, error, state }) => {
+  ({ register, error, state, setValue }) => {
     return (
-      <Input
+      <DatePicker
         label="Latest HbA1c Reading Date"
         name="latest_hba1c_reading_date"
-        type="date"
         value={state}
         error={error}
         register={register}
+        setValue={setValue}
         required
       />
     );

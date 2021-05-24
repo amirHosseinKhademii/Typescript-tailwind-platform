@@ -1,14 +1,14 @@
-import { Input, Select, SelectOption } from "components";
+import { DatePicker, Input, Select, SelectOption } from "components";
 import { FC, memo } from "react";
 import { years } from "utils";
 
 export const DateOfDiagnosisOfT1D: FC<IPatientField> = memo(
-  ({ state, register, error }) => {
+  ({ state, register, error, setValue }) => {
     return (
-      <Input
+      <DatePicker
         label="Date Of Diagnosis Of T1D"
         name="date_of_diagnosis_of_t1d"
-        type="date"
+        setValue={setValue}
         value={state}
         register={register}
         error={error}
