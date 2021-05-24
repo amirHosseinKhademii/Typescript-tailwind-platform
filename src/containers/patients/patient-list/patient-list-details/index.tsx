@@ -2,8 +2,6 @@ import { Input, Switch } from "components";
 import { FC, memo } from "react";
 
 export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
- 
-
   return (
     <div className="grid gird-cols-2 md:grid-cols-3  lg:grid-cols-4  gap-3 w-full">
       <Input
@@ -71,12 +69,14 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
         label="CHO Counting"
         value={item.cho_counting}
       />
-      <Input
-        size="small"
-        disabled
-        label="CHO Counting Detail"
-        value={item.cho_counting_details}
-      />
+      {item.cho_counting === "Other" && (
+        <Input
+          size="small"
+          disabled
+          label="CHO Counting Detail"
+          value={item.cho_counting_details}
+        />
+      )}
       <Input
         size="small"
         disabled
@@ -161,12 +161,14 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
         label="In the past 12 months, have you had Diabetic Ketoacidosis (DKA) requiring a hospital admission?"
         checked={item.dka_requiring_hospital_admission_past_12_months}
       />
-      <Input
-        size="small"
-        disabled
-        label="DKA Details"
-        value={item.dka_details}
-      />
+      {item.dka_requiring_hospital_admission_past_12_months && (
+        <Input
+          size="small"
+          disabled
+          label="DKA Details"
+          value={item.dka_details}
+        />
+      )}
 
       <Switch
         size="small"

@@ -314,7 +314,7 @@ export const PatientForm = (props?: IPatientForm) => {
             )}
             <HadSevereHypo
               control={control}
-              state={state["hypoglycemic_event_past_12_month"]}
+              state={state["hypoglycemic_event_past_12_months"]}
             />
           </Grid>
           <Grid className=" pt-6 mt-4">

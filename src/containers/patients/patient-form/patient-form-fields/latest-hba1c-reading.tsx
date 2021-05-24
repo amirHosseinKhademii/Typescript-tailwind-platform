@@ -8,7 +8,6 @@ export const LatestHBA1CReading: FC<IPatientField> = memo(
         label="Latest HbA1c Reading"
         placeholder="Enter Latest HbA1c Reading"
         name="latest_hba1c_reading"
-        type="number"
         register={register}
         value={state}
         error={error}
