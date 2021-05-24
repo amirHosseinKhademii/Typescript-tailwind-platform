@@ -36,7 +36,9 @@ export const DatePicker: FC<IDatePicker> = memo(
             <div className={`w-full col-start ${className}`}>
               {label && <label className="text-gray-800 mb-2">{label}</label>}
               <DatePickerReact
-                selected={value}
+                selected={
+                  value && typeof value === "object" ? value : new Date()
+                }
                 onChange={(date) => onChange(date)}
                 closeOnScroll={true}
                 placeholderText="Click here"

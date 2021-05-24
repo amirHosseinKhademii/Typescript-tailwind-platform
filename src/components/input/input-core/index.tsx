@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC, memo, useMemo } from "react";
 import { classNames } from "utils";
 
 export const InputCore: FC<IInput> = memo(
@@ -20,6 +20,19 @@ export const InputCore: FC<IInput> = memo(
     icon,
     onChange,
   }) => {
+    const actualValue = useMemo(() => {
+      switch (typeof value) {
+        case "string":
+          return value;
+        case "object":
+          if (value.length) {
+            return value.join(",");
+          } else return "";
+        default:
+          break;
+      }
+    }, [value]);
+
     if (register)
       return (
         <input
@@ -57,7 +70,7 @@ export const InputCore: FC<IInput> = memo(
           placeholder={interactive ? (open ? null : placeholder) : placeholder}
           name={name}
           disabled={disabled}
-          value={value}
+          value={actualValue}
           onClick={onClick}
           onFocus={() => toggle(true)}
           onBlur={() => toggle(false)}

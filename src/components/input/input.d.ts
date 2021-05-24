@@ -2,7 +2,7 @@ interface IInput {
   className?: string;
   label?: string;
   register?: any;
-  value?: string;
+  value?: any;
   placeholder?: string;
   type?: "text" | "email" | "password" | "number" | "date";
   error?: string;
