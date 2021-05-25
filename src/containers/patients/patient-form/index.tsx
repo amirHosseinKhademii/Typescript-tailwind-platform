@@ -308,8 +308,8 @@ export const PatientForm = (props?: IPatientForm) => {
             {state["dka_requiring_hospital_admission_past_12_months"] && (
               <DKADetail
                 register={register}
-                state={state["dka_detials"]}
-                error={errors["dka_detials"]?.message}
+                state={state["dka_details"]}
+                error={errors["dka_details"]?.message}
               />
             )}
             <HadSevereHypo
