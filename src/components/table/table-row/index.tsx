@@ -35,7 +35,7 @@ export const TableRow: FC<ITableRow> = memo(
             ))}
           </div>
         ) : (
-          <div className="w-full h-[60px] grid grid-cols-4 gap-x-64 px-6 py-4">
+          <div className="w-full h-[60px] grid grid-cols-4 gap-x-32 xl:gap-x-64 px-6 py-4">
             <div className="h-8 w-full rounded bg-gray-200 animate-pulse" />
             <div className="h-8 w-full rounded bg-gray-200 animate-pulse" />
             <div className="h-8 w-full rounded bg-gray-200 animate-pulse" />

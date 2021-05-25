@@ -6,12 +6,14 @@ export const DoNotCallUntil: FC<IPatientField> = memo(
     return (
       <Input
         label="Do Not Call Until"
+        placeholder="Enter Do Not Call Until"
         name="do_not_call_until"
         type="text"
         register={register}
         value={state}
         error={error}
         required
+        interactive
       />
     );
   }
