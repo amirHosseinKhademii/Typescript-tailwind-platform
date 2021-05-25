@@ -28,7 +28,7 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
         size="small"
         disabled
         label="Prefered Contact Date"
-        value={item.preferred_contact_date}
+        value={item.preferred_contact_time}
       />
       <Input
         size="small"
@@ -36,12 +36,7 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
         label="Prefered Contact Method"
         value={item.preferred_contact_method}
       />
-      <Input
-        size="small"
-        disabled
-        label="Email Address"
-        value={item.email_address}
-      />
+      <Input size="small" disabled label="Email Address" value={item.email} />
       <Input size="small" disabled label="Suburb" value={item.suburb} />
       <Input size="small" disabled label="State" value={item.state} />
       <Input

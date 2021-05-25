@@ -25,7 +25,7 @@ export const InputCore: FC<IInput> = memo(
         case "string":
           return value;
         case "object":
-          if (value.length) {
+          if (value && value.length) {
             return value.join(",");
           } else return "";
         default:

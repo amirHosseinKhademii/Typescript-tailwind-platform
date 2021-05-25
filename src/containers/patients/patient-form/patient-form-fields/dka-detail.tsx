@@ -6,7 +6,7 @@ export const DKADetail: FC<IPatientField> = memo(
     return (
       <TextArea
         label="DKA Detail"
-        name="dka_detial"
+        name="dka_detials"
         register={register}
         error={error}
         value={state}

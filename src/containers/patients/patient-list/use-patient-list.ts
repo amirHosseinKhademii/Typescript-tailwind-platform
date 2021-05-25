@@ -4,8 +4,8 @@ import { Api } from "utils";
 import { PatientListActions } from "./patient-list-actions";
 
 const columns = [
-  { head: "Name", key: "surname", width: "w-1/3" },
-  { head: "Last Name", key: "christian_name", width: "w-1/3" },
+  { head: "Name", key: "first_name", width: "w-1/3" },
+  { head: "Last Name", key: "surename", width: "w-1/3" },
   { head: "Birth Date", key: "date_of_birth", width: "w-1/3" },
   {
     head: "Actions",

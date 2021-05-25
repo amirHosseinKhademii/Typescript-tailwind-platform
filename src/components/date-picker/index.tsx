@@ -38,7 +38,7 @@ export const DatePicker: FC<IDatePicker> = memo(
             <div className={`w-full col-start relative ${className}`}>
               {label && <label className="text-gray-800 mb-2">{label}</label>}
               <DatePickerReact
-                onChange={(date) => onChange(date.toISOString())}
+                onChange={(date) => onChange(date.toISOString().slice(0, 10))}
                 closeOnScroll={true}
                 placeholderText="Click here"
                 dateFormat="yyyy/MM/dd"

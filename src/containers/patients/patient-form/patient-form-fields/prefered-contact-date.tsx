@@ -6,7 +6,7 @@ export const PreferedContactDate: FC<IPatientField> = memo(
     return (
       <DatePicker
         label="Prefered Contact Date"
-        name="preferred_contact_date"
+        name="preferred_contact_time"
         control={control}
         error={error}
         value={state}

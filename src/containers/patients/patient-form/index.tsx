@@ -133,8 +133,8 @@ export const PatientForm = (props?: IPatientForm) => {
           <Grid className=" pt-6 mt-4">
             <PreferedContactDate
               control={control}
-              error={errors["preferred_contact_date"]?.message}
-              state={state["preferred_contact_date"]}
+              error={errors["preferred_contact_time"]?.message}
+              state={state["preferred_contact_time"]}
               setValue={setValue}
             />
             <PreferedContactMethod
@@ -147,8 +147,8 @@ export const PatientForm = (props?: IPatientForm) => {
           <Grid className=" pt-6 mt-4 ">
             <EmailAddress
               register={register}
-              error={errors["email_address"]?.message}
-              state={state["email_address"]}
+              error={errors["email"]?.message}
+              state={state["email"]}
             />
             <Suburb
               register={register}
@@ -240,8 +240,8 @@ export const PatientForm = (props?: IPatientForm) => {
               state["current_diabetes_management"] === "Other") && (
               <PumpDetail
                 register={register}
-                state={state["pump_detail"]}
-                error={errors["pump_detail"]?.message}
+                state={state["pump_details"]}
+                error={errors["pump_details"]?.message}
               />
             )}
           </Grid>
@@ -308,8 +308,8 @@ export const PatientForm = (props?: IPatientForm) => {
             {state["dka_requiring_hospital_admission_past_12_months"] && (
               <DKADetail
                 register={register}
-                state={state["dka_detial"]}
-                error={errors["dka_detial"]?.message}
+                state={state["dka_detials"]}
+                error={errors["dka_detials"]?.message}
               />
             )}
             <HadSevereHypo

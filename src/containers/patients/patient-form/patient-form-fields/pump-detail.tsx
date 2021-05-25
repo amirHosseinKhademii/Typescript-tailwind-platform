@@ -6,7 +6,7 @@ export const PumpDetail: FC<IPatientField> = memo(
     return (
       <TextArea
         label="Pump Details"
-        name="pump_detail"
+        name="pump_details"
         register={register}
         error={error}
         value={state}

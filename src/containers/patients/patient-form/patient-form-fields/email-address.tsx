@@ -7,7 +7,7 @@ export const EmailAddress: FC<IPatientField> = memo(
       <Input
         label="Email Address"
         placeholder="Enter Email Address"
-        name="email_address"
+        name="email"
         type="email"
         register={register}
         error={error}
