@@ -61,7 +61,7 @@ export const usePatientForm = (props: IPatientForm) => {
   const { toggleDialog } = useUi();
   const { push } = useHistory();
   const { success } = useToast();
-  const { usePost, usePut } = useService();
+  const { usePost, usePut, client } = useService();
   const { onError } = useError();
 
   const { isEditing, editInitials } = props;
@@ -85,10 +85,11 @@ export const usePatientForm = (props: IPatientForm) => {
   });
 
   const { mutate: edit, isLoading: editLoading } = usePut({
-    url: editInitials ? `${Api.patients}${editInitials.id}` : "",
+    url: editInitials ? `${Api.patients}${editInitials.id}/` : "",
     onSuccess: () => {
       success("You successfully edited this patient.");
       toggleDialog({ open: false, data: {}, type: null });
+      client.invalidateQueries("PATIENTS_LIST");
     },
     onError,
   });

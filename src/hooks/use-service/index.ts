@@ -4,9 +4,10 @@ import { useAuth } from "hooks";
 
 export const useService = () => {
   const { headers } = useAuth();
-  const { invalidateQueries } = useQueryClient();
+  const client = useQueryClient();
 
   return {
+    client,
     useGet: (props: IUseService) => {
       const {
         url,
@@ -60,10 +61,6 @@ export const useService = () => {
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),
       });
-    },
-    useUpdate: (props: IUseService) => {
-      const { key } = props;
-      invalidateQueries(key);
     },
   };
 };

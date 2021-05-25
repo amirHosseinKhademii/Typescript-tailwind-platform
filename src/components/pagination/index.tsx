@@ -4,7 +4,11 @@ import { classNames } from "utils";
 
 export const Pagination: FC<IPagination> = memo(
   ({ className, total, page, onPaginate, disabled }) => {
-    const actualTotal = useMemo(() => Math.floor(total / 10), [total]);
+    const actualTotal = useMemo(
+      () =>
+        total % 10 > 0 ? Math.floor(total / 10) + 1 : Math.floor(total / 10),
+      [total]
+    );
 
     const pages = useMemo(
       () =>
@@ -56,14 +60,14 @@ export const Pagination: FC<IPagination> = memo(
               <>
                 <span className="mx-4">...</span>
                 <Button
-                  onClick={() => onPaginate(Math.floor(total / 10))}
+                  onClick={() => onPaginate(actualTotal)}
                   disabled={disabled}
                   className={classNames(
                     "w-8 h-8  disabled:opacity-30",
-                    page === Math.floor(total / 10) && "bg-secondary text-white"
+                    page === actualTotal && "bg-secondary text-white"
                   )}
                 >
-                  {Math.floor(total / 10)}
+                  {actualTotal}
                 </Button>
               </>
             )}

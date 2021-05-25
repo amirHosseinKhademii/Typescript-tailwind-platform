@@ -4,7 +4,6 @@ import { classNames } from "utils";
 
 import { TableHead } from "./table-head";
 import { TableRow } from "./table-row";
-import { ICLoading } from "icons/loading";
 
 export const Table: FC<ITable> = memo(
   ({ className, columns, data, expand, onPaginate, loading, page, total }) => {
@@ -14,20 +13,30 @@ export const Table: FC<ITable> = memo(
         slot="wrapper"
       >
         <TableHead columns={columns} />
-        {loading && (!data || data.length === 0) ? (
-          <ICLoading className="w-14 h-14 text-gray-400 self-center justify-self-center mt-14" />
-        ) : (
-          (data || []).map((item, index) => (
-            <TableRow
-              key={index}
-              item={item}
-              columns={columns}
-              index={index}
-              expand={expand}
-              loading={loading}
-            />
-          ))
-        )}
+
+        {loading && (!data || data.length === 0)
+          ? Array.from(new Array(10)).map((item, index) => (
+              <TableRow
+                key={index}
+                item={item}
+                columns={columns}
+                index={index}
+                expand={expand}
+                loading={loading}
+              />
+            ))
+          : data &&
+            (data || []).map((item, index) => (
+              <TableRow
+                key={index}
+                item={item}
+                columns={columns}
+                index={index}
+                expand={expand}
+                loading={loading}
+              />
+            ))}
+
         {data && (
           <Pagination
             className="mt-10"

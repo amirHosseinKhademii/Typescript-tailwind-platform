@@ -11,10 +11,11 @@ export const useError = () => {
       if (error.message) {
         switch (error.message) {
           case "Request failed with status code 401":
-            errorToast("Your token is expired please log in.");
+            errorToast("Your token is no longer valid, please log in.");
             push("/authentication/login");
             break;
           default:
+            errorToast(error.message);
             break;
         }
       }
