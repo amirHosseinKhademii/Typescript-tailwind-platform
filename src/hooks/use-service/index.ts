@@ -20,6 +20,7 @@ export const useService = () => {
         onMount,
         enabled,
         initialData,
+        keepPreviousData,
       } = props;
       const asyncGet = async () =>
         await axios.get(url, {
@@ -34,6 +35,7 @@ export const useService = () => {
         ...(onFocus !== undefined && { refetchOnWindowFocus: onFocus }),
         ...(onMount !== undefined && { refetchOnMount: onMount }),
         ...(initialData && { initialData }),
+        ...(keepPreviousData && { keepPreviousData }),
       });
     },
     usePost: (props: IUseService) => {

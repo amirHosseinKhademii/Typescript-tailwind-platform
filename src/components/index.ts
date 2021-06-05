@@ -26,3 +26,4 @@ export { Tab } from "./tab";
 export { Page } from "./page";
 export { Toast } from "./toast";
 export { DatePicker } from "./date-picker";
+export { Menu } from "./menu";
