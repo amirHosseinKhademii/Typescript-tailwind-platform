@@ -54,19 +54,12 @@ import {
   InfusionLineType,
   Deceased,
 } from "./patient-form-fields";
+import { memo } from "react";
 
-export const PatientForm = (props?: IPatientForm) => {
+export const PatientForm = memo((props?: IPatientForm) => {
   const { isEditing, editInitials } = props;
-  const {
-    onSubmit,
-    state,
-    register,
-    control,
-    errors,
-    setValue,
-    saveLoading,
-    editLoading,
-  } = usePatientForm({ isEditing, editInitials });
+  const { onSubmit, control, setValue, saveLoading, editLoading } =
+    usePatientForm({ isEditing, editInitials });
 
   return (
     <div className="w-full">
@@ -84,40 +77,20 @@ export const PatientForm = (props?: IPatientForm) => {
           </Grid>
 
           <Grid className=" pt-6 mt-4">
-            <CurrentStudy
-              control={control}
-              state={state["current_study"]}
-              setValue={setValue}
-            />
-            <PreviousStudy1
-              control={control}
-              state={state["previous_study"]}
-              setValue={setValue}
-            />
+            <CurrentStudy control={control} setValue={setValue} />
+            <PreviousStudy1 control={control} setValue={setValue} />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <DateOfBirth control={control} setValue={setValue} />
-            <Gender
-              control={control}
-              state={state["gender"]}
-              setValue={setValue}
-            />
+            <Gender control={control} setValue={setValue} />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <PhoneNumber control={control} />
-            <PhoneType control={control} state={state["phone_type"]} />
+            <PhoneType control={control} setValue={setValue} />
           </Grid>
           <Grid className=" pt-6 mt-4">
-            <PreferedContactDate
-              control={control}
-              state={state["preferred_contact_time"]}
-              setValue={setValue}
-            />
-            <PreferedContactMethod
-              control={control}
-              state={state["preferred_contact_method"]}
-              setValue={setValue}
-            />
+            <PreferedContactDate control={control} setValue={setValue} />
+            <PreferedContactMethod control={control} setValue={setValue} />
           </Grid>
           <Grid className=" pt-6 mt-4 ">
             <EmailAddress control={control} />
@@ -126,11 +99,7 @@ export const PatientForm = (props?: IPatientForm) => {
           </Grid>
           {isEditing && (
             <Grid className=" pt-6 mt-4">
-              <Deceased
-                control={control}
-                setValue={setValue}
-                state={state["deceased"]}
-              />
+              <Deceased control={control} setValue={setValue} />
             </Grid>
           )}
         </Tab>
@@ -142,75 +111,32 @@ export const PatientForm = (props?: IPatientForm) => {
           className="mt-10"
         >
           <Grid className=" mt-4 ">
-            <DiabetesType
-              control={control}
-              state={state["diabetes_type"]}
-              setValue={setValue}
-            />
-            <DateOfDiagnosisOfT1D
-              control={control}
-              state={state["date_of_diagnosis_of_t1d"]}
-              setValue={setValue}
-            />
+            <DiabetesType control={control} setValue={setValue} />
+            <DateOfDiagnosisOfT1D control={control} setValue={setValue} />
           </Grid>
           <Grid className=" pt-6 mt-4">
-            <CHOCounting
-              control={control}
-              state={state["cho_counting"]}
-              setValue={setValue}
-            />
-            {state["cho_counting"] &&
-              state["cho_counting"].includes("Other") && (
-                <CHOCountingDetails control={control} />
-              )}
+            <CHOCounting control={control} setValue={setValue} />
+            <CHOCountingDetails control={control} />
           </Grid>
           <Grid className=" pt-6 mt-4">
-            <ExerciseType
-              control={control}
-              state={state["exercise_type"]}
-              setValue={setValue}
-            />
+            <ExerciseType control={control} setValue={setValue} />
             <ExerciseDetail control={control} />
           </Grid>
           <Grid className=" pt-6 mt-4">
-            <CurrentDiabetesManagement
-              control={control}
-              state={state["current_diabetes_management"]}
-              setValue={setValue}
-            />
-            <InfusionLineType
-              control={control}
-              state={state["infusion_line_type"]}
-              setValue={setValue}
-            />
-            {(state["current_diabetes_management"] === "Looping" ||
-              state["current_diabetes_management"] === "Other") && (
-              <PumpDetail control={control} />
-            )}
+            <CurrentDiabetesManagement control={control} setValue={setValue} />
+            <InfusionLineType control={control} setValue={setValue} />
+            <PumpDetail control={control} />
           </Grid>
           <Grid className=" pt-6 mt-4">
-            <CurrentInsulinUse
-              control={control}
-              state={state["current_insulin_use"]}
-              setValue={setValue}
-            />
+            <CurrentInsulinUse control={control} setValue={setValue} />
           </Grid>
           <Grid className=" pt-6 mt-4">
-            <CurrentCGMWear
-              control={control}
-              state={state["current_cgm_wear"]}
-              setValue={setValue}
-            />
-            <PastCGMWear
-              control={control}
-              state={state["past_cgm_wear"]}
-              setValue={setValue}
-            />
+            <CurrentCGMWear control={control} setValue={setValue} />
+            <PastCGMWear control={control} setValue={setValue} />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <FrequencyOfDailyFingerstick
               control={control}
-              state={state["frequency_of_daily_fingerstick"]}
               setValue={setValue}
             />
           </Grid>
@@ -224,9 +150,9 @@ export const PatientForm = (props?: IPatientForm) => {
           </Grid>
           <Grid className=" pt-6 mt-4">
             <DKAExperience control={control} />
-            {state["dka_requiring_hospital_admission_past_12_months"] && (
-              <DKADetail control={control} />
-            )}
+
+            <DKADetail control={control} />
+
             <HadSevereHypo control={control} />
           </Grid>
           <Grid className=" pt-6 mt-4">
@@ -257,11 +183,7 @@ export const PatientForm = (props?: IPatientForm) => {
           </Grid>
           <Grid className=" pt-6 mt-4">
             <HasInternetAccess control={control} />
-            <ComputerType
-              control={control}
-              state={state["computer_type"]}
-              setValue={setValue}
-            />
+            <ComputerType control={control} setValue={setValue} />
           </Grid>
           <Grid className=" pt-6 mt-4">
             <DiscussionHeld control={control} />
@@ -272,11 +194,7 @@ export const PatientForm = (props?: IPatientForm) => {
             <StudyForConsideration control={control} />
           </Grid>
           <Grid className=" pt-6 mt-4">
-            <Availability
-              control={control}
-              state={state["availability"]}
-              setValue={setValue}
-            />
+            <Availability control={control} setValue={setValue} />
             <AvailabilityDetail control={control} />
           </Grid>
           <Grid className=" pt-6 mt-4">
@@ -289,4 +207,4 @@ export const PatientForm = (props?: IPatientForm) => {
       </Form>
     </div>
   );
-};
+});

@@ -71,7 +71,7 @@ export const usePatientForm = (props: IPatientForm) => {
     [isEditing, editInitials]
   );
 
-  const { handleSubmit, register, control, formState, setValue } = useForm({
+  const { handleSubmit, control, setValue } = useForm({
     defaultValues,
   });
 
@@ -95,14 +95,10 @@ export const usePatientForm = (props: IPatientForm) => {
   });
 
   return {
-    register,
     control,
     setValue,
     saveLoading,
     editLoading,
-    isDirty: formState.isDirty,
-    errors: useMemo(() => formState.errors, [formState.errors]),
-    state: useWatch({ control, defaultValue: defaultValues }),
     onSubmit: handleSubmit((payload) => {
       isEditing ? edit({ payload }) : save({ payload });
     }),

@@ -3,12 +3,12 @@ const requiredValidation = (value, required) => {
 };
 
 const maxValidation = (value, max) => {
-  if (max && value.length > max)
+  if (max && value && value.length > max)
     return `This field must be equal or less than ${max} characters.`;
 };
 
 const minValidation = (value, min) => {
-  if (min && value.length < min)
+  if (min && value && value.length < min)
     return `This field must be equal or more than ${min} characters.`;
 };
 
