@@ -12,7 +12,7 @@ export const usePassword = () => {
   const { push } = useHistory();
   const { onError } = useError();
 
-  const { register, handleSubmit, formState } = useForm({ defaultValues });
+  const { control, handleSubmit } = useForm({ defaultValues });
 
   const { mutate, isLoading } = usePost({
     url: `${Api.users}reset/`,
@@ -24,10 +24,10 @@ export const usePassword = () => {
   });
 
   return {
-    register,
+    control,
     handleSubmit,
     isLoading,
-    errors: useMemo(() => formState.errors, [formState.errors]),
+
     onSubmit: useCallback((payload) => mutate({ payload }), []),
   };
 };

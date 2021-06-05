@@ -1,24 +1,15 @@
 import { FC, memo } from "react";
 import { classNames } from "utils";
 
-export const TextAreatCore: FC<IInput> = memo(
-  ({
-    interactive,
-    placeholder,
-    open,
-    register,
-    name,
-    toggle,
-    error,
-    validate,
-  }) => {
+export const TextAreatCore: FC<ITextArea> = memo(
+  ({ interactive, placeholder, open, name, toggle, error, onChange }) => {
     return (
       <textarea
-        {...(register && { ...register(name, { validate }) })}
         placeholder={interactive ? (open ? null : placeholder) : placeholder}
         name={name}
         onFocus={() => toggle(true)}
         onBlur={() => toggle(false)}
+        onChange={(e) => onChange(e.target.value)}
         className={classNames(
           "w-full min-h-[3rem] h-12  rounded  focus:outline-none focus:shadow px-4 py-2 text-gray-700 placeholder-gray-500",
           error

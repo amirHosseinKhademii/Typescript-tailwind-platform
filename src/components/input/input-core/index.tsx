@@ -6,7 +6,6 @@ export const InputCore: FC<IInput> = memo(
     interactive,
     placeholder,
     open,
-    register,
     type,
     name,
     disabled,
@@ -16,9 +15,12 @@ export const InputCore: FC<IInput> = memo(
     error,
     withError,
     size,
-    validate,
+    fieldValue,
+    fieldError,
+    fieldChange,
     icon,
     onChange,
+    control,
   }) => {
     const actualValue = useMemo(() => {
       switch (typeof value) {
@@ -33,22 +35,22 @@ export const InputCore: FC<IInput> = memo(
       }
     }, [value]);
 
-    if (register)
+    if (control)
       return (
         <input
-          {...(register && { ...register(name, { validate }) })}
           slot="input"
           type={type}
           placeholder={interactive ? (open ? null : placeholder) : placeholder}
           name={name}
           disabled={disabled}
-          value={value}
+          value={fieldValue}
           onClick={onClick}
+          onChange={(e) => fieldChange(e.target.value)}
           onFocus={() => toggle(true)}
           onBlur={() => toggle(false)}
           className={classNames(
             " w-full  rounded focus:outline-none focus:shadow  text-gray-900 placeholder-gray-500 ",
-            error || withError
+            fieldError || withError
               ? "border-2 border-red-400 shadow"
               : disabled
               ? "bg-gray-300"

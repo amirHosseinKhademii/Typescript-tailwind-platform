@@ -9,8 +9,8 @@ export const Switch: FC<ISwitch> = memo((props) => {
       <Controller
         name={props.name}
         control={props.control}
-        render={({ field: { onChange } }) => (
-          <SwitchCore onChange={onChange} {...props} />
+        render={({ field: { onChange, value } }) => (
+          <SwitchCore onChange={onChange} checked={value} {...props} />
         )}
       />
     );

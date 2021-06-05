@@ -2,14 +2,13 @@ import { Select, SelectOption } from "components";
 import { FC, memo } from "react";
 
 export const PhoneType: FC<IPatientField> = memo(
-  ({ state, control, error, setValue }) => {
+  ({ state, control, setValue }) => {
     return (
       <Select
         label="Phone Type"
         name="phone_type"
         control={control}
         value={state}
-        error={error}
         multiple
         required
         setValue={setValue}

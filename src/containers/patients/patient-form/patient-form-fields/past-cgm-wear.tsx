@@ -2,7 +2,7 @@ import { Select, SelectOption } from "components";
 import { FC, memo } from "react";
 
 export const PastCGMWear: FC<IPatientField> = memo(
-  ({ control, state, setValue, error }) => {
+  ({ control, state, setValue }) => {
     return (
       <Select
         label="Past CGM Wear"
@@ -10,7 +10,6 @@ export const PastCGMWear: FC<IPatientField> = memo(
         control={control}
         value={state}
         setValue={setValue}
-        error={error}
         required
       >
         <SelectOption value="Libre" selected={state === "Libre"}>

@@ -7,7 +7,7 @@ import { Api } from "utils";
 const defaultValues = { email: "", password: "" };
 
 export const useLogin = () => {
-  const { register, handleSubmit, formState } = useForm({ defaultValues });
+  const { control, handleSubmit } = useForm({ defaultValues });
 
   const { error, success } = useToast();
 
@@ -26,10 +26,10 @@ export const useLogin = () => {
   });
 
   return {
-    register,
+    control,
     handleSubmit,
     isLoading,
-    errors: useMemo(() => formState.errors, [formState.errors]),
+
     onSubmit: useCallback((payload) => mutate({ payload }), []),
   };
 };

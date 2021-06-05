@@ -1,15 +1,13 @@
 import { Input } from "components";
 import { FC, memo } from "react";
 
-export const State: FC<IPatientField> = memo(({ register, error, state }) => {
+export const State: FC<IPatientField> = memo(({ control }) => {
   return (
     <Input
       label="State"
       placeholder="Enter State"
       name="state"
-      register={register}
-      error={error}
-      value={state}
+      control={control}
       max={10}
       required
       interactive

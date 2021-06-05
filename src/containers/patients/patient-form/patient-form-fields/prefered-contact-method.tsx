@@ -2,14 +2,13 @@ import { Select, SelectOption } from "components";
 import { FC, memo } from "react";
 
 export const PreferedContactMethod: FC<IPatientField> = memo(
-  ({ control, state, error, setValue }) => {
+  ({ control, state, setValue }) => {
     return (
       <Select
         label="Prefered Contact Method"
         name="preferred_contact_method"
         control={control}
         value={state}
-        error={error}
         required
         setValue={setValue}
       >

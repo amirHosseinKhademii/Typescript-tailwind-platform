@@ -2,7 +2,7 @@ import { Select, SelectOption } from "components";
 import { FC, memo } from "react";
 
 export const ExerciseType: FC<IPatientField> = memo(
-  ({ state, control, setValue, error }) => {
+  ({ state, control, setValue }) => {
     return (
       <Select
         label="Exercise Type"
@@ -10,7 +10,6 @@ export const ExerciseType: FC<IPatientField> = memo(
         control={control}
         value={state}
         setValue={setValue}
-        error={error}
         required
       >
         <SelectOption value="Casual" selected={state === "Casual"}>

@@ -2,14 +2,13 @@ import { Select, SelectOption } from "components";
 import { FC, memo } from "react";
 
 export const InfusionLineType: FC<IPatientField> = memo(
-  ({ control, state, error, setValue }) => {
+  ({ control, state, setValue }) => {
     return (
       <Select
         label="Infusion Line Type"
         name="infusion_line_type"
         control={control}
         value={state}
-        error={error}
         setValue={setValue}
         required
       >

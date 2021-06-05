@@ -2,14 +2,13 @@ import { Select, SelectOption } from "components";
 import { FC, memo } from "react";
 
 export const CurrentStudy: FC<IPatientField> = memo(
-  ({ control, state, error, setValue }) => {
+  ({ control, state, setValue }) => {
     return (
       <Select
         label="Current Study"
         name="current_study"
         control={control}
         value={state}
-        error={error}
         required
         setValue={setValue}
       >

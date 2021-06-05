@@ -37,7 +37,9 @@ export const SelectOptionMultiple: FC<ISelectOption> = memo(
           key={key}
           className={classNames(
             "w-full flex items-center py-2 hover:text-indigo-700",
-            selected ? "text-indigo-700 font-semibold" : " text-gray-600"
+            state && state.includes(value)
+              ? "text-indigo-700 font-semibold"
+              : " text-gray-600"
           )}
         >
           {children}

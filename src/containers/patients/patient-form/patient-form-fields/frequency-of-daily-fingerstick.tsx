@@ -2,7 +2,7 @@ import { Select, SelectOption } from "components";
 import { FC, memo } from "react";
 
 export const FrequencyOfDailyFingerstick: FC<IPatientField> = memo(
-  ({ control, state, setValue, error }) => {
+  ({ control, state, setValue }) => {
     return (
       <Select
         label="Frequency of Daily Fingerstick"
@@ -10,7 +10,6 @@ export const FrequencyOfDailyFingerstick: FC<IPatientField> = memo(
         control={control}
         value={state}
         setValue={setValue}
-        error={error}
         required
       >
         <SelectOption value="0" selected={state === "0"}>

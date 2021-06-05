@@ -2,8 +2,7 @@ export * from "./first-name";
 export * from "./surename";
 export * from "./current-study";
 export * from "./previous-study1";
-export * from "./previous-study2";
-export * from "./previous-study3";
+
 export * from "./date-of-birth";
 export * from "./email-address";
 export * from "./gender";
