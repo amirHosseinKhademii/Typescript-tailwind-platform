@@ -1,19 +1,13 @@
 import { TextArea } from "components";
 import { FC } from "react";
 
-export const StudyForConsideration: FC<IPatientField> = ({
-  register,
-  error,
-  state,
-}) => {
+export const StudyForConsideration: FC<IPatientField> = ({ control }) => {
   return (
     <TextArea
       label="Study For Consideration"
       placeholder="Enter Study For Consideration"
       name="study_for_consideration"
-      register={register}
-      error={error}
-      value={state}
+      control={control}
       required
       interactive
     />

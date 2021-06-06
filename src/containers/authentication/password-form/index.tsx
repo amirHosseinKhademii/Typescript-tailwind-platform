@@ -6,7 +6,7 @@ import { usePassword } from "./use-password";
 
 export const PasswordForm = memo(() => {
   const { push } = useHistory();
-  const { register, handleSubmit, errors, isLoading, onSubmit } = usePassword();
+  const { control, handleSubmit, isLoading, onSubmit } = usePassword();
 
   return (
     <Form
@@ -16,12 +16,11 @@ export const PasswordForm = memo(() => {
       <Tab text="Password Recovery" justify="center">
         <div className="col-center space-y-8 ">
           <Input
-            register={register}
+            control={control}
             name="email"
             type="email"
             required
             placeholder="Enter your email"
-            error={errors["email"]?.message}
             className="mt-10"
             interactive
           />

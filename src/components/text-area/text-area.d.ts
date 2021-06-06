@@ -1,14 +1,17 @@
 interface ITextArea {
   className?: string;
   label?: string;
-  register?: any;
   value?: string;
   placeholder?: string;
-  error?: string;
-  name?: string;
+  error?: any;
+  name?: any;
   id?: string;
   required?: boolean | undefined;
   max?: string | number | undefined;
   min?: string | number | undefined;
   interactive?: boolean;
+  control?: any;
+  open?: any;
+  toggle?: any;
+  onChange?: any;
 }

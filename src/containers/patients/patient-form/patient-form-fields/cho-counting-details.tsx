@@ -1,16 +1,16 @@
-import { Input } from "components";
+import { TextArea } from "components";
 import { FC, memo } from "react";
+import { useWatch } from "react-hook-form";
 
-export const CHOCountingDetails: FC<IPatientField> = memo(
-  ({ register, error, state }) => {
+export const CHOCountingDetails: FC<IPatientField> = memo(({ control }) => {
+  const state = useWatch({ control });
+  if (state["cho_counting"] && state["cho_counting"].includes("Other"))
     return (
-      <Input
+      <TextArea
         label="CHO Counting Details"
         name="cho_counting_details"
-        register={register}
-        error={error}
-        value={state}
+        control={control}
       />
     );
-  }
-);
+  else return null;
+});

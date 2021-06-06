@@ -1,12 +1,11 @@
 interface IInput {
   className?: string;
   label?: string;
-  register?: any;
   value?: any;
   placeholder?: string;
   type?: "text" | "email" | "password" | "number" | "date";
   error?: string;
-  name?: string;
+  name?: any;
   id?: string;
   later?: boolean | undefined;
   required?: boolean | undefined;
@@ -24,4 +23,8 @@ interface IInput {
   validate?: any;
   validation?: any;
   onChange?: any;
+  control?: any;
+  fieldChange?: any;
+  fieldValue?: any;
+  fieldError?: any;
 }

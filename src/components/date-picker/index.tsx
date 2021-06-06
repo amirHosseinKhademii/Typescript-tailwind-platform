@@ -9,18 +9,7 @@ import { v4 as uuid } from "uuid";
 import "react-datepicker/dist/react-datepicker.css";
 
 export const DatePicker: FC<IDatePicker> = memo(
-  ({
-    error,
-    name,
-    className,
-    value,
-    required,
-    later,
-    validation,
-    label,
-    control,
-    year,
-  }) => {
+  ({ name, className, required, later, validation, label, control, year }) => {
     const { validate } = useValidation({
       required,
       later,
@@ -34,9 +23,10 @@ export const DatePicker: FC<IDatePicker> = memo(
           control={control}
           name={name}
           rules={{ validate }}
-          render={({ field: { onChange } }) => (
+          render={({ field: { onChange, value }, fieldState: { error } }) => (
             <div className={`w-full col-start relative ${className}`}>
               {label && <label className="text-gray-800 mb-2">{label}</label>}
+              <Error error={error} className="pt-[49px]" />
               <DatePickerReact
                 onChange={(date) => onChange(date.toISOString().slice(0, 10))}
                 closeOnScroll={true}
@@ -49,6 +39,7 @@ export const DatePicker: FC<IDatePicker> = memo(
                 className=" z-50 opacity-0"
                 id={id}
               />
+
               <label
                 htmlFor={id}
                 className={classNames(
@@ -60,7 +51,6 @@ export const DatePicker: FC<IDatePicker> = memo(
               >
                 {value ? value.slice(0, 10) : "YYYY-MM-DD"}
               </label>
-              <Error error={error} className="mt-[30px]" />
             </div>
           )}
         />

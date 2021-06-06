@@ -28,7 +28,7 @@ const initialState = {
   diabetes_educator: "",
   diabetes_type: "",
   discussion_held_and_what_discussed: "",
-  dka_detial: "",
+  dka_detials: "",
   do_not_call_until: "",
   email: "",
   endocrinologist: "",
@@ -41,7 +41,7 @@ const initialState = {
   next_step: "",
   other_medical_issue: "",
   past_cgm_wear: "",
-  pump_detail: "",
+  pump_details: "",
   pwod_referral: "",
   state: "",
   study_for_consideration: "",
@@ -71,7 +71,7 @@ export const usePatientForm = (props: IPatientForm) => {
     [isEditing, editInitials]
   );
 
-  const { handleSubmit, register, control, formState, setValue } = useForm({
+  const { handleSubmit, control, setValue } = useForm({
     defaultValues,
   });
 
@@ -95,14 +95,10 @@ export const usePatientForm = (props: IPatientForm) => {
   });
 
   return {
-    register,
     control,
     setValue,
     saveLoading,
     editLoading,
-    isDirty: formState.isDirty,
-    errors: useMemo(() => formState.errors, [formState.errors]),
-    state: useWatch({ control, defaultValue: defaultValues }),
     onSubmit: handleSubmit((payload) => {
       isEditing ? edit({ payload }) : save({ payload });
     }),

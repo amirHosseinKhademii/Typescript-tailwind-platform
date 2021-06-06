@@ -1,4 +1,4 @@
 interface IError {
-  error?: string | undefined;
-  className?:string
+  error?: any;
+  className?: string;
 }

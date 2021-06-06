@@ -3,26 +3,29 @@ import { useHistory, useLocation } from "react-router";
 import { ICMenu, ICPeoples, ICPerson } from "icons";
 import { Button } from "components";
 import { classNames } from "utils";
-import { useUi } from "hooks";
+import { useAuth, useUi } from "hooks";
 
 export const AdminDashboardClose = memo(() => {
   const { push } = useHistory();
   const { pathname } = useLocation();
   const { toggleDrawer } = useUi();
+  const { token } = useAuth();
 
   return (
     <div className="col-center mt-6 relative">
       <div className="col-center space-y-4 ">
-        <Button icon onClick={() => push("/authentication/login")}>
-          <ICPerson
-            className={classNames(
-              "w-6 h-6",
-              pathname.includes("authentication")
-                ? "text-white"
-                : "text-gray-400"
-            )}
-          />
-        </Button>
+        {token ? null : (
+          <Button icon onClick={() => push("/authentication/login")}>
+            <ICPerson
+              className={classNames(
+                "w-6 h-6",
+                pathname.includes("authentication")
+                  ? "text-white"
+                  : "text-gray-400"
+              )}
+            />
+          </Button>
+        )}
         <Button icon onClick={() => push("/admin/patients")}>
           <ICPeoples
             className={classNames(

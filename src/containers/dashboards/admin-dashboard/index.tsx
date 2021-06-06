@@ -18,7 +18,7 @@ export const AdminDashboard = memo(() => {
           className="w-14 h-14 cursor-pointer"
           src={Logo}
           alt="Logo"
-          onClick={() => push("/")}
+          onClick={() => push("/admin/patients")}
         />
       </div>
       {uiState.drawer.open ? <AdminDashboardOpen /> : <AdminDashboardClose />}

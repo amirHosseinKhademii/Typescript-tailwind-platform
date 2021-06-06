@@ -4,17 +4,7 @@ import { classNames } from "utils";
 import { useSelectOption } from "../use-select-option";
 
 export const SelectOptionMultiple: FC<ISelectOption> = memo(
-  ({
-    key,
-    selected,
-    disabled,
-    onChange,
-    value,
-    toggle,
-    onClick,
-    children,
-    state,
-  }) => {
+  ({ key, disabled, onChange, value, toggle, onClick, children, state }) => {
     const { handleChange } = useSelectOption({ state });
     return (
       <div
@@ -31,13 +21,15 @@ export const SelectOptionMultiple: FC<ISelectOption> = memo(
           }
         }}
       >
-        <Check checked={selected} className="mr-3" />
+        <Check checked={state.includes(value)} className="mr-3" />
         <span
           slot="child"
           key={key}
           className={classNames(
             "w-full flex items-center py-2 hover:text-indigo-700",
-            selected ? "text-indigo-700 font-semibold" : " text-gray-600"
+            state && state.includes(value)
+              ? "text-indigo-700 font-semibold"
+              : " text-gray-600"
           )}
         >
           {children}

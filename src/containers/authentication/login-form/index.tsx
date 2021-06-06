@@ -6,7 +6,7 @@ import { useLogin } from "./use-login";
 
 export const LoginForm = memo(() => {
   const { push } = useHistory();
-  const { register, handleSubmit, errors, isLoading, onSubmit } = useLogin();
+  const { control, handleSubmit, isLoading, onSubmit } = useLogin();
 
   return (
     <Form
@@ -16,22 +16,20 @@ export const LoginForm = memo(() => {
       <Tab text="Login" justify="center">
         <div className="col-center space-y-8 ">
           <Input
-            register={register}
             name="email"
             type="email"
             required
             placeholder="Enter your email"
-            error={errors["email"]?.message}
             className="mt-10"
             interactive
+            control={control}
           />
           <Input
-            register={register}
+            control={control}
             name="password"
             type="password"
             required
             placeholder="Enter your password"
-            error={errors["password"]?.message}
             interactive
           />
           <div className="col-center space-y-4 w-full mb-6" slot="actions">

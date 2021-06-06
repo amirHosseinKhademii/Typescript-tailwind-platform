@@ -1,8 +1,7 @@
 interface ISelect {
   className?: string;
   label?: string;
-  register?: any;
-  error?: string;
+  error?: any;
   name?: any;
   id?: string;
   control?: any;
@@ -11,7 +10,6 @@ interface ISelect {
   multiple?: boolean;
   onChange?: any;
   required?: boolean | undefined;
-  isInput?: boolean;
   setValue?: any;
   onCancel?: any;
   toggle?: any;

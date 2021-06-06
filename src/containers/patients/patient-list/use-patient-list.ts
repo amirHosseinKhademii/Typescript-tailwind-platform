@@ -23,6 +23,7 @@ export const usePatientList = () => {
     key: ["PATIENTS_LIST", params],
     url: Api.patients,
     onFocus: false,
+    keepPreviousData: true,
     onError,
   });
 
