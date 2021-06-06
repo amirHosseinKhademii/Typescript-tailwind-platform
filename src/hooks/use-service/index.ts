@@ -1,7 +1,10 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
+import axios from "axios";
+import { useAuth } from "hooks";
 import { Request } from "utils";
 
 export const useService = () => {
+  const { headers } = useAuth();
   const client = useQueryClient();
 
   return {
@@ -23,6 +26,7 @@ export const useService = () => {
       const asyncGet = async () =>
         await Request.get(url, {
           params: { ...params, ...(key[1] && { ...key[1] }) },
+          headers,
         });
       return useQuery(key, asyncGet, {
         ...(onSuccess && { onSuccess }),
@@ -37,7 +41,8 @@ export const useService = () => {
     },
     usePost: (props: IUseService) => {
       const { url, onError, onSuccess } = props;
-      const asyncPost = async ({ payload }) => await Request.post(url, payload);
+      const asyncPost = async ({ payload }) =>
+        await Request.post(url, payload, { headers });
       return useMutation(asyncPost, {
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),
@@ -45,7 +50,8 @@ export const useService = () => {
     },
     usePut: (props: IUseService) => {
       const { url, onError, onSuccess } = props;
-      const asyncPut = async ({ payload }) => await Request.put(url, payload);
+      const asyncPut = async ({ payload }) =>
+        await Request.put(url, payload, { headers });
       return useMutation(asyncPut, {
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),
@@ -53,7 +59,7 @@ export const useService = () => {
     },
     useDelete: (props: IUseService) => {
       const { url, onError, onSuccess } = props;
-      const asyncDelete = async () => await Request.delete(url);
+      const asyncDelete = async () => await Request.delete(url, { headers });
       return useMutation(asyncDelete, {
         ...(onSuccess && { onSuccess }),
         ...(onError && { onError }),

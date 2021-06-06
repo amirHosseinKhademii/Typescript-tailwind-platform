@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const token = JSON.parse(localStorage.getItem("token")) as any;
-let headers = {} as any;
+let baseURL;
 
-if (token) headers.Authorization = `Bearer ${token.access}`;
+if (process.env.NODE_ENV === "development")
+  baseURL = "https://kletchdev.keyleadhealth.com:9090/";
+else baseURL = "https://wa-syc-prod-kl-main.azurewebsites.net/";
 
 export const Request = axios.create({
-  baseURL:
-    process.env.REACT_APP_BASE_URL ||
-    "https://kletchdev.keyleadhealth.com:9090/",
-  headers,
+  baseURL: baseURL || "https://kletchdev.keyleadhealth.com:9090/",
 });
+
+//"https://wa-uae-dev-kl-main.azurewebsites.net/"
