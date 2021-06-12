@@ -1,6 +1,6 @@
 const columns = [
   { head: "Name", key: "name", width: "w-1/2" },
-  { head: "Number", key: "number", width: "w-1/2" },
+  { head: "Lot number", key: "number", width: "w-1/2" },
   { head: "Expiration date", key: "expiration_date", width: "w-1/4" },
 ];
 
