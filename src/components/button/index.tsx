@@ -26,7 +26,7 @@ export const Button: FC<IButton> = memo(
           !icon && "shadow",
           loading
             ? "cursor-wait "
-            : "transform hover:-translate-y-1 hover:scale-105",
+            : !disabled && "transform hover:-translate-y-1 hover:scale-105",
           className
         )}
       >

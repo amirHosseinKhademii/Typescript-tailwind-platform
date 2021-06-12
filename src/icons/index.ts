@@ -17,3 +17,4 @@ export * from "./chevron-left";
 export * from "./person";
 export * from "./search";
 export * from "./loading";
+export * from "./eye-fill";

@@ -37,7 +37,7 @@ export const Table: FC<ITable> = memo(
               />
             ))}
 
-        {data && (
+        {data && onPaginate && (
           <Pagination
             className="mt-10"
             total={total}
