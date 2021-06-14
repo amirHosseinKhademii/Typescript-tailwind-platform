@@ -8,7 +8,7 @@ export const Toast: FC<IToast> = ({ title, description, type }) => {
   const { toast, close } = useToast();
 
   useEffect(() => {
-    if (toast.open && toast.type === "success")
+    if (toast.open)
       setTimeout(() => {
         close();
       }, 10000);

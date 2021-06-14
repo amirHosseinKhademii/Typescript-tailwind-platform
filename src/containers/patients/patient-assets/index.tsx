@@ -5,19 +5,20 @@ import { PatientAssetsToolbar } from "./patient-assets-toolbar";
 import { usePatientAssets } from "./use-patient-assets";
 
 export const PatientAssets = memo(() => {
-  const { data, columns } = usePatientAssets();
+  const { data, columns, page, onPaginate, isLoading } = usePatientAssets();
+
   return (
     <div className="w-full">
       <PatientAssetsToolbar />
       <Table
         className="w-full my-10"
-        data={data}
-        total={data.length}
         columns={columns}
+        total={data.count}
+        data={data.results}
+        page={page}
+        onPaginate={onPaginate}
         expand={(item) => <PatientAssetsDetails />}
-        // page={page}
-        // onPaginate={onPaginate}
-        //loading={isLoading}
+        loading={isLoading}
       />
     </div>
   );
