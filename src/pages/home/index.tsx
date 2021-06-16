@@ -1,5 +1,11 @@
+import { useEffect } from "react";
+import { useHistory } from "react-router";
+
 const View = () => {
-  console.log(process.env.NODE_ENV);
+  const { push } = useHistory();
+  useEffect(() => {
+    push("/admin/patients");
+  }, []);
 
   return <div className="w-full"></div>;
 };

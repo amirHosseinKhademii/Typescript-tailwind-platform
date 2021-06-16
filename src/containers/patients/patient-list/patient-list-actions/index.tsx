@@ -14,21 +14,22 @@ export const PatientListActions = ({ item }) => {
         icon
         onClick={(e) => {
           e.stopPropagation();
-          toggleDialog({ open: true, type: "patient-edit", data: item });
+          push(`/admin/patients/${item.id}`);
         }}
       >
-        <ICEdit className="text-gray-500 w-5 h-5 mr-4  " />
+        <ICEyeFill className="text-blue-300 w-5 h-5 mr-4 " />
       </Button>
       <Button
         icon
         onClick={(e) => {
           e.stopPropagation();
-          push(`/admin/patients/${item.id}`);
+          toggleDialog({ open: true, type: "patient-edit", data: item });
         }}
       >
-        <ICEyeFill className="text-blue-300 w-5 h-5 mr-4  " />
+        <ICEdit className="text-gray-500 w-5 h-5 " />
       </Button>
-      <Button
+
+      {/* <Button
         disabled
         icon
         onClick={(e) => {
@@ -37,7 +38,7 @@ export const PatientListActions = ({ item }) => {
         }}
       >
         <ICDelete className="text-red-500 w-5 h-5  " />
-      </Button>
+      </Button> */}
     </Fragment>
   );
 };
