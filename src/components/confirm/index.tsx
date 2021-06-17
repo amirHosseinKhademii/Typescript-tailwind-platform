@@ -17,8 +17,7 @@ export const Confirm: FC<IConfirm> = memo(
       <Modal
         size="sm"
         className={classNames(
-          "col-center px-4 md:px-10 xl:px-26 py-10",
-          type === "delete" ? "bg-danger" : "bg-amber-500"
+          "col-center px-4 md:px-10 xl:px-26 py-10 bg-white"
         )}
         slot="dialog"
       >

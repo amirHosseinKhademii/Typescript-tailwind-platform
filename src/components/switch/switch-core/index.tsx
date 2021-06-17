@@ -13,13 +13,27 @@ export const SwitchCore: FC<ISwitch> = memo(
         )}
       >
         <div className="row-between mr-4">
-          <SwitchBox
-            onChange={onChange}
-            size={size}
-            disabled={disabled}
-            withError={withError}
-            checked={checked}
-          />
+          {disabled ? (
+            <div
+              className={classNames(
+                "flex items-center justify-center  rounded-full text-white",
+                size === "small" ? "h-7 w-14 text-sm" : "h-8 w-16",
+                checked
+                  ? "bg-green-500 text-green-200"
+                  : "bg-red-500 text-red-300"
+              )}
+            >
+              {checked ? "Yes" : "No"}
+            </div>
+          ) : (
+            <SwitchBox
+              onChange={onChange}
+              size={size}
+              disabled={disabled}
+              withError={withError}
+              checked={checked}
+            />
+          )}
         </div>
         <span
           className={classNames(

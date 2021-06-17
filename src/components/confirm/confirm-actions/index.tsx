@@ -8,14 +8,14 @@ export const ConfirmActions: FC<IConfirm> = memo(
         <Button
           icon
           role="cancel"
-          className="h-10  w-20 xl:w-40 bg-gray-100 "
+          className="h-12  w-20 xl:w-40 bg-gray-100 "
           onClick={onCancel}
         >
           Cancel
         </Button>
         <Button
           icon
-          className="h-10 w-20 xl:w-40 mb-6 bg-warning "
+          className="w-20 xl:w-40 mb-6  h-12  bg-pink-700 text-white "
           role="confirm"
           onClick={onConfirm}
           loading={loading}

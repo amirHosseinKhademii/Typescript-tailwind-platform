@@ -846,11 +846,11 @@ video {
 .w-4 {
 	width: 1rem;
 }
-.w-12 {
-	width: 3rem;
-}
 .w-14 {
 	width: 3.5rem;
+}
+.w-16 {
+	width: 4rem;
 }
 .w-11\/12 {
 	width: 91.666667%;
@@ -870,14 +870,14 @@ video {
 .w-10 {
 	width: 2.5rem;
 }
+.w-12 {
+	width: 3rem;
+}
 .w-\[440px\] {
 	width: 440px;
 }
 .w-3\/4 {
 	width: 75%;
-}
-.w-16 {
-	width: 4rem;
 }
 .transform {
 	--tw-translate-x: 0;
@@ -982,12 +982,6 @@ video {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-.justify-self-end {
-	justify-self: end;
-}
-.justify-self-start {
-	justify-self: start;
 }
 .overflow-hidden {
 	overflow: hidden;
@@ -1132,6 +1126,10 @@ video {
 	--tw-bg-opacity: 1;
 	background-color: rgba(190, 24, 93, var(--tw-bg-opacity));
 }
+.bg-green-500 {
+	--tw-bg-opacity: 1;
+	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
+}
 .p-4 {
 	padding: 1rem;
 }
@@ -1205,14 +1203,14 @@ video {
 .pr-4 {
 	padding-right: 1rem;
 }
-.pt-6 {
-	padding-top: 1.5rem;
-}
 .pl-1 {
 	padding-left: 0.25rem;
 }
 .pr-1 {
 	padding-right: 0.25rem;
+}
+.pt-6 {
+	padding-top: 1.5rem;
 }
 .text-sm {
 	font-size: 0.875rem;
@@ -1327,13 +1325,13 @@ video {
 	--tw-text-opacity: 1;
 	color: rgba(67, 56, 202, var(--tw-text-opacity));
 }
-.text-gray-200 {
-	--tw-text-opacity: 1;
-	color: rgba(229, 231, 235, var(--tw-text-opacity));
-}
 .text-secondary {
 	--tw-text-opacity: 1;
 	color: rgba(0, 58, 111, var(--tw-text-opacity));
+}
+.text-gray-200 {
+	--tw-text-opacity: 1;
+	color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
 .text-black {
 	--tw-text-opacity: 1;
@@ -1342,6 +1340,18 @@ video {
 .text-blue-300 {
 	--tw-text-opacity: 1;
 	color: rgba(147, 197, 253, var(--tw-text-opacity));
+}
+.text-green-800 {
+	--tw-text-opacity: 1;
+	color: rgba(6, 95, 70, var(--tw-text-opacity));
+}
+.text-green-300 {
+	--tw-text-opacity: 1;
+	color: rgba(110, 231, 183, var(--tw-text-opacity));
+}
+.text-red-300 {
+	--tw-text-opacity: 1;
+	color: rgba(252, 165, 165, var(--tw-text-opacity));
 }
 .placeholder-gray-500::placeholder {
 	--tw-placeholder-opacity: 1;

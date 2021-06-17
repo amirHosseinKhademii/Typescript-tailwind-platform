@@ -8,36 +8,9 @@ const columns = [
   { head: "Expiration date", key: "expiration_date", width: "w-1/4" },
 ];
 
-// const data = [
-//   {
-//     id: "1",
-//     name: "test",
-//     lot_number: "123456",
-//     expiration_date: "2021/05/04",
-//   },
-//   {
-//     id: "2",
-//     name: "test",
-//     lot_number: "123456",
-//     expiration_date: "2021/05/04",
-//   },
-//   {
-//     id: "3",
-//     name: "test",
-//     lot_number: "123456",
-//     expiration_date: "2021/05/04",
-//   },
-//   {
-//     id: "4",
-//     name: "test",
-//     lot_number: "123456",
-//     expiration_date: "2021/05/04",
-//   },
-// ];
-
 export const usePatientAssets = () => {
-  const { id: patient } = useParams() as any;
-  const [params, setParams] = useState({ page: null, patient });
+  const { id: patient_id } = useParams() as any;
+  const [params, setParams] = useState({ page: null, patient_id });
   const { useGet } = useService();
   const { onError } = useError();
 

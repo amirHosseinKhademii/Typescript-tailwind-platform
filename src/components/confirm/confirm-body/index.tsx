@@ -6,7 +6,7 @@ export const ConfirmBody: FC<IConfirm> = memo(({ title, description }) => {
       <span className="text-lg text-gray-800" slot="title">
         {title}
       </span>
-      <span className="pt-10 text-gray-100" slot="description">
+      <span className="pt-10 text-gray-600" slot="description">
         {description}
       </span>
     </Fragment>

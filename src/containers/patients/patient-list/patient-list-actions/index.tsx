@@ -26,11 +26,10 @@ export const PatientListActions = ({ item }) => {
           toggleDialog({ open: true, type: "patient-edit", data: item });
         }}
       >
-        <ICEdit className="text-gray-500 w-5 h-5 " />
+        <ICEdit className="text-gray-500 w-5 h-5 mr-4 " />
       </Button>
 
-      {/* <Button
-        disabled
+      <Button
         icon
         onClick={(e) => {
           e.stopPropagation();
@@ -38,7 +37,7 @@ export const PatientListActions = ({ item }) => {
         }}
       >
         <ICDelete className="text-red-500 w-5 h-5  " />
-      </Button> */}
+      </Button>
     </Fragment>
   );
 };
