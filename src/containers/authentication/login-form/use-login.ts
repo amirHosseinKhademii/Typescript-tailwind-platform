@@ -19,7 +19,7 @@ export const useLogin = () => {
     url: `${Api.users}login/`,
     onError: () => error("Something went wrong."),
     onSuccess: (res) => {
-      localStorage.setItem("token", JSON.stringify(res.data));
+      localStorage.setItem("token", res.data.access);
       success("You successfully loged in.");
       push("/admin/patients");
     },

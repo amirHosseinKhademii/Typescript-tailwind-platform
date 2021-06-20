@@ -3,13 +3,14 @@ import { useHistory, useLocation } from "react-router";
 import { ICMenu, ICPeoples, ICPerson } from "icons";
 import { Button } from "components";
 import { classNames } from "utils";
-import { useAuth, useUi } from "hooks";
+import { useUi } from "hooks";
+
+const token = localStorage.getItem("token");
 
 export const AdminDashboardClose = memo(() => {
   const { push } = useHistory();
   const { pathname } = useLocation();
   const { toggleDrawer } = useUi();
-  const { token } = useAuth();
 
   return (
     <div className="col-center mt-6 relative">

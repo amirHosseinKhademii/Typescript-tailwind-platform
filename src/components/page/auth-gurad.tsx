@@ -1,9 +1,8 @@
-import { useAuth } from "hooks";
 import { Fragment, useLayoutEffect } from "react";
 import { useHistory, useLocation } from "react-router";
+const token = localStorage.getItem("token");
 
 export const AuthGuard = ({ authorize = false, children }) => {
-  const { token } = useAuth();
   const { push } = useHistory();
   const { pathname } = useLocation();
 

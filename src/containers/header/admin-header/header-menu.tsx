@@ -1,10 +1,11 @@
-import { Button } from "components/button";
-import { useAuth } from "hooks/use-auth";
+import { Button } from "components";
 import { useHistory } from "react-router";
+
+const token = localStorage.getItem("token");
 
 export const HeaderMenu = (props) => {
   const { push } = useHistory();
-  const { token } = useAuth();
+
   return (
     <div className="w-32 flex flex-col items-center">
       {token && (

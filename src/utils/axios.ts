@@ -1,13 +1,21 @@
 import axios from "axios";
 
-let baseURL;
 
-if (process.env.NODE_ENV === "development")
-  baseURL = "https://kletchdev.keyleadhealth.com:9090/";
-else baseURL = "https://wa-syc-prod-kl-main.azurewebsites.net/";
+axios.defaults.baseURL = "https://kletchdev.keyleadhealth.com:9090";
 
-export const Request = axios.create({
-  baseURL: "https://kletchdev.keyleadhealth.com:9090/",
-});
+const Request = axios.create();
 
-//"https://wa-uae-dev-kl-main.azurewebsites.net/"
+Request.interceptors.request.use(
+  async (config) => {
+    const token =  localStorage.getItem("token");
+    if (token) {
+      config.headers.Authorization = "Bearer " + token;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+export { Request };
