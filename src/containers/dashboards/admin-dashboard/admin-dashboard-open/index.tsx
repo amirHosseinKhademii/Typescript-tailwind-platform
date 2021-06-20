@@ -1,18 +1,17 @@
 import { memo } from "react";
 import { useHistory, useLocation } from "react-router";
-import { useUi } from "hooks";
+import { useAuth, useUi } from "hooks";
 import { Button } from "components";
 import { ICClose } from "icons";
 
 import { AuthDropDown } from "./auth-drop-down";
 import { PatientDropDown } from "./patient-drop-down";
 
-const token = localStorage.getItem("token");
-
 export const AdminDashboardOpen = memo(() => {
   const { push } = useHistory();
   const { pathname } = useLocation();
   const { toggleDrawer } = useUi();
+  const { token } = useAuth();
 
   return (
     <div className="w-full col-center space-y-4 px-4 relative">

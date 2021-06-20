@@ -1,15 +1,13 @@
 import { memo } from "react";
 import { classNames } from "utils";
 import { Button, Menu } from "components";
-import { useUi } from "hooks";
+import { useAuth, useUi } from "hooks";
 import { useHistory } from "react-router";
-
-const token = localStorage.getItem("token");
 
 export const AdminHeader = memo(() => {
   const { uiState } = useUi();
   const { push } = useHistory();
-
+  const { token } = useAuth();
   const { open } = uiState.drawer;
 
   return (
