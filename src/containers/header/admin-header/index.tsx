@@ -20,29 +20,31 @@ export const AdminHeader = memo(() => {
       )}
     >
       <div />
-      <Menu
-        icon
-        activator={() => (
-          <img
-            className="w-9 h-9 rounded-full"
-            src="https://picsum.photos/200/300"
-          />
-        )}
-        render={(setter) =>
-          token && (
-            <Button
-              className="text-sm  w-20 h-10 text-white bg-danger"
-              onClick={() => {
-                localStorage.removeItem("token");
-                push("/authentication/login");
-                setter(false);
-              }}
-            >
-              Logout
-            </Button>
-          )
-        }
-      />
+      {token ? (
+        <Menu
+          icon
+          activator={() => (
+            <img
+              className="w-9 h-9 rounded-full"
+              src="https://picsum.photos/200/300"
+            />
+          )}
+          render={(setter) =>
+            token ? (
+              <Button
+                className="text-sm  w-20 h-10 text-white bg-danger"
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  push("/authentication/login");
+                  setter(false);
+                }}
+              >
+                Logout
+              </Button>
+            ) : null
+          }
+        />
+      ) : null}
     </header>
   );
 });
