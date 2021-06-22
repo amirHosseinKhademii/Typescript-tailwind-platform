@@ -7,7 +7,7 @@ RUN npm install
 
 # Stage 2 - Builder root With
 FROM node:12-alpine as builder
-WORKDIR /usr/src/app
+WORKDIR /usr/src
 COPY . .
 COPY --from=node_cache /cache/ .
 
