@@ -3,15 +3,12 @@ import { classNames } from "utils";
 
 export const InputCore: FC<IInput> = memo(
   ({
-    interactive,
     placeholder,
-    open,
     type,
     name,
     disabled,
     value,
     onClick,
-    toggle,
     error,
     withError,
     size,
@@ -40,14 +37,12 @@ export const InputCore: FC<IInput> = memo(
         <input
           slot="input"
           type={type}
-          placeholder={interactive ? (open ? null : placeholder) : placeholder}
           name={name}
+          placeholder={placeholder}
           disabled={disabled}
           value={fieldValue}
           onClick={onClick}
           onChange={(e) => fieldChange(e.target.value)}
-          onFocus={() => toggle(true)}
-          onBlur={() => toggle(false)}
           className={classNames(
             " w-full  rounded focus:outline-none focus:shadow  text-gray-900 placeholder-gray-500 ",
             fieldError || withError
@@ -69,13 +64,11 @@ export const InputCore: FC<IInput> = memo(
         <input
           slot="input"
           type={type}
-          placeholder={interactive ? (open ? null : placeholder) : placeholder}
           name={name}
+          placeholder={placeholder}
           disabled={disabled}
           value={actualValue}
           onClick={onClick}
-          onFocus={() => toggle(true)}
-          onBlur={() => toggle(false)}
           onChange={onChange}
           className={classNames(
             " w-full  rounded focus:outline-none focus:shadow  text-gray-900 placeholder-gray-500 ",
