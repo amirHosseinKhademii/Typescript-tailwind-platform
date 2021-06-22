@@ -7,7 +7,6 @@ export const DateOfDiagnosisOfT1D: FC<IPatientField> = memo(({ control }) => {
       label="Date Of Diagnosis Of T1D"
       name="date_of_diagnosis_of_t1d"
       control={control}
-      required
       year
     />
   );

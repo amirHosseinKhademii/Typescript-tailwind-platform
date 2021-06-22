@@ -64,7 +64,7 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
         label="CHO Counting"
         value={item.cho_counting}
       />
-      {item.cho_counting === "Other" && (
+      {item.cho_counting_details && (
         <Input
           size="small"
           disabled

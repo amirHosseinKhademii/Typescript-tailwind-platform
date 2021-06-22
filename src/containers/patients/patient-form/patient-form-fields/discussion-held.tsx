@@ -8,8 +8,6 @@ export const DiscussionHeld: FC<IPatientField> = memo(({ control }) => {
       placeholder="Enter Discussion Held And What Was Discussed"
       name="discussion_held_and_what_discussed"
       control={control}
-      required
-      interactive
     />
   );
 });

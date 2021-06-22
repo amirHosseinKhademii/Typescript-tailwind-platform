@@ -9,7 +9,6 @@ export const CurrentDiabetesManagement: FC<IPatientField> = memo(
         name="current_diabetes_management"
         control={control}
         setValue={setValue}
-        required
       >
         <SelectOption value="640G">640G</SelectOption>
         <SelectOption value="670G">670G</SelectOption>

@@ -10,7 +10,6 @@ export const Surename: FC<IPatientField> = memo(({ control }) => {
       control={control}
       max={64}
       required
-      interactive
     />
   );
 });

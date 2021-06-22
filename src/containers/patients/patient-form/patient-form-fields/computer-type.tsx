@@ -10,7 +10,6 @@ export const ComputerType: FC<IPatientField> = memo(
         control={control}
         value={state}
         setValue={setValue}
-        required
       >
         <SelectOption value="Windows" selected={state === "Windows"}>
           Windows

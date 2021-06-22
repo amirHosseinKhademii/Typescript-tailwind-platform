@@ -3,8 +3,8 @@ import { FC, memo } from "react";
 import { useWatch } from "react-hook-form";
 
 export const CHOCountingDetails: FC<IPatientField> = memo(({ control }) => {
-  const state = useWatch({ control });
-  if (state["cho_counting"] && state["cho_counting"].includes("Other"))
+  const state = useWatch({ control, name: "cho_counting" });
+  if (state && state.includes("Other"))
     return (
       <TextArea
         label="CHO Counting Details"

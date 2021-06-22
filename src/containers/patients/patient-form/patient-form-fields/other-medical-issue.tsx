@@ -8,8 +8,6 @@ export const OtherMedicalIssue: FC<IPatientField> = memo(({ control }) => {
       placeholder="Enter Other Medical Issue"
       name="other_medical_issue"
       control={control}
-      required
-      interactive
     />
   );
 });

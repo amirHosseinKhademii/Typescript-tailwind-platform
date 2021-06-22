@@ -10,7 +10,6 @@ export const FirstName: FC<IPatientField> = memo(({ control }) => {
       control={control}
       required
       max={64}
-      interactive
     />
   );
 });

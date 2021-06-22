@@ -11,7 +11,6 @@ export const CHOCounting: FC<IPatientField> = memo(({ control, setValue }) => {
       control={control}
       setValue={setValue}
       multiple
-      required
     >
       <SelectOption value="DAFNE" selected={state && state.includes("DAFNE")}>
         DAFNE

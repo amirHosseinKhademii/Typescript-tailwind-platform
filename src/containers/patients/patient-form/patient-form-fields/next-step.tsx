@@ -8,8 +8,6 @@ export const NextStep: FC<IPatientField> = memo(({ control }) => {
       placeholder="Enter Next Steps"
       name="next_step"
       control={control}
-      required
-      interactive
     />
   );
 });

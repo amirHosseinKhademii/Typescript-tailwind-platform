@@ -10,7 +10,6 @@ export const State: FC<IPatientField> = memo(({ control }) => {
       control={control}
       max={10}
       required
-      interactive
     />
   );
 });

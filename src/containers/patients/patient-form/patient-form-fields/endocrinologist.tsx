@@ -9,8 +9,6 @@ export const Endocrinologist: FC<IPatientField> = memo(({ control }) => {
       name="endocrinologist"
       control={control}
       max={50}
-      required
-      interactive
     />
   );
 });
