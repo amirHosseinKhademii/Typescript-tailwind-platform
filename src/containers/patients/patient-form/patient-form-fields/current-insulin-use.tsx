@@ -9,7 +9,6 @@ export const CurrentInsulinUse: FC<IPatientField> = memo(
         name="current_insulin_use"
         control={control}
         setValue={setValue}
-        required
         multiple
       >
         <SelectOption value="Novorapid">Novorapid</SelectOption>

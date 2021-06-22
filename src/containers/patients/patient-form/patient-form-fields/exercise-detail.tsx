@@ -9,8 +9,6 @@ export const ExerciseDetail: FC<IPatientField> = memo(({ control }) => {
       name="exercise_detail"
       control={control}
       max={2000}
-      interactive
-      required
     />
   );
 });

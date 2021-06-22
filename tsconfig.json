@@ -19,44 +19,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "./src",
-    "paths": {
-      "components/*": [
-        "./components/*"
-      ],
-      "containers/*": [
-        "./containers/*"
-      ],
-      "helper/*": [
-        "./helper/*"
-      ],
-      "hooks/*": [
-        "./hooks/*"
-      ],
-      "utils/*": [
-        "./utils/*"
-      ],
-      "icons/*": [
-        "./icons/*"
-      ],
-      "theme/*": [
-        "./theme/*"
-      ],
-      "provider/*": [
-        "./provider/*"
-      ],
-      "pages/*": [
-        "./pages/*"
-      ],
-      "test/*": [
-        "./test/*"
-      ],
-      "layouts/*": [
-        "./layouts/*"
-      ],
-      "assets/*": [
-        "./assets/*"
-      ]
-    }
+    "strict": false
   },
   "include": [
     "src"

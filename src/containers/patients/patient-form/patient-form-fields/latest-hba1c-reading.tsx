@@ -9,8 +9,6 @@ export const LatestHBA1CReading: FC<IPatientField> = memo(({ control }) => {
       name="latest_hba1c_reading"
       control={control}
       precent
-      required
-      interactive
     />
   );
 });

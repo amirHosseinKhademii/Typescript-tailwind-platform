@@ -9,7 +9,6 @@ export const InfusionLineType: FC<IPatientField> = memo(
         name="infusion_line_type"
         control={control}
         setValue={setValue}
-        required
       >
         <SelectOption value=" 90 Degree">90 Degree</SelectOption>
         <SelectOption value="45 Degree">45 Degree</SelectOption>

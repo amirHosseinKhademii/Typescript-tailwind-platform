@@ -7,7 +7,6 @@ export const ContactDate: FC<IPatientField> = memo(({ control }) => {
       label="Contact Date"
       name="contact_date"
       control={control}
-      required
       later
     />
   );

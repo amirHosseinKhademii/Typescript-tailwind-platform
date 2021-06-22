@@ -9,8 +9,6 @@ export const DoNotCallUntil: FC<IPatientField> = memo(({ control }) => {
       name="do_not_call_until"
       type="text"
       control={control}
-      required
-      interactive
     />
   );
 });

@@ -9,7 +9,6 @@ export const FrequencyOfDailyFingerstick: FC<IPatientField> = memo(
         name="frequency_of_daily_fingerstick"
         control={control}
         setValue={setValue}
-        required
       >
         <SelectOption value="0">0</SelectOption>
         <SelectOption value="0-2">0-2</SelectOption>

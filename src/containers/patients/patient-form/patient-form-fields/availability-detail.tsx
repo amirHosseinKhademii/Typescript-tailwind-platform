@@ -9,8 +9,6 @@ export const AvailabilityDetail: FC<IPatientField> = memo(({ control }) => {
       name="availability_detail"
       control={control}
       max={2000}
-      required
-      interactive
     />
   );
 });

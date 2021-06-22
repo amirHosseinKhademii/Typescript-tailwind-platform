@@ -9,8 +9,6 @@ export const DiabetesEducator: FC<IPatientField> = memo(({ control }) => {
       name="diabetes_educator"
       control={control}
       max={50}
-      required
-      interactive
     />
   );
 });

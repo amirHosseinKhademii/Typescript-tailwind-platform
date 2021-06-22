@@ -8,8 +8,6 @@ export const StudyForConsideration: FC<IPatientField> = ({ control }) => {
       placeholder="Enter Study For Consideration"
       name="study_for_consideration"
       control={control}
-      required
-      interactive
     />
   );
 };

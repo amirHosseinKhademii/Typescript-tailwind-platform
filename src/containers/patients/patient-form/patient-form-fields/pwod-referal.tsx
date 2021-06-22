@@ -8,8 +8,6 @@ export const PWODReferal: FC<IPatientField> = memo(({ control }) => {
       placeholder="Enter PWOD Referral"
       name="pwod_referral"
       control={control}
-      required
-      interactive
     />
   );
 });

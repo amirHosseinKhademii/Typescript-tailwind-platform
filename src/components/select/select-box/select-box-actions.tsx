@@ -10,6 +10,7 @@ export const SelectBoxActions: FC<ISelect> = memo(
           ? value &&
             value.length > 0 && (
               <Button
+                type="button"
                 icon
                 onClick={(e) => {
                   e.stopPropagation();
@@ -26,6 +27,7 @@ export const SelectBoxActions: FC<ISelect> = memo(
             )
           : value && (
               <Button
+                type="button"
                 icon
                 onClick={(e) => {
                   e.stopPropagation();
@@ -40,7 +42,7 @@ export const SelectBoxActions: FC<ISelect> = memo(
                 />
               </Button>
             )}
-        <Button icon>
+        <Button icon type="button">
           <ICChevronDown className="w-4 h-4 text-gray-500" role="arrow-down" />
         </Button>
       </div>

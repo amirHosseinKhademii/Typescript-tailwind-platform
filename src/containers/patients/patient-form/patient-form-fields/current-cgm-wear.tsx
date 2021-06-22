@@ -9,7 +9,6 @@ export const CurrentCGMWear: FC<IPatientField> = memo(
         name="current_cgm_wear"
         control={control}
         setValue={setValue}
-        required
       >
         <SelectOption value="Libre">Libre</SelectOption>
         <SelectOption value="Guardian Connect">Guardian Connect</SelectOption>

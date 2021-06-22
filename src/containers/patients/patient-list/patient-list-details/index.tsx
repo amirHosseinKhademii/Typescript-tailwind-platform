@@ -56,7 +56,10 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
         size="small"
         disabled
         label="Date Of Diagnosis Of T1D"
-        value={item.date_of_diagnosis_of_t1d}
+        value={
+          item.date_of_diagnosis_of_t1d &&
+          item.date_of_diagnosis_of_t1d.slice(0, 4)
+        }
       />
       <Input
         size="small"
@@ -64,7 +67,7 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
         label="CHO Counting"
         value={item.cho_counting}
       />
-      {item.cho_counting === "Other" && (
+      {item.cho_counting && item.cho_counting.includes("Other") && (
         <Input
           size="small"
           disabled
@@ -90,12 +93,15 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
         label="Current Diabetes Management"
         value={item.current_diabetes_management}
       />
-      <Input
-        size="small"
-        disabled
-        label="Pump Details"
-        value={item.pump_details}
-      />
+      {(item.current_diabetes_management === "Looping" ||
+        item.current_diabetes_management === "Other") && (
+        <Input
+          size="small"
+          disabled
+          label="Pump Details"
+          value={item.pump_details}
+        />
+      )}
       <Input
         size="small"
         disabled
@@ -195,6 +201,12 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
         label="Have you ever been diagnosed with foot neuropathy?"
         checked={item.foot_neuropathy}
       />
+      <Input
+        size="small"
+        disabled
+        label="Other Medical Issue"
+        value={item.other_medical_issue}
+      />
       <Switch
         size="small"
         disabled
@@ -208,12 +220,7 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
         label="Has Internet Access?"
         checked={item.has_internet_access}
       />
-      <Input
-        size="small"
-        disabled
-        label="Other Medical Issue"
-        value={item.other_medical_issue}
-      />
+
       <Input
         size="small"
         disabled

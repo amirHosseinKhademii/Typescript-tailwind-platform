@@ -8,7 +8,6 @@ export const Availability: FC<IPatientField> = memo(({ control, setValue }) => {
       name="availability"
       control={control}
       setValue={setValue}
-      required
     >
       <SelectOption value="Daily">Daily</SelectOption>
       <SelectOption value="Weekly">Weekly</SelectOption>

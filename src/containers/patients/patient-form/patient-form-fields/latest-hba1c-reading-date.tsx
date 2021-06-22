@@ -7,7 +7,6 @@ export const LatestHBA1CReadingDate: FC<IPatientField> = memo(({ control }) => {
       label="Latest HbA1c Reading Date"
       name="latest_hba1c_reading_date"
       control={control}
-      required
     />
   );
 });
