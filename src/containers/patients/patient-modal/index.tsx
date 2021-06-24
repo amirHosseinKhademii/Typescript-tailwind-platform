@@ -2,6 +2,7 @@ import { Confirm, Modal } from "components";
 import { useUi } from "hooks";
 import { memo } from "react";
 import { PatientForm } from "../patient-form";
+import { PatientInteractions } from "../patient-interactions";
 import { usePatientModal } from "./use-patient-modal";
 
 export const PatientModal = memo(() => {
@@ -18,6 +19,21 @@ export const PatientModal = memo(() => {
         withHeader
       >
         <PatientForm isEditing editInitials={uiState.dialog.data} />
+      </Modal>
+    );
+  else if (
+    uiState.dialog.open &&
+    uiState.dialog.type === "patient-interactions"
+  )
+    return (
+      <Modal
+        size="lg"
+        className="px-10 "
+        onClose={() => toggleDialog({ open: false, type: null })}
+        header="Patient interactions"
+        withHeader
+      >
+        <PatientInteractions />
       </Modal>
     );
   else if (uiState.dialog.open && uiState.dialog.type === "patient-delete")

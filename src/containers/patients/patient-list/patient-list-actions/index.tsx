@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Button } from "components";
 import { useUi } from "hooks";
-import { ICDelete, ICEdit, ICEyeFill } from "icons";
+import { ICDelete, ICEdit, ICEyeFill, ICInteractions } from "icons";
 import { useHistory } from "react-router";
 
 export const PatientListActions = ({ item }) => {
@@ -10,6 +10,19 @@ export const PatientListActions = ({ item }) => {
 
   return (
     <Fragment>
+      <Button
+        icon
+        onClick={(e) => {
+          e.stopPropagation();
+          toggleDialog({
+            open: true,
+            type: "patient-interactions",
+            data: item,
+          });
+        }}
+      >
+        <ICInteractions className="text-green-300 w-5 h-5 mr-4 " />
+      </Button>
       <Button
         icon
         onClick={(e) => {

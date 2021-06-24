@@ -9,7 +9,7 @@ export const ModalHeader: FC<IModal> = memo(
         <div className=" w-full row-between" slot="header">
           {header ? (
             <Text className="pl-8 " size="header">
-              Edit patient informations
+              {header}
             </Text>
           ) : (
             <div />
