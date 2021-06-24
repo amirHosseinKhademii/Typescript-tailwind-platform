@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Form, Grid, Text, Tab } from "components";
 import { usePatientForm } from "./use-patient-form";
 import { PatientFormToolbar } from "./patient-form-toolbar";
@@ -53,8 +54,9 @@ import {
   PhoneType,
   InfusionLineType,
   Deceased,
+  PatientStatus,
+  PatientStatusDetails,
 } from "./patient-form-fields";
-import { memo } from "react";
 
 export const PatientForm = memo((props?: IPatientForm) => {
   const { isEditing, editInitials } = props;
@@ -72,6 +74,8 @@ export const PatientForm = memo((props?: IPatientForm) => {
           className="mt-10"
         >
           <Grid className="mt-4">
+            <PatientStatus control={control} setValue={setValue} />
+            <PatientStatusDetails control={control} />
             <Surename control={control} />
             <FirstName control={control} />
           </Grid>

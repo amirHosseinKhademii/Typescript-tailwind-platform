@@ -2,7 +2,6 @@ export * from "./first-name";
 export * from "./surename";
 export * from "./current-study";
 export * from "./previous-study1";
-
 export * from "./date-of-birth";
 export * from "./email-address";
 export * from "./gender";
@@ -50,3 +49,5 @@ export * from "./phone-type";
 export * from "./infusion-line-type";
 export * from "./suburb";
 export * from "./deceased";
+export * from "./patient-status";
+export * from "./patient-status-detials";

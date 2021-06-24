@@ -7,6 +7,18 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
       <Input
         size="small"
         disabled
+        label="Patient Status"
+        value={item.patient_status}
+      />
+      <Input
+        size="small"
+        disabled
+        label="Patient Status Dtails"
+        value={item.patient_status_details}
+      />
+      <Input
+        size="small"
+        disabled
         label="Current Study"
         value={item.current_study}
       />
