@@ -58,10 +58,10 @@ const initialState = {
 };
 
 export const usePatientForm = (props: IPatientForm) => {
+  const { usePost, usePut, client } = useService();
   const { toggleDialog } = useUi();
   const { push } = useHistory();
   const { success } = useToast();
-  const { usePost, usePut, client } = useService();
   const { onError } = useError();
 
   const { isEditing, editInitials } = props;

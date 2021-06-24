@@ -3,6 +3,7 @@ interface IUseService {
   onSuccess?: any;
   onError?: any;
   onSettled?: any;
+  onMutate?: any;
   key?: any;
   params?: any;
   onFocus?: boolean;

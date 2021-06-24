@@ -1,18 +1,11 @@
-import { Fragment, lazy } from "react";
-import { PatientList } from "containers";
-
-const PatientModal = lazy(() =>
-  import("containers").then((module) => ({
-    default: module.PatientModal,
-  }))
-);
+import { PatientList, PatientModal } from "containers";
 
 const Patients = () => {
   return (
-    <Fragment>
+    <>
       <PatientList />
       <PatientModal />
-    </Fragment>
+    </>
   );
 };
 

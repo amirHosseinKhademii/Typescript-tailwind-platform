@@ -8,7 +8,7 @@ const Boot = () => (
     <UiProvider>
       <Router />
     </UiProvider>
-    <ReactQueryDevtools initialIsOpen={false} />
+    <ReactQueryDevtools />
   </QueryClientProvider>
 );
 
