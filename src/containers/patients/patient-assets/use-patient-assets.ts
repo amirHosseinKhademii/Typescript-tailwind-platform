@@ -1,16 +1,14 @@
 import { useError, useService } from "hooks";
 import { useCallback, useMemo, useState } from "react";
-import { useParams } from "react-router";
 import { Api } from "utils";
 
 const columns = [
-  { head: "Lot number", key: "lot_number", width: "w-1/2" },
+  { head: "Lot number", key: "lot_number", width: "w-full" },
   { head: "Expiration date", key: "expiration_date", width: "w-1/4" },
 ];
 
-export const usePatientAssets = () => {
-  const { id: patient_id } = useParams() as any;
-  const [params, setParams] = useState({ page: null, patient_id });
+export const usePatientAssets = ({ item }) => {
+  const [params, setParams] = useState({ page: null, patient_id: item.id });
   const { useGet } = useService();
   const { onError } = useError();
 

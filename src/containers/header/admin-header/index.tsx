@@ -5,10 +5,13 @@ import { useAuth, useUi } from "hooks";
 import { useHistory } from "react-router";
 
 export const AdminHeader = memo(() => {
-  const { uiState } = useUi();
   const { push } = useHistory();
   const { token } = useAuth();
-  const { open } = uiState.drawer;
+  const {
+    uiState: {
+      drawer: { open },
+    },
+  } = useUi();
 
   return (
     <header

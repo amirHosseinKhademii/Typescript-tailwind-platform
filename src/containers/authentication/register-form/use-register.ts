@@ -4,9 +4,15 @@ import { useForm } from "react-hook-form";
 import { useService, useToast } from "hooks";
 import { Api } from "utils";
 
-const defaultValues = { email: "", password: "" };
+const defaultValues = {
+  first_name: "",
+  last_name: "",
+  email: "",
+  password: "",
+  verification_code: "",
+};
 
-export const useLogin = () => {
+export const useRegister = () => {
   const { control, handleSubmit } = useForm({ defaultValues });
 
   const { error, success } = useToast();
@@ -16,11 +22,11 @@ export const useLogin = () => {
   const { push } = useHistory();
 
   const { mutate, isLoading } = usePost({
-    url: `${Api.users}login/`,
+    url: `${Api.users}register/`,
     onError: () => error("Something went wrong."),
     onSuccess: (res) => {
       localStorage.setItem("token", res.data.access);
-      success("You successfully loged in.");
+      success("You successfully created an account.");
       push("/admin/patients");
     },
   });

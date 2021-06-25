@@ -27,7 +27,11 @@ export const PatientListActions = ({ item }) => {
         icon
         onClick={(e) => {
           e.stopPropagation();
-          push(`/admin/patients/${item.id}`);
+          toggleDialog({
+            open: true,
+            type: "patient-assets",
+            data: item,
+          });
         }}
       >
         <ICEyeFill className="text-blue-300 w-5 h-5 mr-4 " />

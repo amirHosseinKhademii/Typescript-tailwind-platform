@@ -2,26 +2,41 @@ import { memo } from "react";
 import { useHistory } from "react-router";
 import { Button, Form, Input, Tab } from "components";
 
-import { useLogin } from "./use-login";
+import { useRegister } from "./use-register";
 
-export const LoginForm = memo(() => {
+export const RegisterForm = memo(() => {
   const { push } = useHistory();
-  const { control, handleSubmit, isLoading, onSubmit } = useLogin();
+  const { control, handleSubmit, isLoading, onSubmit } = useRegister();
 
   return (
     <Form
       className="w-11/12 md:w-2/3 lg:w-1/3 mx-auto mt-14 "
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Tab text="Login" justify="center">
+      <Tab text="Register" justify="center">
         <div className="col-center space-y-8 ">
+          <Input
+            name="first_name"
+            type="text"
+            required
+            placeholder="Enter your first name"
+            className="mt-10"
+            control={control}
+          />
+          <Input
+            name="last_name"
+            type="text"
+            required
+            placeholder="Enter your last name"
+            className="mt-10"
+            control={control}
+          />
           <Input
             name="email"
             type="email"
             required
             placeholder="Enter your email"
             className="mt-10"
-            interactive
             control={control}
           />
           <Input
@@ -30,7 +45,13 @@ export const LoginForm = memo(() => {
             type="password"
             required
             placeholder="Enter your password"
-            interactive
+          />
+          <Input
+            control={control}
+            name="verification_code"
+            type="number"
+            required
+            placeholder="Enter your verification code"
           />
           <div className="col-center space-y-4 w-full mb-6" slot="actions">
             <Button
@@ -39,25 +60,17 @@ export const LoginForm = memo(() => {
               type="submit"
               loading={isLoading}
             >
-              login
+              Register
             </Button>
+
             <Button
               icon
               role="cancel"
               className="w-full h-12 text-secondary"
               type="button"
-              onClick={() => push("/authentication/password")}
+              onClick={() => push("/authentication/login")}
             >
-              Forgot password
-            </Button>
-            <Button
-              icon
-              role="cancel"
-              className="w-full h-12 text-secondary"
-              type="button"
-              onClick={() => push("/authentication/register")}
-            >
-              Create a new account
+              Login instead
             </Button>
           </div>
         </div>

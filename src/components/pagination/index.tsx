@@ -24,7 +24,7 @@ export const Pagination: FC<IPagination> = memo(
     return (
       <div className={`w-full row-between ${className}`} slot="wrapper">
         <div />
-        {Math.floor(total / 10) > 0 && (
+        {Math.floor(total / 10) > 1 && (
           <div className="row-items-center">
             {page > 2 && (
               <>

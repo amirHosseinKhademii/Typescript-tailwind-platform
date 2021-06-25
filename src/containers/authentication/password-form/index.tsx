@@ -10,7 +10,7 @@ export const PasswordForm = memo(() => {
 
   return (
     <Form
-      className="w-11/12 md:w-2/3 lg:w-1/3 mx-auto mt-20"
+      className="w-11/12 md:w-2/3 lg:w-1/3 mx-auto mt-14"
       onSubmit={handleSubmit(onSubmit)}
     >
       <Tab text="Password Recovery" justify="center">

@@ -1,10 +1,12 @@
-import { useForm, useWatch } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useError, useService, useToast, useUi } from "hooks";
 import { useMemo } from "react";
 import { Api } from "utils";
 import { useHistory } from "react-router";
 
 const initialState = {
+  patient_status: "",
+  patient_status_details: "",
   surename: "",
   first_name: "",
   current_study: "",
