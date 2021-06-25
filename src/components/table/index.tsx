@@ -14,28 +14,31 @@ export const Table: FC<ITable> = memo(
       >
         <TableHead columns={columns} />
 
-        {loading && (!data || data.length === 0)
-          ? Array.from(new Array(10)).map((item, index) => (
-              <TableRow
-                key={index}
-                item={item}
-                columns={columns}
-                index={index}
-                expand={expand}
-                loading={loading}
-              />
-            ))
-          : data &&
-            (data || []).map((item, index) => (
-              <TableRow
-                key={index}
-                item={item}
-                columns={columns}
-                index={index}
-                expand={expand}
-                loading={loading}
-              />
-            ))}
+        {loading && (!data || data.length === 0) ? (
+          Array.from(new Array(10)).map((item, index) => (
+            <TableRow
+              key={index}
+              item={item}
+              columns={columns}
+              index={index}
+              expand={expand}
+              loading={loading}
+            />
+          ))
+        ) : data && data.length > 0 ? (
+          (data || []).map((item, index) => (
+            <TableRow
+              key={index}
+              item={item}
+              columns={columns}
+              index={index}
+              expand={expand}
+              loading={loading}
+            />
+          ))
+        ) : (
+          <span className="text-gray-600 pt-6">No items</span>
+        )}
 
         {data && onPaginate && (
           <Pagination

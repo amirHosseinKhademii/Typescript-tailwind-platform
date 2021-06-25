@@ -8,7 +8,7 @@ export const ModalHeader: FC<IModal> = memo(
       return (
         <div className=" w-full row-between pt-6 pb-2 px-8" slot="header">
           {header ? (
-            <Text className="text-gray-600" size="header">
+            <Text className="text-gray-600" size="title">
               {header}
             </Text>
           ) : (

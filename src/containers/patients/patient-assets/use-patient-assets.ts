@@ -3,8 +3,8 @@ import { useCallback, useMemo, useState } from "react";
 import { Api } from "utils";
 
 const columns = [
-  { head: "Lot number", key: "lot_number", width: "w-full" },
-  { head: "Expiration date", key: "expiration_date", width: "w-1/4" },
+  { head: "Lot number", key: "lot_number", width: "w-1/2" },
+  { head: "Expiration date", key: "expiration_date", width: "w-1/2" },
 ];
 
 export const usePatientAssets = ({ item }) => {

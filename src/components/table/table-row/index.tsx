@@ -3,6 +3,7 @@ import { classNames } from "utils";
 import { useToggle } from "hooks";
 
 import { TableCell } from "../table-cell";
+import { TableRowLoading } from "./table-row-loading";
 
 export const TableRow: FC<ITableRow> = memo(
   ({ item, columns, expand, loading }) => {
@@ -12,7 +13,7 @@ export const TableRow: FC<ITableRow> = memo(
       <div
         className={classNames(
           "w-full flex flex-col border-b border-gray-200 bg-white ",
-          loading && "opacity-70"
+          loading && "opacity-50"
         )}
       >
         {item ? (
@@ -35,12 +36,7 @@ export const TableRow: FC<ITableRow> = memo(
             ))}
           </div>
         ) : (
-          <div className="w-full h-[60px] grid grid-cols-4 gap-x-32 xl:gap-x-64 px-6 py-4">
-            <div className="h-8 w-full rounded bg-gray-200 animate-pulse" />
-            <div className="h-8 w-full rounded bg-gray-200 animate-pulse" />
-            <div className="h-8 w-full rounded bg-gray-200 animate-pulse" />
-            <div className="h-8 w-full rounded bg-gray-200 animate-pulse" />
-          </div>
+          <TableRowLoading columns={columns} />
         )}
         {open && expand ? (
           <div className="w-full row-start p-4 bg-blue-100">{expand(item)}</div>

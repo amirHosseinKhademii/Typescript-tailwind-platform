@@ -27,7 +27,7 @@ export const PatientModal = memo(() => {
     case "patient-assets":
       return (
         <Modal
-          size="md"
+          size="sm"
           className="px-10 "
           onClose={() => toggleDialog({ open: false, type: null })}
           header={`${dialog.data.first_name} ${dialog.data.surename}'s assets`}
