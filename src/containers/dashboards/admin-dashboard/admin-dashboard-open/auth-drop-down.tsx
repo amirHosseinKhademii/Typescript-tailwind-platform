@@ -25,6 +25,12 @@ export const AuthDropDown: FC<{ pathname?: string; push?: any }> = memo(
           Login
         </DropDownOption>
         <DropDownOption
+          onClick={() => push("/authentication/register")}
+          active={pathname === "/authentication/register"}
+        >
+          Register
+        </DropDownOption>
+        <DropDownOption
           onClick={() => push("/authentication/password")}
           active={pathname === "/authentication/password"}
         >

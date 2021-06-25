@@ -27,7 +27,7 @@ export const PatientModal = memo(() => {
     case "patient-assets":
       return (
         <Modal
-          size="lg"
+          size="md"
           className="px-10 "
           onClose={() => toggleDialog({ open: false, type: null })}
           header={`${dialog.data.first_name} ${dialog.data.surename}'s assets`}
@@ -52,7 +52,7 @@ export const PatientModal = memo(() => {
       return (
         <Confirm
           type="delete"
-          description="You are deleting this patient."
+          description={`You are about to delete ${dialog.data.first_name} ${dialog.data.surename}`}
           loading={isLoading}
           onConfirm={() => mutate()}
           onCancel={() => toggleDialog({ open: false, type: null })}

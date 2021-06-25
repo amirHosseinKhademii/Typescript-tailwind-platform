@@ -13,11 +13,15 @@ export const Button: FC<IButton> = memo(
     id,
     icon,
     loading,
+    onMouseEnter,
+    onMouseLeave,
   }) => {
     return (
       <button
         disabled={disabled || loading}
         onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         type={type}
         id={id}
         role={role}
