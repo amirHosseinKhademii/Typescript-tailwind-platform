@@ -13,7 +13,7 @@ export const PatientListDetails: FC<{ item?: any }> = memo(({ item }) => {
       <Input
         size="small"
         disabled
-        label="Patient Status Dtails"
+        label="Patient Status Details"
         value={item.patient_status_details}
       />
       <Input
