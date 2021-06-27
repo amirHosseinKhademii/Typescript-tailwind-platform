@@ -37,7 +37,9 @@ export const SwitchCore: FC<ISwitch> = memo(
         </div>
         <span
           className={classNames(
-            size === "small" ? "text-[11px] md:text-xs" : "text-base",
+            size === "small"
+              ? "text-[11px] md:text-xs"
+              : " text-sm lg:text-base",
             withError ? "text-red-700" : "text-gray-800"
           )}
         >
