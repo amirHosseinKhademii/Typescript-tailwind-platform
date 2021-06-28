@@ -6,8 +6,16 @@ module.exports = {
   entry: path.resolve(__dirname, '..', '../src/app/index.tsx'),
   output: {
     path: path.resolve(__dirname, '..', '../build'),
-    filename: 'bundle.js',
+    filename: '[name].[contenthash].js',
     publicPath: '/',
+  },
+  optimization: {
+    runtimeChunk: {
+      name: (entrypoint) => `runtime~${entrypoint.name}`,
+    },
+    emitOnErrors: true,
+    moduleIds: 'deterministic',
+    chunkIds: 'named',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
@@ -36,7 +44,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', '../src/app/index.html'),
+      template: path.resolve(__dirname, '..', '../public/index.html'),
     }),
   ],
 }
