@@ -1,3 +1,0 @@
-interface IToolbar {
-  children?: any;
-}
