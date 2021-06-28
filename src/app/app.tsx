@@ -1,5 +1,3 @@
-const App = () => {
-  return <h1>App</h1>;
+export const App = () => {
+  return <h1 className="text-red-400">App</h1>;
 };
-
-export default App;
