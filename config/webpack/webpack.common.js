@@ -2,6 +2,8 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
+const isDevelopment = process.env.NODE_ENV !== 'production'
+
 module.exports = {
   entry: path.resolve(__dirname, '..', '../src/app/index.tsx'),
   output: {
@@ -26,8 +28,16 @@ module.exports = {
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              plugins: [isDevelopment && 'react-refresh/babel'].filter(Boolean),
+            },
+          },
+        ],
       },
+
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader', 'postcss-loader'],
