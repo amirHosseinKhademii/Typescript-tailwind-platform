@@ -1,5 +1,5 @@
 import { render } from 'react-dom'
-import { App } from './app'
+import { Boot } from './boot'
 import '../styles/index.css'
 
-render(<App />, document.getElementById('app'))
+render(<Boot />, document.getElementById('app'))
