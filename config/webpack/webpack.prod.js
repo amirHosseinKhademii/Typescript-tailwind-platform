@@ -1,12 +1,11 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-//const Analayzer = require('webpack-bundle-analyzer')
+const webpack = require('webpack')
 
 module.exports = {
   mode: 'production',
   devtool: 'source-map',
-  mode: 'production',
   plugins: [
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-    //new Analayzer(),
+    new webpack.DefinePlugin({
+      'process.env.name': JSON.stringify('Codevolution'),
+    }),
   ],
 }
