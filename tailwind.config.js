@@ -11,7 +11,6 @@ module.exports = {
         warning: '#FFC56C',
         fade: '#F2F1F1',
       },
-      width: { open: 'calc(100% - 18rem )', close: 'calc(100% - 5rem )' },
     },
   },
   variants: {
