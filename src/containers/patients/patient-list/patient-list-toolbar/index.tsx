@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 import { useHistory } from 'react-router'
-import { ICPlus, ICSearch } from 'icons'
+import { ICPersonPlus, ICSearch } from 'icons'
 import { Button, Input, Text, Toolbar, Tooltip } from 'components'
 
 export const PatientListToolbar: FC<{ onSearch?: any }> = memo(
@@ -28,7 +28,7 @@ export const PatientListToolbar: FC<{ onSearch?: any }> = memo(
               className="peer"
               onClick={() => push('/admin/patients/add')}
             >
-              <ICPlus className="w-8 h-8 text-secondary" />
+              <ICPersonPlus className="w-8 h-8 text-secondary" />
             </Button>
           </Tooltip>
         </div>

@@ -15,7 +15,7 @@ export const PatientListActions = ({ item }) => {
             e.stopPropagation()
             toggleDialog({
               open: true,
-              type: 'patient-interactions',
+              type: 'patient-interactions-list',
               data: item,
             })
           }}

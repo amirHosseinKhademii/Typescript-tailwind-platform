@@ -1,21 +1,31 @@
-import { FC, memo, useMemo } from "react";
-import { Controller } from "react-hook-form";
-import DatePickerReact from "react-datepicker";
-import { Error } from "components";
-import { useValidation } from "hooks";
-import { classNames } from "utils";
-import { v4 as uuid } from "uuid";
+import { FC, memo, useMemo } from 'react'
+import { Controller } from 'react-hook-form'
+import DatePickerReact from 'react-datepicker'
+import { Error } from 'components'
+import { useValidation } from 'hooks'
+import { classNames } from 'utils'
+import { v4 as uuid } from 'uuid'
 
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css'
 
 export const DatePicker: FC<IDatePicker> = memo(
-  ({ name, className, required, later, validation, label, control, year }) => {
+  ({
+    name,
+    className,
+    required,
+    later,
+    validation,
+    label,
+    control,
+    year,
+    defaultValue,
+  }) => {
     const { validate } = useValidation({
       required,
       later,
       validation,
-    });
-    const id = useMemo(() => uuid(), []);
+    })
+    const id = useMemo(() => uuid(), [])
 
     if (control)
       return (
@@ -43,18 +53,22 @@ export const DatePicker: FC<IDatePicker> = memo(
               <label
                 htmlFor={id}
                 className={classNames(
-                  " w-full row-between focus:outline-none overflow-hidden cursor-pointer  rounded  text-gray-900 bg-white h-12  px-4 absolute top-8 right-0 z-0",
+                  ' w-full row-between focus:outline-none overflow-hidden cursor-pointer  rounded  text-gray-900 bg-white h-12  px-4 absolute top-8 right-0 z-0',
                   error
-                    ? "border-2 border-red-400 shadow"
-                    : "border border-gray-300"
+                    ? 'border-2 border-red-400 shadow'
+                    : 'border border-gray-300'
                 )}
               >
-                {value ? value.slice(0, 10) : "YYYY-MM-DD"}
+                {value
+                  ? value.slice(0, 10)
+                  : defaultValue
+                  ? defaultValue
+                  : 'YYYY-MM-DD'}
               </label>
             </div>
           )}
         />
-      );
-    else return null;
+      )
+    else return null
   }
-);
+)

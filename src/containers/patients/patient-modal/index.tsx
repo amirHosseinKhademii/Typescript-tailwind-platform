@@ -1,18 +1,23 @@
-import { useUi } from "hooks";
-import { memo } from "react";
-import { Confirm, Modal } from "components";
-import { PatientInteractions, PatientForm, PatientAssets } from "containers";
-import { usePatientModal } from "./use-patient-modal";
+import { useUi } from 'hooks'
+import { memo } from 'react'
+import { Confirm, Modal } from 'components'
+import {
+  PatientInteractionsList,
+  PatientForm,
+  PatientAssets,
+  PatientInteractionsForm,
+} from 'containers'
+import { usePatientModal } from './use-patient-modal'
 
 export const PatientModal = memo(() => {
-  const { mutate, isLoading } = usePatientModal();
+  const { mutate, isLoading } = usePatientModal()
   const {
     uiState: { dialog },
     toggleDialog,
-  } = useUi();
+  } = useUi()
 
   switch (dialog.type) {
-    case "patient-edit":
+    case 'patient-edit':
       return (
         <Modal
           size="xl"
@@ -23,8 +28,8 @@ export const PatientModal = memo(() => {
         >
           <PatientForm isEditing editInitials={dialog.data} />
         </Modal>
-      );
-    case "patient-assets":
+      )
+    case 'patient-assets':
       return (
         <Modal
           size="sm"
@@ -35,8 +40,8 @@ export const PatientModal = memo(() => {
         >
           <PatientAssets item={dialog.data} />
         </Modal>
-      );
-    case "patient-interactions":
+      )
+    case 'patient-interactions-list':
       return (
         <Modal
           size="lg"
@@ -45,10 +50,22 @@ export const PatientModal = memo(() => {
           header={`${dialog.data.first_name} ${dialog.data.surename}'s interactions`}
           withHeader
         >
-          <PatientInteractions />
+          <PatientInteractionsList />
         </Modal>
-      );
-    case "patient-delete":
+      )
+    case 'patient-interactions-form':
+      return (
+        <Modal
+          size="sm"
+          className="px-10 "
+          onClose={() => toggleDialog({ open: false, type: null })}
+          header={`Add an interaction for ${dialog.data.first_name} ${dialog.data.surename}`}
+          withHeader
+        >
+          <PatientInteractionsForm />
+        </Modal>
+      )
+    case 'patient-delete':
       return (
         <Confirm
           type="delete"
@@ -57,8 +74,8 @@ export const PatientModal = memo(() => {
           onConfirm={() => mutate()}
           onCancel={() => toggleDialog({ open: false, type: null })}
         />
-      );
+      )
     default:
-      return null;
+      return null
   }
-});
+})
