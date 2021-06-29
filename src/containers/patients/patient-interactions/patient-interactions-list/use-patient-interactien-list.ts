@@ -1,27 +1,46 @@
 import { useCallback, useMemo, useState } from 'react'
 import { useError, useService } from 'hooks'
 import { Api } from 'utils'
-import { PatientListActions } from './patient-list-actions'
+
+import { PatientInteractionListActions } from './patient-interaction-list-actions'
+import { PatientInteractionListDate } from './patient-interaction-list-date'
+import { PatientInteractionListDetails } from './patient-interaction-list-details'
 
 const columns = [
-  { head: 'Name', key: 'first_name', width: 'w-1/3' },
-  { head: 'Last Name', key: 'surename', width: 'w-1/3' },
-  { head: 'Birth Date', key: 'date_of_birth', width: 'w-1/3' },
+  {
+    head: 'Interaction type',
+    key: 'interaction_type',
+    width: 'w-1/6',
+  },
+  {
+    head: 'Interaction date',
+    key: 'interaction_datetime',
+    width: 'w-1/5',
+    render: (item) => PatientInteractionListDate({ item }),
+  },
+  { head: 'Contact admin', key: 'contact_admin', width: 'w-1/6' },
+  {
+    head: 'Contact details',
+    key: 'contact_details',
+    width: 'w-2/3',
+    render: (item) => PatientInteractionListDetails({ item }),
+  },
   {
     head: '',
-    width: ' w-[0px]',
-    render: (item) => PatientListActions({ item }),
+    key: 'details',
+    width: 'w-[0px]',
+    render: (item) => PatientInteractionListActions({ item }),
   },
 ]
 
-export const usePatientList = () => {
+export const usePatientInteractionList = () => {
   const [params, setParams] = useState({ page: null, search: null })
   const { useGet } = useService()
   const { onError } = useError()
 
   const { data, isLoading, isFetching } = useGet({
-    key: ['PATIENTS_LIST', params],
-    url: Api.patients,
+    key: ['PATIENT_INTERACTION_LIST', params],
+    url: Api.interactions,
     onFocus: false,
     keepPreviousData: true,
     onError,
