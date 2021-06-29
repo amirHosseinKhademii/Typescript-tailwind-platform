@@ -1,13 +1,24 @@
 import { useUi } from 'hooks'
-import { memo } from 'react'
+import { lazy, memo } from 'react'
 import { Confirm, Modal } from 'components'
-import {
-  PatientInteractionsList,
-  PatientForm,
-  PatientAssets,
-  PatientInteractionsForm,
-} from 'containers'
 import { usePatientModal } from './use-patient-modal'
+
+const PatientForm = lazy(() =>
+  import('containers').then((module) => ({ default: module.PatientForm }))
+)
+const PatientAssets = lazy(() =>
+  import('containers').then((module) => ({ default: module.PatientAssets }))
+)
+const PatientInteractionsForm = lazy(() =>
+  import('containers').then((module) => ({
+    default: module.PatientInteractionsForm,
+  }))
+)
+const PatientInteractionsList = lazy(() =>
+  import('containers').then((module) => ({
+    default: module.PatientInteractionsList,
+  }))
+)
 
 export const PatientModal = memo(() => {
   const { mutate, isLoading } = usePatientModal()
