@@ -38,7 +38,10 @@ export const DatePicker: FC<IDatePicker> = memo(
               {label && <label className="text-gray-800 mb-2">{label}</label>}
               <Error error={error} className="pt-[49px]" />
               <DatePickerReact
-                onChange={(date) => onChange(date.toISOString().slice(0, 10))}
+                onChange={(date) => {
+                  const array = date.toLocaleDateString().split('/')
+                  onChange(`${array[2]}-${array[0]}-${array[1]}`)
+                }}
                 closeOnScroll={true}
                 placeholderText="Click here"
                 dateFormat="yyyy/MM/dd"
