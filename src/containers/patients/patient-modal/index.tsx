@@ -44,7 +44,7 @@ export const PatientModal = memo(() => {
     case 'patient-interactions-list':
       return (
         <Modal
-          size="lg"
+          size="xl"
           className="px-10 "
           onClose={() => toggleDialog({ open: false, type: null })}
           header={`${dialog.data.first_name} ${dialog.data.surename}'s interactions`}
@@ -59,7 +59,11 @@ export const PatientModal = memo(() => {
           size="sm"
           className="px-10 "
           onClose={() => toggleDialog({ open: false, type: null })}
-          header={`Add an interaction for ${dialog.data.first_name} ${dialog.data.surename}`}
+          header={
+            dialog.data.first_name
+              ? `Add an interaction for ${dialog.data.first_name} ${dialog.data.surename}`
+              : 'Edit interaction'
+          }
           withHeader
         >
           <PatientInteractionsForm />
