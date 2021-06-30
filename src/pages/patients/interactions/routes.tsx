@@ -1,8 +1,8 @@
 import { lazy } from 'react'
 
 export const route = {
-  path: '/admin/patients/assets/:id',
-  name: 'ROUTE:PATIENTS:ASSETS',
+  path: '/admin/patients/interactions/:id',
+  name: 'ROUTE:ADMIN:PATIENTS/INTERACTIONS',
   exact: true,
   layout: 'admin',
   authorize: true,

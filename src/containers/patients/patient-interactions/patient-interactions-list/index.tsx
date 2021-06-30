@@ -12,7 +12,7 @@ export const PatientInteractionsList = memo(() => {
     <div className="w-full flex flex-col items-end">
       <PatientinteractionListToolbar />
       <Table
-        className="w-full my-4"
+        className="w-full my-10"
         columns={columns}
         data={data.results}
         total={data.count}

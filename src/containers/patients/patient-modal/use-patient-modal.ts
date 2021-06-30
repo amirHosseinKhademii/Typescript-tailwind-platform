@@ -7,7 +7,7 @@ export const usePatientModal = () => {
   const { useDelete, client } = useService()
 
   const { mutate: deletePatient, isLoading: deletePatientLoading } = useDelete({
-    url: `${Api.patients}${uiState.dialog.data.id}/`,
+    url: uiState.dialog.data ? `${Api.patients}${uiState.dialog.data.id}/` : '',
     onSuccess: () => {
       client.invalidateQueries('PATIENTS_LIST')
       toggleDialog({ open: false, type: null, data: {} })
@@ -19,23 +19,8 @@ export const usePatientModal = () => {
     },
   })
 
-  const { mutate:deleteInteraction, isLoading:deleteInteractionLoading } = useDelete({
-    url: `${Api.interactions}${uiState.dialog.data.id}/`,
-    onSuccess: () => {
-      client.invalidateQueries('PATIENTS_INTERACTIONS_LIST')
-      toggleDialog({ open: false, type: null, data: {} })
-      success('You successfully deleted this interaction.')
-    },
-    onError: (er) => {
-      error('Something went wrong.')
-      console.log(er)
-    },
-  })
-
   return {
     deletePatient,
     deletePatientLoading,
-    deleteInteractionLoading,
-    deleteInteraction,
   }
 }

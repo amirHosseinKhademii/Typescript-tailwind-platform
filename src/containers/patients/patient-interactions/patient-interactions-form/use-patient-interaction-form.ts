@@ -15,14 +15,15 @@ export const usePatientInteractionForm = () => {
   const { success } = useToast()
 
   const { control, handleSubmit } = useForm({
-    defaultValues: data.isEditing
-      ? {
-          interaction_type: data.interaction_type,
-          interaction_datetime: data.interaction_datetime,
-          contact_admin: data.contact_admin,
-          contact_details: data.contact_details,
-        }
-      : {},
+    defaultValues:
+      data && data.isEditing
+        ? {
+            interaction_type: data.interaction_type,
+            interaction_datetime: data.interaction_datetime,
+            contact_admin: data.contact_admin,
+            contact_details: data.contact_details,
+          }
+        : {},
   })
 
   const { mutate: save, isLoading: saveLoading } = usePost({
@@ -38,7 +39,7 @@ export const usePatientInteractionForm = () => {
   })
 
   const { mutate: edit, isLoading: editLoading } = usePost({
-    url: `${Api.interactions}/${data.patient_id}/`,
+    url: data ? `${Api.interactions}/${data.patient_id}/` : '',
     onError,
     onSuccess: () => {
       success('You successfully edited an interaction.')

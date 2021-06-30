@@ -1,6 +1,6 @@
-import { memo } from "react";
+import { memo } from 'react'
 
-import { Text, Toolbar } from "components";
+import { Text, Toolbar } from 'components'
 
 export const PatientAssetsToolbar = memo(() => {
   return (
@@ -10,9 +10,9 @@ export const PatientAssetsToolbar = memo(() => {
         className="w-3/4 flex flex-col items-start "
         slot="start"
       >
-        Assets
+        Patient Assets
       </Text>
       <div className="flex items-center w-1/4 " slot="end"></div>
     </Toolbar>
-  );
-});
+  )
+})

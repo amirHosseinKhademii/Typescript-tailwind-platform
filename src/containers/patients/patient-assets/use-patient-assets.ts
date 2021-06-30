@@ -1,24 +1,29 @@
-import { useError, useService } from "hooks";
-import { useCallback, useMemo, useState } from "react";
-import { Api } from "utils";
+import { useError, useService } from 'hooks'
+import { useCallback, useMemo, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { Api } from 'utils'
 
 const columns = [
-  { head: "Lot number", key: "lot_number", width: "w-1/2" },
-  { head: "Expiration date", key: "expiration_date", width: "w-1/2" },
-];
+  { head: 'Lot number', key: 'lot_number', width: 'w-1/2' },
+  { head: 'Expiration date', key: 'expiration_date', width: 'w-1/2' },
+]
 
-export const usePatientAssets = ({ item }) => {
-  const [params, setParams] = useState({ page: null, patient_id: item.id });
-  const { useGet } = useService();
-  const { onError } = useError();
+export const usePatientAssets = () => {
+  const routerParams = useParams() as any
+  const [params, setParams] = useState({
+    page: null,
+    patient_id: routerParams.id,
+  })
+  const { useGet } = useService()
+  const { onError } = useError()
 
   const { data, isLoading, isFetching } = useGet({
-    key: ["PATIENTS_LIST", params],
+    key: ['PATIENTS_ASSETS_LIST', params],
     url: Api.assets,
     onFocus: false,
     keepPreviousData: true,
     onError,
-  });
+  })
 
   return {
     columns,
@@ -27,9 +32,9 @@ export const usePatientAssets = ({ item }) => {
     page: useMemo(() => params.page, [params.page]),
     onPaginate: useCallback(
       (index) => {
-        setParams((prev) => ({ ...prev, page: index }));
+        setParams((prev) => ({ ...prev, page: index }))
       },
       [params.page]
     ),
-  };
-};
+  }
+}

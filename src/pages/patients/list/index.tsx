@@ -1,12 +1,18 @@
-import { PatientList, PatientModal } from "containers";
+import { PatientList, PatientModal } from 'containers'
+import { useUi } from 'hooks'
 
 const Patients = () => {
+  const {
+    uiState: {
+      dialog: { open },
+    },
+  } = useUi()
   return (
     <>
       <PatientList />
-      <PatientModal />
+      {open && <PatientModal />}
     </>
-  );
-};
+  )
+}
 
-export default Patients;
+export default Patients

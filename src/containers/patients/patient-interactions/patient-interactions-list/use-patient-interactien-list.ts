@@ -5,42 +5,44 @@ import { Api } from 'utils'
 import { PatientInteractionListActions } from './patient-interaction-list-actions'
 import { PatientInteractionListDate } from './patient-interaction-list-date'
 import { PatientInteractionListDetails } from './patient-interaction-list-details'
+import { useParams } from 'react-router-dom'
 
 const columns = [
   {
-    head: 'Interaction type',
+    head: 'Type',
     key: 'interaction_type',
     width: 'w-1/6',
   },
+  { head: 'Contact admin', key: 'contact_admin', width: 'w-1/6' },
   {
-    head: 'Interaction date',
+    head: 'Date',
     key: 'interaction_datetime',
-    width: 'w-1/5',
+    width: 'w-1/6',
     render: (item) => PatientInteractionListDate({ item }),
   },
-  { head: 'Contact admin', key: 'contact_admin', width: 'w-1/6' },
+
   {
     head: 'Contact details',
     key: 'contact_details',
-    width: 'w-2/3',
+    width: 'w-3/4',
     render: (item) => PatientInteractionListDetails({ item }),
   },
   {
     head: '',
-    key: 'details',
     width: 'w-[0px]',
     render: (item) => PatientInteractionListActions({ item }),
   },
 ]
 
 export const usePatientInteractionList = () => {
+  const routerParams = useParams() as any
   const [params, setParams] = useState({ page: null, search: null })
   const { useGet } = useService()
   const { onError } = useError()
 
   const { data, isLoading, isFetching } = useGet({
     key: ['PATIENT_INTERACTION_LIST', params],
-    url: Api.interactions,
+    url: `${Api.interactions}${routerParams.id}/`,
     onFocus: false,
     keepPreviousData: true,
     onError,
