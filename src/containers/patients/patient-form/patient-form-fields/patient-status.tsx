@@ -1,12 +1,12 @@
-import { Select, SelectOption } from "components";
-import { FC, memo } from "react";
+import { Select, SelectOption } from 'components'
+import { FC, memo } from 'react'
 
 export const PatientStatus: FC<IPatientField> = memo(
   ({ control, setValue }) => {
     return (
       <Select
         label="Patient Status"
-        name="patient_status"
+        name="status"
         control={control}
         setValue={setValue}
         required
@@ -31,6 +31,6 @@ export const PatientStatus: FC<IPatientField> = memo(
         </SelectOption>
         <SelectOption value="Drop out">Drop out</SelectOption>
       </Select>
-    );
+    )
   }
-);
+)
