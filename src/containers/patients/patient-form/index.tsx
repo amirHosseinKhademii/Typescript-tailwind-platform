@@ -1,8 +1,8 @@
-import { memo } from "react";
-import { Form, Grid, Text, Tab } from "components";
-import { usePatientForm } from "./use-patient-form";
-import { PatientFormToolbar } from "./patient-form-toolbar";
-import { PatientFormSubmit } from "./patient-form-submit";
+import { memo } from 'react'
+import { Form, Grid, Text, Tab } from 'components'
+import { usePatientForm } from './use-patient-form'
+import { PatientFormToolbar } from './patient-form-toolbar'
+import { PatientFormSubmit } from './patient-form-submit'
 import {
   CHOCounting,
   FirstName,
@@ -56,12 +56,12 @@ import {
   Deceased,
   PatientStatus,
   PatientStatusDetails,
-} from "./patient-form-fields";
+} from './patient-form-fields'
 
 export const PatientForm = memo((props?: IPatientForm) => {
-  const { isEditing, editInitials } = props;
+  const { isEditing, editInitials } = props
   const { onSubmit, control, setValue, saveLoading, editLoading } =
-    usePatientForm({ isEditing, editInitials });
+    usePatientForm({ isEditing, editInitials })
 
   return (
     <div className="w-full">
@@ -76,6 +76,8 @@ export const PatientForm = memo((props?: IPatientForm) => {
           <Grid className="mt-4">
             <PatientStatus control={control} setValue={setValue} />
             <PatientStatusDetails control={control} />
+          </Grid>
+          <Grid className="mt-4">
             <Surename control={control} />
             <FirstName control={control} />
           </Grid>
@@ -210,5 +212,5 @@ export const PatientForm = memo((props?: IPatientForm) => {
         <PatientFormSubmit loading={saveLoading || editLoading} />
       </Form>
     </div>
-  );
-});
+  )
+})
