@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 
 export const usePatientInteractionForm = () => {
   const { id } = useParams() as any
-  const { usePost } = useService()
+  const { usePost, client } = useService()
   const {
     toggleDialog,
     uiState: {
@@ -37,6 +37,7 @@ export const usePatientInteractionForm = () => {
         open: false,
         type: null,
       })
+      client.invalidateQueries('PATIENT_INTERACTION_LIST')
     },
   })
 
@@ -49,6 +50,7 @@ export const usePatientInteractionForm = () => {
         open: false,
         type: null,
       })
+      client.invalidateQueries('PATIENT_INTERACTION_LIST')
     },
   })
 
@@ -62,7 +64,7 @@ export const usePatientInteractionForm = () => {
     onSubmit: handleSubmit((state) => {
       const payload = {
         ...state,
-        patient_id: id,
+        id,
         interaction_datetime:
           state.interaction_datetime ||
           `${new Date().toISOString().slice(0, 10)} ${new Date()
