@@ -1,9 +1,11 @@
-import { useCallback, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useForm } from 'react-hook-form'
 import { useError, useService, useToast, useUi } from 'hooks'
 import { Api } from 'utils'
+import { useParams } from 'react-router-dom'
 
 export const usePatientInteractionForm = () => {
+  const { id } = useParams() as any
   const { usePost } = useService()
   const {
     toggleDialog,
@@ -14,7 +16,7 @@ export const usePatientInteractionForm = () => {
   const { onError } = useError()
   const { success } = useToast()
 
-  const { control, handleSubmit } = useForm({
+  const { control, handleSubmit, setValue } = useForm({
     defaultValues:
       data && data.isEditing
         ? {
@@ -52,17 +54,22 @@ export const usePatientInteractionForm = () => {
 
   return {
     control,
-    handleSubmit,
+    setValue,
     isLoading: useMemo(
       () => saveLoading || editLoading,
       [saveLoading, editLoading]
     ),
-    onSubmit: useCallback(
-      () =>
-        handleSubmit((payload) =>
-          data.isEditing ? edit({ payload }) : save({ payload })
-        ),
-      [data]
-    ),
+    onSubmit: handleSubmit((state) => {
+      const payload = {
+        ...state,
+        patient_id: id,
+        interaction_datetime:
+          state.interaction_datetime ||
+          `${new Date().toISOString().slice(0, 10)} ${new Date()
+            .toISOString()
+            .slice(11, 16)}`,
+      }
+      data.isEditing ? edit({ payload }) : save({ payload })
+    }),
   }
 }

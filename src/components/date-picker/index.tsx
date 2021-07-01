@@ -19,6 +19,7 @@ export const DatePicker: FC<IDatePicker> = memo(
     control,
     year,
     defaultValue,
+    time,
   }) => {
     const { validate } = useValidation({
       required,
@@ -40,7 +41,13 @@ export const DatePicker: FC<IDatePicker> = memo(
               <DatePickerReact
                 onChange={(date) => {
                   const array = date.toLocaleDateString().split('/')
-                  onChange(`${array[2]}-${array[0]}-${array[1]}`)
+                  if (time)
+                    onChange(
+                      `${array[2]}-${array[0]}-${
+                        array[1]
+                      } ${date.getHours()}:${date.getMinutes()}`
+                    )
+                  else onChange(`${array[2]}-${array[0]}-${array[1]}`)
                 }}
                 closeOnScroll={true}
                 placeholderText="Click here"
@@ -50,6 +57,7 @@ export const DatePicker: FC<IDatePicker> = memo(
                 showYearDropdown
                 dropdownMode="select"
                 className=" z-50 opacity-0"
+                showTimeSelect={time}
                 id={id}
               />
 
@@ -63,7 +71,9 @@ export const DatePicker: FC<IDatePicker> = memo(
                 )}
               >
                 {value
-                  ? value.slice(0, 10)
+                  ? time
+                    ? value.slice(0, 15)
+                    : value.slice(0, 10)
                   : defaultValue
                   ? defaultValue
                   : 'YYYY-MM-DD'}

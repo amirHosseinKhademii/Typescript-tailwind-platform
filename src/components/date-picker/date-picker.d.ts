@@ -8,4 +8,5 @@ interface IDatePicker {
   control?: any
   year?: boolean
   defaultValue?: string
+  time?: boolean
 }
